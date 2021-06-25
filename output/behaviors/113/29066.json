@@ -1,0 +1,282 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": []
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "double_jump_action": {
+        "initial_value": 29067
+    },
+    "falling_action": {
+        "initial_value": 29067
+    },
+    "ground_action": {
+        "initial_value": 29068
+    },
+    "jetpack_action": {
+        "initial_value": 29067
+    },
+    "jump_action": {
+        "initial_value": 29067
+    },
+    "29066": {
+        "name": {
+            "templateID": 6,
+            "behaviorTemplateName": "Movement Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "double_jump_action": 29067,
+            "falling_action": 29067,
+            "ground_action": 29068,
+            "jetpack_action": 29067,
+            "jump_action": 29067
+        },
+        "kids": {
+            "29067": {
+                "name": {
+                    "templateID": 34,
+                    "behaviorTemplateName": "SkillCastFailed",
+                    "effectID": 0
+                },
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "29068": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 29069,
+                    "behavior 2": 29073,
+                    "behavior 3": 29075,
+                    "behavior 4": 29080
+                },
+                "kids": {
+                    "29069": {
+                        "name": {
+                            "templateID": 45,
+                            "behaviorTemplateName": "Start",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 29072,
+                            "use_target": 0
+                        },
+                        "kids": {
+                            "29072": {
+                                "name": {
+                                    "templateID": 15,
+                                    "behaviorTemplateName": "Stun",
+                                    "effectID": 6354
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "cant_attack": 1,
+                                    "cant_equip": 1,
+                                    "cant_interact": 1,
+                                    "cant_move": 1,
+                                    "cant_turn": 1,
+                                    "cant_use_item": 1,
+                                    "ignore_immunity": 0,
+                                    "stun_caster": 1
+                                },
+                                "kids": {}
+                            }
+                        }
+                    },
+                    "29073": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 29074,
+                            "delay": 17,
+                            "ignore_interrupts": 0,
+                            "num_intervals": 1
+                        },
+                        "kids": {
+                            "29074": {
+                                "name": {
+                                    "templateID": 46,
+                                    "behaviorTemplateName": "End",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "start_action": 29069
+                                },
+                                "kids": {}
+                            }
+                        }
+                    },
+                    "29075": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 29076,
+                            "delay": 1,
+                            "ignore_interrupts": 0,
+                            "num_intervals": 15
+                        },
+                        "kids": {
+                            "29076": {
+                                "name": {
+                                    "templateID": 14,
+                                    "behaviorTemplateName": "Target Caster",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 29077
+                                },
+                                "kids": {
+                                    "29077": {
+                                        "name": {
+                                            "templateID": 3,
+                                            "behaviorTemplateName": "And",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "behavior 1": 29078,
+                                            "behavior 2": 29079,
+                                            "behavior 3": 29082
+                                        },
+                                        "kids": {
+                                            "29078": {
+                                                "name": {
+                                                    "templateID": 13,
+                                                    "behaviorTemplateName": "Imagination",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "imagination": 2
+                                                },
+                                                "kids": {}
+                                            },
+                                            "29079": {
+                                                "name": {
+                                                    "templateID": 22,
+                                                    "behaviorTemplateName": "RepairArmor",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "armor": 2
+                                                },
+                                                "kids": {}
+                                            },
+                                            "29082": {
+                                                "name": {
+                                                    "templateID": 5,
+                                                    "behaviorTemplateName": "Heal",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "health": 2
+                                                },
+                                                "kids": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "29080": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 29093,
+                            "delay": 10,
+                            "ignore_interrupts": 0,
+                            "num_intervals": 1
+                        },
+                        "kids": {
+                            "29093": {
+                                "name": {
+                                    "templateID": 3,
+                                    "behaviorTemplateName": "And",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "behavior 1": 29092,
+                                    "behavior 2": 31711
+                                },
+                                "kids": {
+                                    "29092": {
+                                        "name": {
+                                            "templateID": 8,
+                                            "behaviorTemplateName": "PlayEffect",
+                                            "effectID": 6355
+                                        },
+                                        "hasKids": false,
+                                        "info": {},
+                                        "kids": {}
+                                    },
+                                    "31711": {
+                                        "name": {
+                                            "templateID": 37,
+                                            "behaviorTemplateName": "ApplyBuff",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "add_immunity": 0,
+                                            "buff_id": 14,
+                                            "cancel_on_damaged": 0,
+                                            "cancel_on_death": 1,
+                                            "cancel_on_logout": 0,
+                                            "cancel_on_remove_buff": 1,
+                                            "cancel_on_ui": 0,
+                                            "cancel_on_unequip": 0,
+                                            "cancel_on_zone": 0,
+                                            "duration_secs": 120,
+                                            "target_caster": 1
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

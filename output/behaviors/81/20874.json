@@ -1,0 +1,197 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": []
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "double_jump_action": {
+        "initial_value": 11860
+    },
+    "falling_action": {
+        "initial_value": 11860
+    },
+    "ground_action": {
+        "initial_value": 20873
+    },
+    "jetpack_action": {
+        "initial_value": 11860
+    },
+    "jump_action": {
+        "initial_value": 11860
+    },
+    "20874": {
+        "name": {
+            "templateID": 6,
+            "behaviorTemplateName": "Movement Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "double_jump_action": 11860,
+            "falling_action": 11860,
+            "ground_action": 20873,
+            "jetpack_action": 11860,
+            "jump_action": 11860
+        },
+        "kids": {
+            "11860": {
+                "name": {
+                    "templateID": 34,
+                    "behaviorTemplateName": "SkillCastFailed",
+                    "effectID": 0
+                },
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "20873": {
+                "name": {
+                    "templateID": 2,
+                    "behaviorTemplateName": "TacArc",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 20870,
+                    "angle": 120,
+                    "angle_weight": 6,
+                    "check_env": 0,
+                    "distance_weight": 2,
+                    "height": 2,
+                    "include_faction": 1,
+                    "lower_bound": 0,
+                    "max range": 20,
+                    "max targets": 20,
+                    "method": 1,
+                    "min range": 0,
+                    "miss action": 20872,
+                    "offset_x": 0,
+                    "offset_y": 0,
+                    "offset_z": 0,
+                    "target_enemy": 0,
+                    "target_friend": 0,
+                    "target_self": 0,
+                    "target_team": 1,
+                    "upper_bound": 5,
+                    "use_attack_priority": 0,
+                    "use_picked_target": 1,
+                    "use_target_position": 0
+                },
+                "kids": {
+                    "20870": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 20869,
+                            "behavior 2": 20866
+                        },
+                        "kids": {
+                            "20869": {
+                                "name": {
+                                    "templateID": 16,
+                                    "behaviorTemplateName": "Duration",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 20868,
+                                    "duration": 2
+                                },
+                                "kids": {
+                                    "20868": {
+                                        "name": {
+                                            "templateID": 15,
+                                            "behaviorTemplateName": "Stun",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "cant_attack": 1,
+                                            "cant_equip": 1,
+                                            "cant_interact": 1,
+                                            "cant_move": 1,
+                                            "cant_turn": 1,
+                                            "cant_use_item": 1,
+                                            "stun_caster": 1
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            },
+                            "20866": {
+                                "name": {
+                                    "templateID": 18,
+                                    "behaviorTemplateName": "AttackDelay",
+                                    "effectID": 4778
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 20865,
+                                    "delay": 0,
+                                    "ignore_interrupts": 0,
+                                    "num_intervals": 1
+                                },
+                                "kids": {
+                                    "20865": {
+                                        "name": {
+                                            "templateID": 13,
+                                            "behaviorTemplateName": "Imagination",
+                                            "effectID": 4779
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "imagination": 20
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "20872": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 20869,
+                            "behavior 2": 20871
+                        },
+                        "kids": {
+                            "20871": {
+                                "name": {
+                                    "templateID": 8,
+                                    "behaviorTemplateName": "PlayEffect",
+                                    "effectID": 4780
+                                },
+                                "hasKids": false,
+                                "info": {},
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

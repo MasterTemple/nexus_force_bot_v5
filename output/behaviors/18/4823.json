@@ -1,0 +1,148 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": [
+            "Area of Effect"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "action": {
+        "initial_value": 4828
+    },
+    "max targets": {
+        "initial_value": 20
+    },
+    "radius": {
+        "initial_value": 200
+    },
+    "target_enemy": {
+        "initial_value": 1
+    },
+    "target_friend": {
+        "initial_value": 0
+    },
+    "target_self": {
+        "initial_value": 0
+    },
+    "use_target_as_caster": {
+        "initial_value": 0
+    },
+    "use_target_position": {
+        "initial_value": 0
+    },
+    "4823": {
+        "name": {
+            "templateID": 7,
+            "behaviorTemplateName": "AoE",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "action": 4828,
+            "max targets": 20,
+            "radius": 200,
+            "target_enemy": 1,
+            "target_friend": 0,
+            "target_self": 0,
+            "use_target_as_caster": 0,
+            "use_target_position": 0
+        },
+        "kids": {
+            "4828": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 4825,
+                    "behavior 2": 4826
+                },
+                "kids": {
+                    "4825": {
+                        "name": {
+                            "templateID": 45,
+                            "behaviorTemplateName": "Start",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 4824
+                        },
+                        "kids": {
+                            "4824": {
+                                "name": {
+                                    "templateID": 56,
+                                    "behaviorTemplateName": "AirMovement",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "goto_target": 0,
+                                    "gravity_scale": 0,
+                                    "ground_action": 0,
+                                    "hit_action": 0,
+                                    "hit_action_enemy": 0,
+                                    "move_target": 1,
+                                    "x_velocity": 0,
+                                    "y_velocity": 50,
+                                    "z_velocity": 0
+                                },
+                                "kids": {
+                                    "0": {
+                                        "hasKids": false,
+                                        "info": {},
+                                        "kids": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "4826": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 4827,
+                            "delay": 5,
+                            "ignore_interrupts": 0,
+                            "num_intervals": 1
+                        },
+                        "kids": {
+                            "4827": {
+                                "name": {
+                                    "templateID": 46,
+                                    "behaviorTemplateName": "End",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "start_action": 4825
+                                },
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

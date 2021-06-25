@@ -1,0 +1,210 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": true,
+        "projectileAttack": true,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [
+            1,
+            1,
+            1
+        ],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [
+            4775
+        ],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [
+            1
+        ],
+        "chargeUpCombo": 0,
+        "allDamage": [
+            1
+        ],
+        "attackTypes": [
+            "Ranged",
+            "Interruption"
+        ]
+    },
+    "projectileBehaviorIDs": [
+        216
+    ],
+    "projectileChargeUpBehaviorIDs": [],
+    "action": {
+        "initial_value": 494
+    },
+    "angle": {
+        "initial_value": 25
+    },
+    "clear_provided_target": {
+        "initial_value": 0
+    },
+    "first_within_range": {
+        "initial_value": 7
+    },
+    "max range": {
+        "initial_value": 80
+    },
+    "max targets": {
+        "initial_value": 1
+    },
+    "min range": {
+        "initial_value": 0
+    },
+    "miss action": {
+        "initial_value": 494
+    },
+    "target_enemy": {
+        "initial_value": 1
+    },
+    "use_attack_priority": {
+        "initial_value": 1
+    },
+    "use_picked_target": {
+        "initial_value": 1
+    },
+    "489": {
+        "name": {
+            "templateID": 2,
+            "behaviorTemplateName": "TacArc",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "action": 494,
+            "angle": 25,
+            "clear_provided_target": 0,
+            "first_within_range": 7,
+            "max range": 80,
+            "max targets": 1,
+            "min range": 0,
+            "miss action": 494,
+            "target_enemy": 1,
+            "use_attack_priority": 1,
+            "use_picked_target": 1
+        },
+        "kids": {
+            "494": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 495,
+                    "behavior 2": 487
+                },
+                "kids": {
+                    "495": {
+                        "name": {
+                            "templateID": 39,
+                            "behaviorTemplateName": "ChangeOrientation",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "to_target": 1
+                        },
+                        "kids": {}
+                    },
+                    "487": {
+                        "name": {
+                            "templateID": 4,
+                            "behaviorTemplateName": "ProjectileAttack",
+                            "effectID": 429
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "LOT_ID": 4775,
+                            "max_distance": 300,
+                            "offset_z": 5,
+                            "projectile_speed": 50,
+                            "projectile_type": 2,
+                            "rotate_x_degrees": 0,
+                            "spread_angle": 0,
+                            "spread_count": 0,
+                            "spread_z_load_fudge": 0,
+                            "unauth_impact": 1,
+                            "use_prediction": 1
+                        },
+                        "kids": {}
+                    }
+                }
+            }
+        }
+    },
+    "216": {
+        "name": {
+            "templateID": 29,
+            "behaviorTemplateName": "Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "action_false": 0,
+            "action_true": 14272,
+            "distance": -1,
+            "imagination": 0,
+            "isEnemyFaction": 1
+        },
+        "kids": {
+            "0": {
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "14272": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 14271,
+                    "behavior 2": 175
+                },
+                "kids": {
+                    "14271": {
+                        "name": {
+                            "templateID": 41,
+                            "behaviorTemplateName": "Interrupt",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "interrupt_attack": 1,
+                            "interrupt_block": 0,
+                            "interrupt_charge": 1,
+                            "target": 1
+                        },
+                        "kids": {}
+                    },
+                    "175": {
+                        "name": {
+                            "templateID": 1,
+                            "behaviorTemplateName": "BasicAttack",
+                            "effectID": 2
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "dir_angle_xz": 0,
+                            "dir_angle_y": 0,
+                            "dir_force": 7,
+                            "max damage": 1,
+                            "min damage": 1,
+                            "on_fail_blocked": 6157,
+                            "use_caster_velocity": 0,
+                            "velocity_multiplier": 1
+                        },
+                        "kids": {}
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,133 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": true,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [
+            8,
+            25
+        ],
+        "attackTypes": [
+            "Area of Effect"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 37546
+    },
+    "behavior 2": {
+        "initial_value": 37547
+    },
+    "37545": {
+        "name": {
+            "templateID": 3,
+            "behaviorTemplateName": "And",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 37546,
+            "behavior 2": 37547
+        },
+        "kids": {
+            "37546": {
+                "name": {
+                    "templateID": 8,
+                    "behaviorTemplateName": "PlayEffect",
+                    "effectID": 8179
+                },
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "37547": {
+                "name": {
+                    "templateID": 7,
+                    "behaviorTemplateName": "AoE",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 37561,
+                    "max targets": 20,
+                    "radius": 5,
+                    "target_enemy": 1,
+                    "target_friend": 0,
+                    "target_self": 0,
+                    "target_team": 0,
+                    "use_target_as_caster": 0,
+                    "use_target_position": 0
+                },
+                "kids": {
+                    "37561": {
+                        "name": {
+                            "templateID": 29,
+                            "behaviorTemplateName": "Switch",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action_false": 37548,
+                            "action_true": 37560,
+                            "distance": -1,
+                            "imagination": 0,
+                            "isEnemyFaction": 0,
+                            "target_has_buff": 2
+                        },
+                        "kids": {
+                            "37548": {
+                                "name": {
+                                    "templateID": 1,
+                                    "behaviorTemplateName": "BasicAttack",
+                                    "effectID": 8180
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "dir_angle_xz": 0,
+                                    "dir_angle_y": 30,
+                                    "dir_force": 20,
+                                    "dont_apply_immune": 0,
+                                    "max damage": 8,
+                                    "min damage": 8,
+                                    "use_caster_velocity": 0,
+                                    "velocity_multiplier": 1
+                                },
+                                "kids": {}
+                            },
+                            "37560": {
+                                "name": {
+                                    "templateID": 1,
+                                    "behaviorTemplateName": "BasicAttack",
+                                    "effectID": 8182
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "dir_angle_xz": 0,
+                                    "dir_angle_y": 30,
+                                    "dir_force": 20,
+                                    "dont_apply_immune": 0,
+                                    "max damage": 25,
+                                    "min damage": 25,
+                                    "use_caster_velocity": 0,
+                                    "velocity_multiplier": 1
+                                },
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

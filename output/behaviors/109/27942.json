@@ -1,0 +1,235 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": true,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": []
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "double_jump_action": {
+        "initial_value": 27943
+    },
+    "falling_action": {
+        "initial_value": 27943
+    },
+    "ground_action": {
+        "initial_value": 27944
+    },
+    "jetpack_action": {
+        "initial_value": 27943
+    },
+    "jump_action": {
+        "initial_value": 27943
+    },
+    "27942": {
+        "name": {
+            "templateID": 6,
+            "behaviorTemplateName": "Movement Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "double_jump_action": 27943,
+            "falling_action": 27943,
+            "ground_action": 27944,
+            "jetpack_action": 27943,
+            "jump_action": 27943
+        },
+        "kids": {
+            "27943": {
+                "name": {
+                    "templateID": 34,
+                    "behaviorTemplateName": "SkillCastFailed",
+                    "effectID": 0
+                },
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "27944": {
+                "name": {
+                    "templateID": 2,
+                    "behaviorTemplateName": "TacArc",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 27945,
+                    "angle": 15,
+                    "angle_weight": 0,
+                    "blocked action": 27951,
+                    "check_env": 1,
+                    "distance_weight": 0,
+                    "height": 2,
+                    "lower_bound": 0,
+                    "max range": 5,
+                    "max targets": 1,
+                    "method": 1,
+                    "min range": 0,
+                    "miss action": 27945,
+                    "offset_x": 0,
+                    "offset_y": 0,
+                    "offset_z": 0,
+                    "target_enemy": 1,
+                    "target_friend": 0,
+                    "target_self": 0,
+                    "upper_bound": 5,
+                    "use_attack_priority": 1,
+                    "use_picked_target": 0,
+                    "use_target_position": 0
+                },
+                "kids": {
+                    "27945": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 27946,
+                            "behavior 2": 27948
+                        },
+                        "kids": {
+                            "27946": {
+                                "name": {
+                                    "templateID": 16,
+                                    "behaviorTemplateName": "Duration",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 27947,
+                                    "duration": 2
+                                },
+                                "kids": {
+                                    "27947": {
+                                        "name": {
+                                            "templateID": 15,
+                                            "behaviorTemplateName": "Stun",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "cant_attack": 1,
+                                            "cant_equip": 1,
+                                            "cant_interact": 1,
+                                            "cant_move": 1,
+                                            "cant_turn": 1,
+                                            "stun_caster": 1
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            },
+                            "27948": {
+                                "name": {
+                                    "templateID": 18,
+                                    "behaviorTemplateName": "AttackDelay",
+                                    "effectID": 6173
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 27949,
+                                    "delay": 1,
+                                    "ignore_interrupts": 1,
+                                    "num_intervals": 1
+                                },
+                                "kids": {
+                                    "27949": {
+                                        "name": {
+                                            "templateID": 16,
+                                            "behaviorTemplateName": "Duration",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "action": 27950,
+                                            "duration": 34
+                                        },
+                                        "kids": {
+                                            "27950": {
+                                                "name": {
+                                                    "templateID": 27,
+                                                    "behaviorTemplateName": "Spawn Object",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "distance": 7,
+                                                    "LOT_ID": 13539,
+                                                    "objectRadius": 3,
+                                                    "spawn_fail_action": 11860,
+                                                    "updatePositionWithParent": 0
+                                                },
+                                                "kids": {
+                                                    "11860": {
+                                                        "name": {
+                                                            "templateID": 34,
+                                                            "behaviorTemplateName": "SkillCastFailed",
+                                                            "effectID": 0
+                                                        },
+                                                        "hasKids": false,
+                                                        "info": {},
+                                                        "kids": {}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "27951": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 27952,
+                            "behavior 2": 27953,
+                            "behavior 3": 27946
+                        },
+                        "kids": {
+                            "27952": {
+                                "name": {
+                                    "templateID": 8,
+                                    "behaviorTemplateName": "PlayEffect",
+                                    "effectID": 6174
+                                },
+                                "hasKids": false,
+                                "info": {},
+                                "kids": {}
+                            },
+                            "27953": {
+                                "name": {
+                                    "templateID": 34,
+                                    "behaviorTemplateName": "SkillCastFailed",
+                                    "effectID": 0
+                                },
+                                "hasKids": false,
+                                "info": {},
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

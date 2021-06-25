@@ -1,0 +1,172 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": []
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 14284
+    },
+    "behavior 2": {
+        "initial_value": 14287
+    },
+    "behavior 3": {
+        "initial_value": 11847
+    },
+    "behavior 4": {
+        "initial_value": 17742
+    },
+    "3788": {
+        "name": {
+            "templateID": 3,
+            "behaviorTemplateName": "And",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 14284,
+            "behavior 2": 14287,
+            "behavior 3": 11847,
+            "behavior 4": 17742
+        },
+        "kids": {
+            "14284": {
+                "name": {
+                    "templateID": 45,
+                    "behaviorTemplateName": "Start",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 3787,
+                    "use_target": 0
+                },
+                "kids": {
+                    "3787": {
+                        "name": {
+                            "templateID": 8,
+                            "behaviorTemplateName": "PlayEffect",
+                            "effectID": 1053
+                        },
+                        "hasKids": false,
+                        "info": {},
+                        "kids": {}
+                    }
+                }
+            },
+            "14287": {
+                "name": {
+                    "templateID": 18,
+                    "behaviorTemplateName": "AttackDelay",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 14285,
+                    "delay": 30,
+                    "ignore_interrupts": 0,
+                    "num_intervals": 1
+                },
+                "kids": {
+                    "14285": {
+                        "name": {
+                            "templateID": 46,
+                            "behaviorTemplateName": "End",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "start_action": 14284,
+                            "use_target": 0
+                        },
+                        "kids": {}
+                    }
+                }
+            },
+            "11847": {
+                "name": {
+                    "templateID": 14,
+                    "behaviorTemplateName": "Target Caster",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 3786
+                },
+                "kids": {
+                    "3786": {
+                        "name": {
+                            "templateID": 16,
+                            "behaviorTemplateName": "Duration",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 3785,
+                            "duration": 30
+                        },
+                        "kids": {
+                            "3785": {
+                                "name": {
+                                    "templateID": 11,
+                                    "behaviorTemplateName": "Damage Absorption",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "absorb_amount": 10
+                                },
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "17742": {
+                "name": {
+                    "templateID": 16,
+                    "behaviorTemplateName": "Duration",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 17741,
+                    "duration": 1
+                },
+                "kids": {
+                    "17741": {
+                        "name": {
+                            "templateID": 15,
+                            "behaviorTemplateName": "Stun",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "cant_attack": 1,
+                            "cant_equip": 1,
+                            "cant_interact": 1,
+                            "cant_move": 1,
+                            "cant_turn": 1,
+                            "stun_caster": 0
+                        },
+                        "kids": {}
+                    }
+                }
+            }
+        }
+    }
+}

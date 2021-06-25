@@ -1,0 +1,107 @@
+{
+    "overview": {
+        "hasChargeUp": true,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": []
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 1941
+    },
+    "behavior 2": {
+        "initial_value": 1942
+    },
+    "1940": {
+        "name": {
+            "templateID": 3,
+            "behaviorTemplateName": "And",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 1941,
+            "behavior 2": 1942
+        },
+        "kids": {
+            "1941": {
+                "name": {
+                    "templateID": 45,
+                    "behaviorTemplateName": "Start",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 1944
+                },
+                "kids": {
+                    "1944": {
+                        "name": {
+                            "templateID": 53,
+                            "behaviorTemplateName": "Block",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "block_damage": 1,
+                            "block_knockbacks": 1,
+                            "block_stuns": 1,
+                            "break_action": 4116,
+                            "num_attacks_can_block": 2
+                        },
+                        "kids": {
+                            "4116": {
+                                "name": {
+                                    "templateID": 8,
+                                    "behaviorTemplateName": "PlayEffect",
+                                    "effectID": 3017
+                                },
+                                "hasKids": false,
+                                "info": {},
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "1942": {
+                "name": {
+                    "templateID": 43,
+                    "behaviorTemplateName": "ChargeUp",
+                    "effectID": 657
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 1943,
+                    "max_duration": 0
+                },
+                "kids": {
+                    "1943": {
+                        "name": {
+                            "templateID": 46,
+                            "behaviorTemplateName": "End",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "start_action": 1941
+                        },
+                        "kids": {}
+                    }
+                }
+            }
+        }
+    }
+}

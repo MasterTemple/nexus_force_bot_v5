@@ -1,0 +1,297 @@
+{
+    "overview": {
+        "hasChargeUp": true,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": [
+            "Interruption",
+            "Area of Effect"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "double_jump_action": {
+        "initial_value": 11860
+    },
+    "falling_action": {
+        "initial_value": 11860
+    },
+    "ground_action": {
+        "initial_value": 12293
+    },
+    "jetpack_action": {
+        "initial_value": 11860
+    },
+    "jump_action": {
+        "initial_value": 11860
+    },
+    "12292": {
+        "name": {
+            "templateID": 6,
+            "behaviorTemplateName": "Movement Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "double_jump_action": 11860,
+            "falling_action": 11860,
+            "ground_action": 12293,
+            "jetpack_action": 11860,
+            "jump_action": 11860
+        },
+        "kids": {
+            "11860": {
+                "name": {
+                    "templateID": 34,
+                    "behaviorTemplateName": "SkillCastFailed",
+                    "effectID": 0
+                },
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "12293": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 12294,
+                    "behavior 2": 12299,
+                    "behavior 3": 12302
+                },
+                "kids": {
+                    "12294": {
+                        "name": {
+                            "templateID": 43,
+                            "behaviorTemplateName": "ChargeUp",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 12295,
+                            "max_duration": 20
+                        },
+                        "kids": {
+                            "12295": {
+                                "name": {
+                                    "templateID": 44,
+                                    "behaviorTemplateName": "SwitchMultiple",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "behavior 1": 16089,
+                                    "behavior 2": 12296,
+                                    "charge_time": 1,
+                                    "distance_to_target": 0,
+                                    "value 1": 1,
+                                    "value 2": 17
+                                },
+                                "kids": {
+                                    "16089": {
+                                        "name": {
+                                            "templateID": 3,
+                                            "behaviorTemplateName": "And",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "behavior 1": 12298,
+                                            "behavior 2": 12301,
+                                            "behavior 3": 16088,
+                                            "behavior 4": 12297
+                                        },
+                                        "kids": {
+                                            "12298": {
+                                                "name": {
+                                                    "templateID": 46,
+                                                    "behaviorTemplateName": "End",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "start_action": 12299
+                                                },
+                                                "kids": {
+                                                    "12299": {
+                                                        "name": {
+                                                            "templateID": 45,
+                                                            "behaviorTemplateName": "Start",
+                                                            "effectID": 0
+                                                        },
+                                                        "hasKids": true,
+                                                        "info": {
+                                                            "action": 12300
+                                                        },
+                                                        "kids": {
+                                                            "12300": {
+                                                                "name": {
+                                                                    "templateID": 15,
+                                                                    "behaviorTemplateName": "Stun",
+                                                                    "effectID": 0
+                                                                },
+                                                                "hasKids": true,
+                                                                "info": {
+                                                                    "cant_attack": 1,
+                                                                    "cant_equip": 1,
+                                                                    "cant_interact": 1,
+                                                                    "cant_move": 1,
+                                                                    "cant_turn": 1,
+                                                                    "stun_caster": 1
+                                                                },
+                                                                "kids": {}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "12301": {
+                                                "name": {
+                                                    "templateID": 41,
+                                                    "behaviorTemplateName": "Interrupt",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "interrupt_attack": 1,
+                                                    "interrupt_block": 0,
+                                                    "interrupt_charge": 1,
+                                                    "target": 0
+                                                },
+                                                "kids": {}
+                                            },
+                                            "16088": {
+                                                "name": {
+                                                    "templateID": 42,
+                                                    "behaviorTemplateName": "AlterCooldown",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "add": 0,
+                                                    "amount": 0
+                                                },
+                                                "kids": {}
+                                            },
+                                            "12297": {
+                                                "name": {
+                                                    "templateID": 8,
+                                                    "behaviorTemplateName": "PlayEffect",
+                                                    "effectID": 2951
+                                                },
+                                                "hasKids": false,
+                                                "info": {},
+                                                "kids": {}
+                                            }
+                                        }
+                                    },
+                                    "12296": {
+                                        "name": {
+                                            "templateID": 3,
+                                            "behaviorTemplateName": "And",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "behavior 1": 12297,
+                                            "behavior 2": 12298,
+                                            "behavior 3": 12301
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "12302": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 2952
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 12304,
+                            "delay": 1,
+                            "ignore_interrupts": 0,
+                            "num_intervals": 10
+                        },
+                        "kids": {
+                            "12304": {
+                                "name": {
+                                    "templateID": 7,
+                                    "behaviorTemplateName": "AoE",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 12305,
+                                    "max targets": 20,
+                                    "radius": 15,
+                                    "target_enemy": 0,
+                                    "target_friend": 1,
+                                    "target_self": 1,
+                                    "target_team": 1,
+                                    "use_target_as_caster": 0,
+                                    "use_target_position": 0
+                                },
+                                "kids": {
+                                    "12305": {
+                                        "name": {
+                                            "templateID": 3,
+                                            "behaviorTemplateName": "And",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "behavior 1": 12306,
+                                            "behavior 2": 12307
+                                        },
+                                        "kids": {
+                                            "12306": {
+                                                "name": {
+                                                    "templateID": 8,
+                                                    "behaviorTemplateName": "PlayEffect",
+                                                    "effectID": 2953
+                                                },
+                                                "hasKids": false,
+                                                "info": {},
+                                                "kids": {}
+                                            },
+                                            "12307": {
+                                                "name": {
+                                                    "templateID": 13,
+                                                    "behaviorTemplateName": "Imagination",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "imagination": 1
+                                                },
+                                                "kids": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

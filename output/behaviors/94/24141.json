@@ -1,0 +1,160 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": [
+            "Area of Effect",
+            "Interruption"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "action_false": {
+        "initial_value": 0
+    },
+    "action_true": {
+        "initial_value": 24138
+    },
+    "distance": {
+        "initial_value": -1
+    },
+    "imagination": {
+        "initial_value": 0
+    },
+    "isEnemyFaction": {
+        "initial_value": 1
+    },
+    "24141": {
+        "name": {
+            "templateID": 29,
+            "behaviorTemplateName": "Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "action_false": 0,
+            "action_true": 24138,
+            "distance": -1,
+            "imagination": 0,
+            "isEnemyFaction": 1
+        },
+        "kids": {
+            "0": {
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "24138": {
+                "name": {
+                    "templateID": 7,
+                    "behaviorTemplateName": "AoE",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 24135,
+                    "max targets": 20,
+                    "radius": 15,
+                    "target_enemy": 1,
+                    "target_friend": 0,
+                    "target_self": 0,
+                    "target_team": 0,
+                    "use_target_as_caster": 0,
+                    "use_target_position": 0
+                },
+                "kids": {
+                    "24135": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 24128,
+                            "behavior 2": 24131,
+                            "behavior 3": 24133
+                        },
+                        "kids": {
+                            "24128": {
+                                "name": {
+                                    "templateID": 16,
+                                    "behaviorTemplateName": "Duration",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 24125,
+                                    "duration": 4,
+                                    "originator_is_owner": 1
+                                },
+                                "kids": {
+                                    "24125": {
+                                        "name": {
+                                            "templateID": 15,
+                                            "behaviorTemplateName": "Stun",
+                                            "effectID": 5356
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "cant_attack": 1,
+                                            "cant_equip": 0,
+                                            "cant_interact": 0,
+                                            "cant_jump": 0,
+                                            "cant_move": 1,
+                                            "cant_turn": 1,
+                                            "cant_use_item": 0,
+                                            "ignore_immunity": 0,
+                                            "stun_caster": 0
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            },
+                            "24131": {
+                                "name": {
+                                    "templateID": 41,
+                                    "behaviorTemplateName": "Interrupt",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "interrupt_attack": 1,
+                                    "interrupt_block": 1,
+                                    "interrupt_charge": 1,
+                                    "target": 1
+                                },
+                                "kids": {}
+                            },
+                            "24133": {
+                                "name": {
+                                    "templateID": 58,
+                                    "behaviorTemplateName": "PullToPoint",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "arc_height": 2,
+                                    "distance_offset": 0
+                                },
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

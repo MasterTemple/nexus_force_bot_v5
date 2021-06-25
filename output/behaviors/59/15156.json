@@ -1,0 +1,137 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": []
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 15157
+    },
+    "behavior 2": {
+        "initial_value": 15159
+    },
+    "behavior 3": {
+        "initial_value": 15161
+    },
+    "15156": {
+        "name": {
+            "templateID": 3,
+            "behaviorTemplateName": "And",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 15157,
+            "behavior 2": 15159,
+            "behavior 3": 15161
+        },
+        "kids": {
+            "15157": {
+                "name": {
+                    "templateID": 45,
+                    "behaviorTemplateName": "Start",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 15158,
+                    "use_target": 0
+                },
+                "kids": {
+                    "15158": {
+                        "name": {
+                            "templateID": 8,
+                            "behaviorTemplateName": "PlayEffect",
+                            "effectID": 3492
+                        },
+                        "hasKids": false,
+                        "info": {},
+                        "kids": {}
+                    }
+                }
+            },
+            "15159": {
+                "name": {
+                    "templateID": 18,
+                    "behaviorTemplateName": "AttackDelay",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 15160,
+                    "delay": 10,
+                    "ignore_interrupts": 0,
+                    "num_intervals": 1
+                },
+                "kids": {
+                    "15160": {
+                        "name": {
+                            "templateID": 46,
+                            "behaviorTemplateName": "End",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "start_action": 15157,
+                            "use_target": 0
+                        },
+                        "kids": {}
+                    }
+                }
+            },
+            "15161": {
+                "name": {
+                    "templateID": 14,
+                    "behaviorTemplateName": "Target Caster",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 15162
+                },
+                "kids": {
+                    "15162": {
+                        "name": {
+                            "templateID": 16,
+                            "behaviorTemplateName": "Duration",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 15163,
+                            "duration": 10
+                        },
+                        "kids": {
+                            "15163": {
+                                "name": {
+                                    "templateID": 11,
+                                    "behaviorTemplateName": "Damage Absorption",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "absorb_amount": 5
+                                },
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

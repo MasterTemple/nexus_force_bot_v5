@@ -1,0 +1,215 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": true,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [
+            50
+        ],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [
+            50
+        ],
+        "attackTypes": []
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "double_jump_action": {
+        "initial_value": 31951
+    },
+    "falling_action": {
+        "initial_value": 31951
+    },
+    "ground_action": {
+        "initial_value": 31952
+    },
+    "jetpack_action": {
+        "initial_value": 0
+    },
+    "jump_action": {
+        "initial_value": 31951
+    },
+    "31950": {
+        "name": {
+            "templateID": 6,
+            "behaviorTemplateName": "Movement Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "double_jump_action": 31951,
+            "falling_action": 31951,
+            "ground_action": 31952,
+            "jetpack_action": 0,
+            "jump_action": 31951
+        },
+        "kids": {
+            "31951": {
+                "name": {
+                    "templateID": 34,
+                    "behaviorTemplateName": "SkillCastFailed",
+                    "effectID": 0
+                },
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "31952": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 31953,
+                    "behavior 2": 31955
+                },
+                "kids": {
+                    "31953": {
+                        "name": {
+                            "templateID": 16,
+                            "behaviorTemplateName": "Duration",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 31954,
+                            "duration": 1
+                        },
+                        "kids": {
+                            "31954": {
+                                "name": {
+                                    "templateID": 15,
+                                    "behaviorTemplateName": "Stun",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "cant_attack": 1,
+                                    "cant_equip": 1,
+                                    "cant_interact": 1,
+                                    "cant_move": 1,
+                                    "cant_turn": 1,
+                                    "stun_caster": 1
+                                },
+                                "kids": {}
+                            }
+                        }
+                    },
+                    "31955": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 6969
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 31956,
+                            "delay": 0,
+                            "ignore_interrupts": 1,
+                            "num_intervals": 1
+                        },
+                        "kids": {
+                            "31956": {
+                                "name": {
+                                    "templateID": 2,
+                                    "behaviorTemplateName": "TacArc",
+                                    "effectID": 6970
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 31957,
+                                    "angle": 90,
+                                    "angle_weight": 0,
+                                    "blocked action": 31958,
+                                    "check_env": 1,
+                                    "distance_weight": 0,
+                                    "far_height": 0,
+                                    "far_width": 0,
+                                    "height": 2,
+                                    "lower_bound": 0,
+                                    "max range": 40,
+                                    "max targets": 20,
+                                    "method": 1,
+                                    "min range": 0,
+                                    "miss action": 31958,
+                                    "near_height": 0,
+                                    "near_width": 0,
+                                    "offset_x": 0,
+                                    "offset_y": 0,
+                                    "offset_z": 0,
+                                    "target_enemy": 1,
+                                    "target_friend": 0,
+                                    "target_self": 0,
+                                    "target_team": 0,
+                                    "upper_bound": 5,
+                                    "use_attack_priority": 1,
+                                    "use_picked_target": 0,
+                                    "use_target_position": 0
+                                },
+                                "kids": {
+                                    "31957": {
+                                        "name": {
+                                            "templateID": 3,
+                                            "behaviorTemplateName": "And",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "behavior 1": 31958,
+                                            "behavior 2": 31959
+                                        },
+                                        "kids": {
+                                            "31958": {
+                                                "name": {
+                                                    "templateID": 8,
+                                                    "behaviorTemplateName": "PlayEffect",
+                                                    "effectID": 6971
+                                                },
+                                                "hasKids": false,
+                                                "info": {},
+                                                "kids": {}
+                                            },
+                                            "31959": {
+                                                "name": {
+                                                    "templateID": 1,
+                                                    "behaviorTemplateName": "BasicAttack",
+                                                    "effectID": 6972
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "dir_angle_xz": 0,
+                                                    "dir_angle_y": 0,
+                                                    "dir_force": 7,
+                                                    "max damage": 50,
+                                                    "min damage": 50,
+                                                    "use_caster_velocity": 0,
+                                                    "velocity_multiplier": 1
+                                                },
+                                                "kids": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "0": {
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            }
+        }
+    }
+}

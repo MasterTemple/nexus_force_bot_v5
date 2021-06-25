@@ -1,0 +1,168 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": true,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": [
+            "Area of Effect",
+            "Area of Effect"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 34416
+    },
+    "behavior 2": {
+        "initial_value": 34407
+    },
+    "behavior 3": {
+        "initial_value": 37563
+    },
+    "34405": {
+        "name": {
+            "templateID": 3,
+            "behaviorTemplateName": "And",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 34416,
+            "behavior 2": 34407,
+            "behavior 3": 37563
+        },
+        "kids": {
+            "34416": {
+                "name": {
+                    "templateID": 7,
+                    "behaviorTemplateName": "AoE",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 34414,
+                    "include_faction": 128,
+                    "max targets": 20,
+                    "radius": 7,
+                    "target_enemy": 0,
+                    "target_friend": 0,
+                    "target_self": 0,
+                    "target_team": 0,
+                    "use_target_as_caster": 0,
+                    "use_target_position": 0
+                },
+                "kids": {
+                    "34414": {
+                        "name": {
+                            "templateID": 32,
+                            "behaviorTemplateName": "Skill Event",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "target_caster": 0
+                        },
+                        "kids": {}
+                    }
+                }
+            },
+            "34407": {
+                "name": {
+                    "templateID": 7,
+                    "behaviorTemplateName": "AoE",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 34408,
+                    "include_faction": 1,
+                    "max targets": 20,
+                    "radius": 7,
+                    "target_enemy": 0,
+                    "target_friend": 0,
+                    "target_self": 0,
+                    "target_team": 0,
+                    "use_target_as_caster": 0,
+                    "use_target_position": 0
+                },
+                "kids": {
+                    "34408": {
+                        "name": {
+                            "templateID": 37,
+                            "behaviorTemplateName": "ApplyBuff",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "add_immunity": 0,
+                            "buff_id": 36,
+                            "cancel_on_damaged": 0,
+                            "cancel_on_death": 1,
+                            "cancel_on_logout": 1,
+                            "cancel_on_remove_buff": 1,
+                            "cancel_on_ui": 1,
+                            "cancel_on_unequip": 0,
+                            "cancel_on_zone": 1,
+                            "duration_secs": 15,
+                            "target_caster": 0
+                        },
+                        "kids": {}
+                    }
+                }
+            },
+            "37563": {
+                "name": {
+                    "templateID": 16,
+                    "behaviorTemplateName": "Duration",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 37562,
+                    "duration": 2,
+                    "originator_is_owner": 1
+                },
+                "kids": {
+                    "37562": {
+                        "name": {
+                            "templateID": 27,
+                            "behaviorTemplateName": "Spawn Object",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "distance": 0,
+                            "LOT_ID": 16132,
+                            "objectRadius": 1,
+                            "spawn_fail_action": 11860,
+                            "updatePositionWithParent": 0
+                        },
+                        "kids": {
+                            "11860": {
+                                "name": {
+                                    "templateID": 34,
+                                    "behaviorTemplateName": "SkillCastFailed",
+                                    "effectID": 0
+                                },
+                                "hasKids": false,
+                                "info": {},
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

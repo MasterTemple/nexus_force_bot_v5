@@ -1,0 +1,537 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": true,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [
+            6,
+            5,
+            4,
+            3,
+            2
+        ],
+        "attackTypes": [
+            "Area of Effect",
+            "Area of Effect",
+            "Interruption",
+            "Knockback"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 37444
+    },
+    "max range": {
+        "initial_value": 8
+    },
+    "min range": {
+        "initial_value": 0
+    },
+    "npc skill time": {
+        "initial_value": 6
+    },
+    "37443": {
+        "name": {
+            "templateID": 52,
+            "behaviorTemplateName": "NPC Combat Skill",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 37444,
+            "max range": 8,
+            "min range": 0,
+            "npc skill time": 6
+        },
+        "kids": {
+            "37444": {
+                "name": {
+                    "templateID": 7,
+                    "behaviorTemplateName": "AoE",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 37445,
+                    "max targets": 1,
+                    "radius": 8,
+                    "target_enemy": 1,
+                    "target_friend": 0,
+                    "target_self": 0,
+                    "target_team": 0,
+                    "use_target_as_caster": 0,
+                    "use_target_position": 0
+                },
+                "kids": {
+                    "37445": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 37446,
+                            "behavior 2": 37448,
+                            "behavior 3": 37451
+                        },
+                        "kids": {
+                            "37446": {
+                                "name": {
+                                    "templateID": 16,
+                                    "behaviorTemplateName": "Duration",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 37447,
+                                    "duration": 6,
+                                    "originator_is_owner": 0
+                                },
+                                "kids": {
+                                    "37447": {
+                                        "name": {
+                                            "templateID": 15,
+                                            "behaviorTemplateName": "Stun",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "cant_attack": 1,
+                                            "cant_equip": 1,
+                                            "cant_interact": 1,
+                                            "cant_jump": 1,
+                                            "cant_move": 1,
+                                            "cant_turn": 1,
+                                            "cant_use_item": 1,
+                                            "ignore_immunity": 1,
+                                            "stun_caster": 1
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            },
+                            "37448": {
+                                "name": {
+                                    "templateID": 16,
+                                    "behaviorTemplateName": "Duration",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 37449,
+                                    "duration": 3,
+                                    "originator_is_owner": 0
+                                },
+                                "kids": {
+                                    "37449": {
+                                        "name": {
+                                            "templateID": 14,
+                                            "behaviorTemplateName": "Target Caster",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "action": 37450
+                                        },
+                                        "kids": {
+                                            "37450": {
+                                                "name": {
+                                                    "templateID": 9,
+                                                    "behaviorTemplateName": "Immunity",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "immune_basic_attack": 1,
+                                                    "immune_damage_over_time": 1,
+                                                    "immune_interrupt": 1,
+                                                    "immune_knockback": 1,
+                                                    "immune_quickbuild_interrupts": 0,
+                                                    "immune_speed": 1,
+                                                    "immune_stun_attack": 1,
+                                                    "immune_stun_equip": 1,
+                                                    "immune_stun_interact": 1,
+                                                    "immune_stun_move": 1,
+                                                    "immune_stun_rotate": 1
+                                                },
+                                                "kids": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "37451": {
+                                "name": {
+                                    "templateID": 18,
+                                    "behaviorTemplateName": "AttackDelay",
+                                    "effectID": 8162
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 37452,
+                                    "delay": 1,
+                                    "ignore_interrupts": 1,
+                                    "num_intervals": 1
+                                },
+                                "kids": {
+                                    "37452": {
+                                        "name": {
+                                            "templateID": 18,
+                                            "behaviorTemplateName": "AttackDelay",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "action": 37453,
+                                            "delay": 0,
+                                            "ignore_interrupts": 1,
+                                            "num_intervals": 3
+                                        },
+                                        "kids": {
+                                            "37453": {
+                                                "name": {
+                                                    "templateID": 7,
+                                                    "behaviorTemplateName": "AoE",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "action": 37454,
+                                                    "max targets": 20,
+                                                    "radius": 8,
+                                                    "target_enemy": 1,
+                                                    "target_friend": 0,
+                                                    "target_self": 0,
+                                                    "target_team": 0,
+                                                    "use_target_as_caster": 0,
+                                                    "use_target_position": 0
+                                                },
+                                                "kids": {
+                                                    "37454": {
+                                                        "name": {
+                                                            "templateID": 54,
+                                                            "behaviorTemplateName": "Verify",
+                                                            "effectID": 0
+                                                        },
+                                                        "hasKids": true,
+                                                        "info": {
+                                                            "action": 37455,
+                                                            "check_blocking": 1,
+                                                            "check_range": 1,
+                                                            "range": 7
+                                                        },
+                                                        "kids": {
+                                                            "37455": {
+                                                                "name": {
+                                                                    "templateID": 29,
+                                                                    "behaviorTemplateName": "Switch",
+                                                                    "effectID": 0
+                                                                },
+                                                                "hasKids": true,
+                                                                "info": {
+                                                                    "action_false": 39595,
+                                                                    "action_true": 37469,
+                                                                    "distance": -1,
+                                                                    "imagination": 0,
+                                                                    "isEnemyFaction": 0,
+                                                                    "target_has_buff": 61
+                                                                },
+                                                                "kids": {
+                                                                    "39595": {
+                                                                        "name": {
+                                                                            "templateID": 29,
+                                                                            "behaviorTemplateName": "Switch",
+                                                                            "effectID": 0
+                                                                        },
+                                                                        "hasKids": true,
+                                                                        "info": {
+                                                                            "action_false": 37456,
+                                                                            "action_true": 39594,
+                                                                            "distance": -1,
+                                                                            "imagination": 0,
+                                                                            "isEnemyFaction": 0,
+                                                                            "target_has_buff": 5
+                                                                        },
+                                                                        "kids": {
+                                                                            "37456": {
+                                                                                "name": {
+                                                                                    "templateID": 29,
+                                                                                    "behaviorTemplateName": "Switch",
+                                                                                    "effectID": 0
+                                                                                },
+                                                                                "hasKids": true,
+                                                                                "info": {
+                                                                                    "action_false": 37457,
+                                                                                    "action_true": 37620,
+                                                                                    "distance": -1,
+                                                                                    "imagination": 0,
+                                                                                    "isEnemyFaction": 0,
+                                                                                    "target_has_buff": 4
+                                                                                },
+                                                                                "kids": {
+                                                                                    "37457": {
+                                                                                        "name": {
+                                                                                            "templateID": 29,
+                                                                                            "behaviorTemplateName": "Switch",
+                                                                                            "effectID": 0
+                                                                                        },
+                                                                                        "hasKids": true,
+                                                                                        "info": {
+                                                                                            "action_false": 37458,
+                                                                                            "action_true": 37467,
+                                                                                            "distance": -1,
+                                                                                            "imagination": 0,
+                                                                                            "isEnemyFaction": 0,
+                                                                                            "target_has_buff": 3
+                                                                                        },
+                                                                                        "kids": {
+                                                                                            "37458": {
+                                                                                                "name": {
+                                                                                                    "templateID": 1,
+                                                                                                    "behaviorTemplateName": "BasicAttack",
+                                                                                                    "effectID": 8163
+                                                                                                },
+                                                                                                "hasKids": true,
+                                                                                                "info": {
+                                                                                                    "dir_angle_xz": 0,
+                                                                                                    "dir_angle_y": 0,
+                                                                                                    "dir_force": 7,
+                                                                                                    "dont_apply_immune": 0,
+                                                                                                    "max damage": 6,
+                                                                                                    "min damage": 6,
+                                                                                                    "on_fail_armor": 37459,
+                                                                                                    "on_fail_blocked": 37464,
+                                                                                                    "on_success": 37459,
+                                                                                                    "use_caster_velocity": 0,
+                                                                                                    "velocity_multiplier": 1
+                                                                                                },
+                                                                                                "kids": {
+                                                                                                    "37459": {
+                                                                                                        "name": {
+                                                                                                            "templateID": 3,
+                                                                                                            "behaviorTemplateName": "And",
+                                                                                                            "effectID": 0
+                                                                                                        },
+                                                                                                        "hasKids": true,
+                                                                                                        "info": {
+                                                                                                            "behavior 1": 37460,
+                                                                                                            "behavior 2": 37461,
+                                                                                                            "behavior 3": 37463,
+                                                                                                            "behavior 4": 38536
+                                                                                                        },
+                                                                                                        "kids": {
+                                                                                                            "37460": {
+                                                                                                                "name": {
+                                                                                                                    "templateID": 41,
+                                                                                                                    "behaviorTemplateName": "Interrupt",
+                                                                                                                    "effectID": 0
+                                                                                                                },
+                                                                                                                "hasKids": true,
+                                                                                                                "info": {
+                                                                                                                    "interrupt_attack": 1,
+                                                                                                                    "interrupt_block": 0,
+                                                                                                                    "interrupt_charge": 1,
+                                                                                                                    "target": 1
+                                                                                                                },
+                                                                                                                "kids": {}
+                                                                                                            },
+                                                                                                            "37461": {
+                                                                                                                "name": {
+                                                                                                                    "templateID": 16,
+                                                                                                                    "behaviorTemplateName": "Duration",
+                                                                                                                    "effectID": 0
+                                                                                                                },
+                                                                                                                "hasKids": true,
+                                                                                                                "info": {
+                                                                                                                    "action": 37462,
+                                                                                                                    "duration": 0
+                                                                                                                },
+                                                                                                                "kids": {
+                                                                                                                    "37462": {
+                                                                                                                        "name": {
+                                                                                                                            "templateID": 15,
+                                                                                                                            "behaviorTemplateName": "Stun",
+                                                                                                                            "effectID": 0
+                                                                                                                        },
+                                                                                                                        "hasKids": true,
+                                                                                                                        "info": {
+                                                                                                                            "cant_attack": 1,
+                                                                                                                            "cant_equip": 1,
+                                                                                                                            "cant_interact": 1,
+                                                                                                                            "cant_move": 1,
+                                                                                                                            "cant_turn": 1,
+                                                                                                                            "cant_use_item": 1,
+                                                                                                                            "stun_caster": 0
+                                                                                                                        },
+                                                                                                                        "kids": {}
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            },
+                                                                                                            "37463": {
+                                                                                                                "name": {
+                                                                                                                    "templateID": 17,
+                                                                                                                    "behaviorTemplateName": "Knockback",
+                                                                                                                    "effectID": 0
+                                                                                                                },
+                                                                                                                "hasKids": true,
+                                                                                                                "info": {
+                                                                                                                    "angle": 35,
+                                                                                                                    "caster": 0,
+                                                                                                                    "ignore_self": 0,
+                                                                                                                    "relative": 0,
+                                                                                                                    "strength": 20,
+                                                                                                                    "time_ms": 0
+                                                                                                                },
+                                                                                                                "kids": {}
+                                                                                                            },
+                                                                                                            "38536": {
+                                                                                                                "name": {
+                                                                                                                    "templateID": 37,
+                                                                                                                    "behaviorTemplateName": "ApplyBuff",
+                                                                                                                    "effectID": 0
+                                                                                                                },
+                                                                                                                "hasKids": true,
+                                                                                                                "info": {
+                                                                                                                    "add_immunity": 0,
+                                                                                                                    "apply_on_teammates": 0,
+                                                                                                                    "buff_id": 60,
+                                                                                                                    "cancel_on_damaged": 0,
+                                                                                                                    "cancel_on_death": 1,
+                                                                                                                    "cancel_on_logout": 0,
+                                                                                                                    "cancel_on_remove_buff": 1,
+                                                                                                                    "cancel_on_ui": 0,
+                                                                                                                    "cancel_on_unequip": 0,
+                                                                                                                    "cancel_on_zone": 0,
+                                                                                                                    "duration_secs": 30,
+                                                                                                                    "target_caster": 0,
+                                                                                                                    "use_ref_count": 0
+                                                                                                                },
+                                                                                                                "kids": {}
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
+                                                                                            "37467": {
+                                                                                                "name": {
+                                                                                                    "templateID": 1,
+                                                                                                    "behaviorTemplateName": "BasicAttack",
+                                                                                                    "effectID": 8165
+                                                                                                },
+                                                                                                "hasKids": true,
+                                                                                                "info": {
+                                                                                                    "dir_angle_xz": 0,
+                                                                                                    "dir_angle_y": 0,
+                                                                                                    "dir_force": 7,
+                                                                                                    "dont_apply_immune": 0,
+                                                                                                    "max damage": 5,
+                                                                                                    "min damage": 5,
+                                                                                                    "on_fail_armor": 37459,
+                                                                                                    "on_fail_blocked": 37464,
+                                                                                                    "on_success": 37459,
+                                                                                                    "use_caster_velocity": 0,
+                                                                                                    "velocity_multiplier": 1
+                                                                                                },
+                                                                                                "kids": {}
+                                                                                            }
+                                                                                        }
+                                                                                    },
+                                                                                    "37620": {
+                                                                                        "name": {
+                                                                                            "templateID": 1,
+                                                                                            "behaviorTemplateName": "BasicAttack",
+                                                                                            "effectID": 8166
+                                                                                        },
+                                                                                        "hasKids": true,
+                                                                                        "info": {
+                                                                                            "dir_angle_xz": 0,
+                                                                                            "dir_angle_y": 0,
+                                                                                            "dir_force": 7,
+                                                                                            "dont_apply_immune": 0,
+                                                                                            "max damage": 4,
+                                                                                            "min damage": 4,
+                                                                                            "on_fail_armor": 37459,
+                                                                                            "on_fail_blocked": 37464,
+                                                                                            "on_success": 37459,
+                                                                                            "use_caster_velocity": 0,
+                                                                                            "velocity_multiplier": 1
+                                                                                        },
+                                                                                        "kids": {}
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "39594": {
+                                                                                "name": {
+                                                                                    "templateID": 1,
+                                                                                    "behaviorTemplateName": "BasicAttack",
+                                                                                    "effectID": 8165
+                                                                                },
+                                                                                "hasKids": true,
+                                                                                "info": {
+                                                                                    "dir_angle_xz": 0,
+                                                                                    "dir_angle_y": 0,
+                                                                                    "dir_force": 7,
+                                                                                    "dont_apply_immune": 0,
+                                                                                    "max damage": 3,
+                                                                                    "min damage": 3,
+                                                                                    "on_fail_armor": 37459,
+                                                                                    "on_fail_blocked": 37464,
+                                                                                    "on_success": 37459,
+                                                                                    "use_caster_velocity": 0,
+                                                                                    "velocity_multiplier": 1
+                                                                                },
+                                                                                "kids": {}
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "37469": {
+                                                                        "name": {
+                                                                            "templateID": 1,
+                                                                            "behaviorTemplateName": "BasicAttack",
+                                                                            "effectID": 8166
+                                                                        },
+                                                                        "hasKids": true,
+                                                                        "info": {
+                                                                            "dir_angle_xz": 0,
+                                                                            "dir_angle_y": 0,
+                                                                            "dir_force": 7,
+                                                                            "dont_apply_immune": 0,
+                                                                            "max damage": 2,
+                                                                            "min damage": 2,
+                                                                            "on_fail_armor": 37459,
+                                                                            "on_fail_blocked": 37464,
+                                                                            "on_success": 37459,
+                                                                            "use_caster_velocity": 0,
+                                                                            "velocity_multiplier": 1
+                                                                        },
+                                                                        "kids": {}
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

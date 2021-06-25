@@ -1,0 +1,143 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": [
+            "Area of Effect"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "double_jump_action": {
+        "initial_value": 30603
+    },
+    "falling_action": {
+        "initial_value": 30603
+    },
+    "ground_action": {
+        "initial_value": 30604
+    },
+    "jetpack_action": {
+        "initial_value": 30603
+    },
+    "jump_action": {
+        "initial_value": 30603
+    },
+    "30602": {
+        "name": {
+            "templateID": 6,
+            "behaviorTemplateName": "Movement Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "double_jump_action": 30603,
+            "falling_action": 30603,
+            "ground_action": 30604,
+            "jetpack_action": 30603,
+            "jump_action": 30603
+        },
+        "kids": {
+            "30603": {
+                "name": {
+                    "templateID": 34,
+                    "behaviorTemplateName": "SkillCastFailed",
+                    "effectID": 0
+                },
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "30604": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 30605,
+                    "behavior 2": 30607
+                },
+                "kids": {
+                    "30605": {
+                        "name": {
+                            "templateID": 16,
+                            "behaviorTemplateName": "Duration",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 30606,
+                            "duration": 2
+                        },
+                        "kids": {
+                            "30606": {
+                                "name": {
+                                    "templateID": 15,
+                                    "behaviorTemplateName": "Stun",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "cant_attack": 1,
+                                    "cant_equip": 1,
+                                    "cant_interact": 1,
+                                    "cant_move": 1,
+                                    "cant_turn": 1,
+                                    "stun_caster": 1
+                                },
+                                "kids": {}
+                            }
+                        }
+                    },
+                    "30607": {
+                        "name": {
+                            "templateID": 7,
+                            "behaviorTemplateName": "AoE",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 30608,
+                            "max targets": 10,
+                            "radius": 30,
+                            "target_enemy": 0,
+                            "target_friend": 1,
+                            "target_self": 1,
+                            "target_team": 0,
+                            "use_target_as_caster": 0,
+                            "use_target_position": 0
+                        },
+                        "kids": {
+                            "30608": {
+                                "name": {
+                                    "templateID": 13,
+                                    "behaviorTemplateName": "Imagination",
+                                    "effectID": 6726
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "imagination": 3
+                                },
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

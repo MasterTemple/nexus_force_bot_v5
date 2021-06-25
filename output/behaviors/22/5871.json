@@ -1,0 +1,133 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": [
+            "Area of Effect"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 231
+    },
+    "max range": {
+        "initial_value": 7
+    },
+    "min range": {
+        "initial_value": 0
+    },
+    "5871": {
+        "name": {
+            "templateID": 52,
+            "behaviorTemplateName": "NPC Combat Skill",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 231,
+            "max range": 7,
+            "min range": 0
+        },
+        "kids": {
+            "231": {
+                "name": {
+                    "templateID": 18,
+                    "behaviorTemplateName": "AttackDelay",
+                    "effectID": 213
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 234,
+                    "delay": 0
+                },
+                "kids": {
+                    "234": {
+                        "name": {
+                            "templateID": 7,
+                            "behaviorTemplateName": "AoE",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 239,
+                            "max targets": 20,
+                            "radius": 15,
+                            "target_enemy": 1,
+                            "target_friend": 0,
+                            "target_self": 0,
+                            "target_team": 0,
+                            "use_target_as_caster": 0,
+                            "use_target_position": 0
+                        },
+                        "kids": {
+                            "239": {
+                                "name": {
+                                    "templateID": 16,
+                                    "behaviorTemplateName": "Duration",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 5873,
+                                    "duration": 20
+                                },
+                                "kids": {
+                                    "5873": {
+                                        "name": {
+                                            "templateID": 3,
+                                            "behaviorTemplateName": "And",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "behavior 1": 5872,
+                                            "behavior 2": 243
+                                        },
+                                        "kids": {
+                                            "5872": {
+                                                "name": {
+                                                    "templateID": 8,
+                                                    "behaviorTemplateName": "PlayEffect",
+                                                    "effectID": 213
+                                                },
+                                                "hasKids": false,
+                                                "info": {},
+                                                "kids": {}
+                                            },
+                                            "243": {
+                                                "name": {
+                                                    "templateID": 33,
+                                                    "behaviorTemplateName": "Consume Item",
+                                                    "effectID": 0
+                                                },
+                                                "hasKids": true,
+                                                "info": {
+                                                    "effect_id": 213,
+                                                    "run_speed": 325
+                                                },
+                                                "kids": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

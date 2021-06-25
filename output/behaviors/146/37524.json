@@ -1,0 +1,292 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": [
+            "Area of Effect",
+            "Area of Effect",
+            "Area of Effect"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "double_jump_action": {
+        "initial_value": 37525
+    },
+    "falling_action": {
+        "initial_value": 37525
+    },
+    "ground_action": {
+        "initial_value": 37526
+    },
+    "jetpack_action": {
+        "initial_value": 37525
+    },
+    "jump_action": {
+        "initial_value": 37525
+    },
+    "37524": {
+        "name": {
+            "templateID": 6,
+            "behaviorTemplateName": "Movement Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "double_jump_action": 37525,
+            "falling_action": 37525,
+            "ground_action": 37526,
+            "jetpack_action": 37525,
+            "jump_action": 37525
+        },
+        "kids": {
+            "37525": {
+                "name": {
+                    "templateID": 34,
+                    "behaviorTemplateName": "SkillCastFailed",
+                    "effectID": 0
+                },
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "37526": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 37527,
+                    "behavior 2": 37529,
+                    "behavior 3": 37531,
+                    "behavior 4": 37542,
+                    "behavior 5": 37544
+                },
+                "kids": {
+                    "37527": {
+                        "name": {
+                            "templateID": 45,
+                            "behaviorTemplateName": "Start",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 37528,
+                            "use_target": 0
+                        },
+                        "kids": {
+                            "37528": {
+                                "name": {
+                                    "templateID": 15,
+                                    "behaviorTemplateName": "Stun",
+                                    "effectID": 8177
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "cant_attack": 1,
+                                    "cant_equip": 1,
+                                    "cant_interact": 1,
+                                    "cant_move": 1,
+                                    "cant_turn": 1,
+                                    "cant_use_item": 1,
+                                    "ignore_immunity": 0,
+                                    "stun_caster": 1
+                                },
+                                "kids": {}
+                            }
+                        }
+                    },
+                    "37529": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 37530,
+                            "delay": 17,
+                            "ignore_interrupts": 0,
+                            "num_intervals": 1
+                        },
+                        "kids": {
+                            "37530": {
+                                "name": {
+                                    "templateID": 46,
+                                    "behaviorTemplateName": "End",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "start_action": 37527
+                                },
+                                "kids": {}
+                            }
+                        }
+                    },
+                    "37531": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 37532,
+                            "delay": 1,
+                            "ignore_interrupts": 0,
+                            "num_intervals": 15
+                        },
+                        "kids": {
+                            "37532": {
+                                "name": {
+                                    "templateID": 7,
+                                    "behaviorTemplateName": "AoE",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 37534,
+                                    "max targets": 20,
+                                    "radius": 30,
+                                    "target_enemy": 0,
+                                    "target_friend": 1,
+                                    "target_self": 1,
+                                    "target_team": 1,
+                                    "use_target_as_caster": 0,
+                                    "use_target_position": 0
+                                },
+                                "kids": {
+                                    "37534": {
+                                        "name": {
+                                            "templateID": 13,
+                                            "behaviorTemplateName": "Imagination",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "imagination": 2
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "37542": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 37541,
+                            "delay": 1,
+                            "ignore_interrupts": 0,
+                            "num_intervals": 20
+                        },
+                        "kids": {
+                            "37541": {
+                                "name": {
+                                    "templateID": 7,
+                                    "behaviorTemplateName": "AoE",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 37535,
+                                    "max targets": 20,
+                                    "radius": 30,
+                                    "target_enemy": 0,
+                                    "target_friend": 1,
+                                    "target_self": 1,
+                                    "target_team": 1,
+                                    "use_target_as_caster": 0,
+                                    "use_target_position": 0
+                                },
+                                "kids": {
+                                    "37535": {
+                                        "name": {
+                                            "templateID": 22,
+                                            "behaviorTemplateName": "RepairArmor",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "armor": 1
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "37544": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 37543,
+                            "delay": 1,
+                            "ignore_interrupts": 0,
+                            "num_intervals": 10
+                        },
+                        "kids": {
+                            "37543": {
+                                "name": {
+                                    "templateID": 7,
+                                    "behaviorTemplateName": "AoE",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 37536,
+                                    "max targets": 20,
+                                    "radius": 30,
+                                    "target_enemy": 0,
+                                    "target_friend": 1,
+                                    "target_self": 1,
+                                    "target_team": 1,
+                                    "use_target_as_caster": 0,
+                                    "use_target_position": 0
+                                },
+                                "kids": {
+                                    "37536": {
+                                        "name": {
+                                            "templateID": 5,
+                                            "behaviorTemplateName": "Heal",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "health": 1
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

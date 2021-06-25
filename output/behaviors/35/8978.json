@@ -1,0 +1,176 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": [
+            "Area of Effect",
+            "Interruption"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 8979
+    },
+    "behavior 2": {
+        "initial_value": 8981
+    },
+    "8978": {
+        "name": {
+            "templateID": 3,
+            "behaviorTemplateName": "And",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 8979,
+            "behavior 2": 8981
+        },
+        "kids": {
+            "8979": {
+                "name": {
+                    "templateID": 16,
+                    "behaviorTemplateName": "Duration",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 8980,
+                    "duration": 1
+                },
+                "kids": {
+                    "8980": {
+                        "name": {
+                            "templateID": 15,
+                            "behaviorTemplateName": "Stun",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "cant_attack": 1,
+                            "cant_equip": 1,
+                            "cant_interact": 1,
+                            "cant_move": 1,
+                            "cant_turn": 1,
+                            "stun_caster": 1
+                        },
+                        "kids": {}
+                    }
+                }
+            },
+            "8981": {
+                "name": {
+                    "templateID": 18,
+                    "behaviorTemplateName": "AttackDelay",
+                    "effectID": 2036
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 8982,
+                    "delay": 0,
+                    "num_intervals": 1
+                },
+                "kids": {
+                    "8982": {
+                        "name": {
+                            "templateID": 7,
+                            "behaviorTemplateName": "AoE",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 8983,
+                            "max targets": 15,
+                            "radius": 30,
+                            "target_enemy": 1,
+                            "target_friend": 0,
+                            "target_self": 0,
+                            "use_target_as_caster": 0,
+                            "use_target_position": 0
+                        },
+                        "kids": {
+                            "8983": {
+                                "name": {
+                                    "templateID": 3,
+                                    "behaviorTemplateName": "And",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "behavior 1": 8984,
+                                    "behavior 2": 8985,
+                                    "behavior 3": 8986,
+                                    "behavior 4": 8987
+                                },
+                                "kids": {
+                                    "8984": {
+                                        "name": {
+                                            "templateID": 8,
+                                            "behaviorTemplateName": "PlayEffect",
+                                            "effectID": 2037
+                                        },
+                                        "hasKids": false,
+                                        "info": {},
+                                        "kids": {}
+                                    },
+                                    "8985": {
+                                        "name": {
+                                            "templateID": 55,
+                                            "behaviorTemplateName": "Taunt",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "threat to add": 500
+                                        },
+                                        "kids": {}
+                                    },
+                                    "8986": {
+                                        "name": {
+                                            "templateID": 41,
+                                            "behaviorTemplateName": "Interrupt",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "interrupt_attack": 1,
+                                            "interrupt_block": 0,
+                                            "interrupt_charge": 1,
+                                            "target": 1
+                                        },
+                                        "kids": {}
+                                    },
+                                    "8987": {
+                                        "name": {
+                                            "templateID": 58,
+                                            "behaviorTemplateName": "PullToPoint",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "arc_height": 10,
+                                            "distance_offset": 5
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

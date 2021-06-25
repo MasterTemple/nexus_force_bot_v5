@@ -1,0 +1,170 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": true,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [
+            2,
+            8
+        ],
+        "attackTypes": [
+            "Interruption"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 33011
+    },
+    "behavior 2": {
+        "initial_value": 39527
+    },
+    "39528": {
+        "name": {
+            "templateID": 3,
+            "behaviorTemplateName": "And",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 33011,
+            "behavior 2": 39527
+        },
+        "kids": {
+            "33011": {
+                "name": {
+                    "templateID": 29,
+                    "behaviorTemplateName": "Switch",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action_false": 0,
+                    "action_true": 33012,
+                    "distance": -1,
+                    "imagination": 0,
+                    "isEnemyFaction": 1,
+                    "target_has_buff": -1
+                },
+                "kids": {
+                    "0": {
+                        "hasKids": false,
+                        "info": {},
+                        "kids": {}
+                    },
+                    "33012": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 33013,
+                            "behavior 2": 33014
+                        },
+                        "kids": {
+                            "33013": {
+                                "name": {
+                                    "templateID": 41,
+                                    "behaviorTemplateName": "Interrupt",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "interrupt_attack": 1,
+                                    "interrupt_block": 0,
+                                    "interrupt_charge": 1,
+                                    "target": 1
+                                },
+                                "kids": {}
+                            },
+                            "33014": {
+                                "name": {
+                                    "templateID": 29,
+                                    "behaviorTemplateName": "Switch",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action_false": 33015,
+                                    "action_true": 33016,
+                                    "distance": -1,
+                                    "imagination": 0,
+                                    "isEnemyFaction": 0,
+                                    "target_has_buff": 2
+                                },
+                                "kids": {
+                                    "33015": {
+                                        "name": {
+                                            "templateID": 1,
+                                            "behaviorTemplateName": "BasicAttack",
+                                            "effectID": 7258
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "dir_angle_xz": 0,
+                                            "dir_angle_y": 0,
+                                            "dir_force": 7,
+                                            "max damage": 2,
+                                            "min damage": 2,
+                                            "use_caster_velocity": 0,
+                                            "velocity_multiplier": 1
+                                        },
+                                        "kids": {}
+                                    },
+                                    "33016": {
+                                        "name": {
+                                            "templateID": 1,
+                                            "behaviorTemplateName": "BasicAttack",
+                                            "effectID": 7259
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "dir_angle_xz": 0,
+                                            "dir_angle_y": 0,
+                                            "dir_force": 7,
+                                            "max damage": 8,
+                                            "min damage": 8,
+                                            "use_caster_velocity": 0,
+                                            "velocity_multiplier": 1
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "39527": {
+                "name": {
+                    "templateID": 29,
+                    "behaviorTemplateName": "Switch",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action_false": 0,
+                    "action_true": 33016,
+                    "distance": -1,
+                    "faction": 14,
+                    "imagination": 0,
+                    "isEnemyFaction": 0,
+                    "target_has_buff": -1
+                },
+                "kids": {}
+            }
+        }
+    }
+}

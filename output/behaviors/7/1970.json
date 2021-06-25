@@ -1,0 +1,188 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": true,
+        "projectileAttack": true,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [
+            1,
+            1,
+            1
+        ],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [
+            6318
+        ],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [
+            1
+        ],
+        "chargeUpCombo": 0,
+        "allDamage": [
+            1
+        ],
+        "attackTypes": [
+            "Area of Effect",
+            "Ranged",
+            "Interruption"
+        ]
+    },
+    "projectileBehaviorIDs": [
+        216
+    ],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 1798
+    },
+    "max range": {
+        "initial_value": 19
+    },
+    "min range": {
+        "initial_value": 0
+    },
+    "npc skill time": {
+        "initial_value": 0
+    },
+    "1970": {
+        "name": {
+            "templateID": 52,
+            "behaviorTemplateName": "NPC Combat Skill",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 1798,
+            "max range": 19,
+            "min range": 0,
+            "npc skill time": 0
+        },
+        "kids": {
+            "1798": {
+                "name": {
+                    "templateID": 7,
+                    "behaviorTemplateName": "AoE",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 1797,
+                    "max targets": 1,
+                    "radius": 19,
+                    "target_enemy": 1,
+                    "target_friend": 0,
+                    "target_self": 0
+                },
+                "kids": {
+                    "1797": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 1796
+                        },
+                        "kids": {
+                            "1796": {
+                                "name": {
+                                    "templateID": 4,
+                                    "behaviorTemplateName": "ProjectileAttack",
+                                    "effectID": 583
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "LOT_ID": 6318,
+                                    "max_distance": 19,
+                                    "offset_x": -1,
+                                    "offset_y": 3,
+                                    "offset_z": 0,
+                                    "projectile_speed": 150,
+                                    "projectile_type": 2,
+                                    "track_radius": 5,
+                                    "track_target": 0,
+                                    "use_mouseposit": 0,
+                                    "use_prediction": 0
+                                },
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "216": {
+        "name": {
+            "templateID": 29,
+            "behaviorTemplateName": "Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "action_false": 0,
+            "action_true": 14272,
+            "distance": -1,
+            "imagination": 0,
+            "isEnemyFaction": 1
+        },
+        "kids": {
+            "0": {
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "14272": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 14271,
+                    "behavior 2": 175
+                },
+                "kids": {
+                    "14271": {
+                        "name": {
+                            "templateID": 41,
+                            "behaviorTemplateName": "Interrupt",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "interrupt_attack": 1,
+                            "interrupt_block": 0,
+                            "interrupt_charge": 1,
+                            "target": 1
+                        },
+                        "kids": {}
+                    },
+                    "175": {
+                        "name": {
+                            "templateID": 1,
+                            "behaviorTemplateName": "BasicAttack",
+                            "effectID": 2
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "dir_angle_xz": 0,
+                            "dir_angle_y": 0,
+                            "dir_force": 7,
+                            "max damage": 1,
+                            "min damage": 1,
+                            "on_fail_blocked": 6157,
+                            "use_caster_velocity": 0,
+                            "velocity_multiplier": 1
+                        },
+                        "kids": {}
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": true,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [
+            1
+        ],
+        "attackTypes": [
+            "Area of Effect"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "action": {
+        "initial_value": 27007
+    },
+    "delay": {
+        "initial_value": 5
+    },
+    "ignore_interrupts": {
+        "initial_value": 0
+    },
+    "num_intervals": {
+        "initial_value": 70
+    },
+    "27006": {
+        "name": {
+            "templateID": 18,
+            "behaviorTemplateName": "AttackDelay",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "action": 27007,
+            "delay": 5,
+            "ignore_interrupts": 0,
+            "num_intervals": 70
+        },
+        "kids": {
+            "27007": {
+                "name": {
+                    "templateID": 7,
+                    "behaviorTemplateName": "AoE",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 27008,
+                    "max targets": 4,
+                    "radius": 30,
+                    "target_enemy": 1,
+                    "target_friend": 0,
+                    "target_self": 0,
+                    "target_team": 0,
+                    "use_target_as_caster": 0,
+                    "use_target_position": 0
+                },
+                "kids": {
+                    "27008": {
+                        "name": {
+                            "templateID": 1,
+                            "behaviorTemplateName": "BasicAttack",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "dir_angle_xz": 0,
+                            "dir_angle_y": 0,
+                            "dir_force": 7,
+                            "max damage": 1,
+                            "min damage": 1,
+                            "use_caster_velocity": 0,
+                            "velocity_multiplier": 1
+                        },
+                        "kids": {}
+                    }
+                }
+            }
+        }
+    }
+}

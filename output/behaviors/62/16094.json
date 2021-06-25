@@ -1,0 +1,176 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": true,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [
+            50
+        ],
+        "attackTypes": [
+            "Area of Effect"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "behavior 1": {
+        "initial_value": 16095
+    },
+    "max range": {
+        "initial_value": 60
+    },
+    "min range": {
+        "initial_value": 0
+    },
+    "16094": {
+        "name": {
+            "templateID": 52,
+            "behaviorTemplateName": "NPC Combat Skill",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 16095,
+            "max range": 60,
+            "min range": 0
+        },
+        "kids": {
+            "16095": {
+                "name": {
+                    "templateID": 7,
+                    "behaviorTemplateName": "AoE",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 16096,
+                    "max targets": 1,
+                    "radius": 60,
+                    "target_enemy": 1,
+                    "target_friend": 0,
+                    "target_self": 0,
+                    "target_team": 0,
+                    "use_target_as_caster": 0,
+                    "use_target_position": 0
+                },
+                "kids": {
+                    "16096": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 16097,
+                            "behavior 2": 16098,
+                            "behavior 3": 16100,
+                            "behavior 4": 16102
+                        },
+                        "kids": {
+                            "16097": {
+                                "name": {
+                                    "templateID": 39,
+                                    "behaviorTemplateName": "ChangeOrientation",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "angle": 0,
+                                    "orient_caster": 1,
+                                    "relative": 0,
+                                    "to_angle": 0,
+                                    "to_point": 0,
+                                    "to_target": 1
+                                },
+                                "kids": {}
+                            },
+                            "16098": {
+                                "name": {
+                                    "templateID": 16,
+                                    "behaviorTemplateName": "Duration",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 16099,
+                                    "duration": 0
+                                },
+                                "kids": {
+                                    "16099": {
+                                        "name": {
+                                            "templateID": 15,
+                                            "behaviorTemplateName": "Stun",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "cant_attack": 0,
+                                            "cant_equip": 1,
+                                            "cant_interact": 1,
+                                            "cant_move": 1,
+                                            "cant_turn": 1,
+                                            "stun_caster": 1
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            },
+                            "16100": {
+                                "name": {
+                                    "templateID": 54,
+                                    "behaviorTemplateName": "Verify",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 16101,
+                                    "check_blocking": 0
+                                },
+                                "kids": {
+                                    "16101": {
+                                        "name": {
+                                            "templateID": 1,
+                                            "behaviorTemplateName": "BasicAttack",
+                                            "effectID": 3759
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "dir_angle_xz": 0,
+                                            "dir_angle_y": 0,
+                                            "dir_force": 12,
+                                            "max damage": 50,
+                                            "min damage": 50,
+                                            "use_caster_velocity": 0,
+                                            "velocity_multiplier": 1
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            },
+                            "16102": {
+                                "name": {
+                                    "templateID": 8,
+                                    "behaviorTemplateName": "PlayEffect",
+                                    "effectID": 3760
+                                },
+                                "hasKids": false,
+                                "info": {},
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

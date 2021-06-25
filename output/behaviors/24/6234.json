@@ -1,0 +1,157 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": true,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [
+            5
+        ],
+        "attackTypes": [
+            "Area of Effect",
+            "Interruption",
+            "Knockback"
+        ]
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "action": {
+        "initial_value": 6233
+    },
+    "ignore_faction": {
+        "initial_value": 6
+    },
+    "max targets": {
+        "initial_value": 20
+    },
+    "radius": {
+        "initial_value": 8
+    },
+    "target_enemy": {
+        "initial_value": 1
+    },
+    "target_friend": {
+        "initial_value": 0
+    },
+    "target_self": {
+        "initial_value": 0
+    },
+    "target_team": {
+        "initial_value": 0
+    },
+    "use_target_as_caster": {
+        "initial_value": 0
+    },
+    "use_target_position": {
+        "initial_value": 0
+    },
+    "6234": {
+        "name": {
+            "templateID": 7,
+            "behaviorTemplateName": "AoE",
+            "effectID": 4022
+        },
+        "hasKids": true,
+        "info": {
+            "action": 6233,
+            "ignore_faction": 6,
+            "max targets": 20,
+            "radius": 8,
+            "target_enemy": 1,
+            "target_friend": 0,
+            "target_self": 0,
+            "target_team": 0,
+            "use_target_as_caster": 0,
+            "use_target_position": 0
+        },
+        "kids": {
+            "6233": {
+                "name": {
+                    "templateID": 1,
+                    "behaviorTemplateName": "BasicAttack",
+                    "effectID": 648
+                },
+                "hasKids": true,
+                "info": {
+                    "dir_angle_xz": 0,
+                    "dir_angle_y": 0,
+                    "dir_force": 22,
+                    "max damage": 5,
+                    "min damage": 5,
+                    "on_fail_armor": 6232,
+                    "on_fail_blocked": 6157,
+                    "on_success": 6232,
+                    "use_caster_velocity": 0,
+                    "velocity_multiplier": 1
+                },
+                "kids": {
+                    "6232": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 6230,
+                            "behavior 2": 6229,
+                            "behavior 3": 6231
+                        },
+                        "kids": {
+                            "6230": {
+                                "name": {
+                                    "templateID": 8,
+                                    "behaviorTemplateName": "PlayEffect",
+                                    "effectID": 3544
+                                },
+                                "hasKids": false,
+                                "info": {},
+                                "kids": {}
+                            },
+                            "6229": {
+                                "name": {
+                                    "templateID": 41,
+                                    "behaviorTemplateName": "Interrupt",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "interrupt_attack": 1,
+                                    "interrupt_block": 0,
+                                    "interrupt_charge": 1,
+                                    "target": 1
+                                },
+                                "kids": {}
+                            },
+                            "6231": {
+                                "name": {
+                                    "templateID": 17,
+                                    "behaviorTemplateName": "Knockback",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "angle": 45,
+                                    "caster": 0,
+                                    "ignore_self": 0,
+                                    "relative": 0,
+                                    "strength": 30
+                                },
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,233 @@
+{
+    "overview": {
+        "hasChargeUp": true,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": true,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": true,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 3,
+        "allDamage": [
+            1,
+            3
+        ],
+        "attackTypes": [
+            "Ranged",
+            "Ranged",
+            "Interruption"
+        ],
+        "projectileChargeUpLOT": 4802,
+        "projectileChargeUpDamage": 3
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [
+        216,
+        426
+    ],
+    "behavior 1": {
+        "initial_value": 437
+    },
+    "behavior 2": {
+        "initial_value": 449
+    },
+    "435": {
+        "name": {
+            "templateID": 3,
+            "behaviorTemplateName": "And",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 437,
+            "behavior 2": 449
+        },
+        "kids": {
+            "437": {
+                "name": {
+                    "templateID": 39,
+                    "behaviorTemplateName": "ChangeOrientation",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "to_point": 1,
+                    "to_target": 1
+                },
+                "kids": {}
+            },
+            "449": {
+                "name": {
+                    "templateID": 43,
+                    "behaviorTemplateName": "ChargeUp",
+                    "effectID": 422
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 450,
+                    "max_duration": 3
+                },
+                "kids": {
+                    "450": {
+                        "name": {
+                            "templateID": 44,
+                            "behaviorTemplateName": "SwitchMultiple",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 436,
+                            "behavior 2": 451,
+                            "charge_time": 1,
+                            "value 1": 2,
+                            "value 2": 10000
+                        },
+                        "kids": {
+                            "436": {
+                                "name": {
+                                    "templateID": 4,
+                                    "behaviorTemplateName": "ProjectileAttack",
+                                    "effectID": 420
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "LOT_ID": 4797,
+                                    "max_distance": 300,
+                                    "offset_y": 3,
+                                    "projectile_speed": 45,
+                                    "projectile_type": 2,
+                                    "track_radius": 12,
+                                    "track_target": 1,
+                                    "use_mouseposit": 1
+                                },
+                                "kids": {}
+                            },
+                            "451": {
+                                "name": {
+                                    "templateID": 4,
+                                    "behaviorTemplateName": "ProjectileAttack",
+                                    "effectID": 424
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "LOT_ID": 4802,
+                                    "max_distance": 300,
+                                    "offset_y": 3,
+                                    "projectile_speed": 45,
+                                    "projectile_type": 2,
+                                    "track_radius": 6,
+                                    "track_target": 1,
+                                    "use_mouseposit": 1
+                                },
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "216": {
+        "name": {
+            "templateID": 29,
+            "behaviorTemplateName": "Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "action_false": 0,
+            "action_true": 14272,
+            "distance": -1,
+            "imagination": 0,
+            "isEnemyFaction": 1
+        },
+        "kids": {
+            "0": {
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "14272": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 14271,
+                    "behavior 2": 175
+                },
+                "kids": {
+                    "14271": {
+                        "name": {
+                            "templateID": 41,
+                            "behaviorTemplateName": "Interrupt",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "interrupt_attack": 1,
+                            "interrupt_block": 0,
+                            "interrupt_charge": 1,
+                            "target": 1
+                        },
+                        "kids": {}
+                    },
+                    "175": {
+                        "name": {
+                            "templateID": 1,
+                            "behaviorTemplateName": "BasicAttack",
+                            "effectID": 2
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "dir_angle_xz": 0,
+                            "dir_angle_y": 0,
+                            "dir_force": 7,
+                            "max damage": 1,
+                            "min damage": 1,
+                            "on_fail_blocked": 6157,
+                            "use_caster_velocity": 0,
+                            "velocity_multiplier": 1
+                        },
+                        "kids": {}
+                    }
+                }
+            }
+        }
+    },
+    "426": {
+        "name": {
+            "templateID": 29,
+            "behaviorTemplateName": "Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "action_false": 0,
+            "action_true": 427,
+            "isEnemyFaction": 1
+        },
+        "kids": {
+            "427": {
+                "name": {
+                    "templateID": 1,
+                    "behaviorTemplateName": "BasicAttack",
+                    "effectID": 2
+                },
+                "hasKids": true,
+                "info": {
+                    "max damage": 3,
+                    "min damage": 3
+                },
+                "kids": {}
+            }
+        }
+    }
+}

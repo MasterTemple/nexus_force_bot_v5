@@ -1,0 +1,208 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": true,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": true,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [
+            1,
+            1,
+            1
+        ],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [
+            7854
+        ],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": [
+            "Ranged"
+        ]
+    },
+    "projectileBehaviorIDs": [
+        4459
+    ],
+    "projectileChargeUpBehaviorIDs": [],
+    "double_jump_action": {
+        "initial_value": 11860
+    },
+    "falling_action": {
+        "initial_value": 11860
+    },
+    "ground_action": {
+        "initial_value": 4454
+    },
+    "jetpack_action": {
+        "initial_value": 11860
+    },
+    "jump_action": {
+        "initial_value": 11860
+    },
+    "4453": {
+        "name": {
+            "templateID": 6,
+            "behaviorTemplateName": "Movement Switch",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "double_jump_action": 11860,
+            "falling_action": 11860,
+            "ground_action": 4454,
+            "jetpack_action": 11860,
+            "jump_action": 11860
+        },
+        "kids": {
+            "11860": {
+                "name": {
+                    "templateID": 34,
+                    "behaviorTemplateName": "SkillCastFailed",
+                    "effectID": 0
+                },
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "4454": {
+                "name": {
+                    "templateID": 3,
+                    "behaviorTemplateName": "And",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "behavior 1": 4455,
+                    "behavior 2": 4457
+                },
+                "kids": {
+                    "4455": {
+                        "name": {
+                            "templateID": 16,
+                            "behaviorTemplateName": "Duration",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 4456,
+                            "duration": 1
+                        },
+                        "kids": {
+                            "4456": {
+                                "name": {
+                                    "templateID": 15,
+                                    "behaviorTemplateName": "Stun",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "cant_attack": 1,
+                                    "cant_equip": 1,
+                                    "cant_interact": 1,
+                                    "cant_move": 1,
+                                    "cant_turn": 1,
+                                    "stun_caster": 1
+                                },
+                                "kids": {}
+                            }
+                        }
+                    },
+                    "4457": {
+                        "name": {
+                            "templateID": 18,
+                            "behaviorTemplateName": "AttackDelay",
+                            "effectID": 1207
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "action": 4458,
+                            "delay": 0,
+                            "num_intervals": 1
+                        },
+                        "kids": {
+                            "4458": {
+                                "name": {
+                                    "templateID": 4,
+                                    "behaviorTemplateName": "ProjectileAttack",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "clear_provided_target": 1,
+                                    "LOT_ID": 7854,
+                                    "max_distance": 150,
+                                    "offset_x": 0,
+                                    "offset_y": 3,
+                                    "offset_z": 0,
+                                    "projectile_speed": 40,
+                                    "projectile_type": 1,
+                                    "track_radius": 5,
+                                    "track_target": 0,
+                                    "use_high_arc": 0,
+                                    "use_mouseposit": 0,
+                                    "use_prediction": 0
+                                },
+                                "kids": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "4459": {
+        "name": {
+            "templateID": 3,
+            "behaviorTemplateName": "And",
+            "effectID": 0
+        },
+        "hasKids": true,
+        "info": {
+            "behavior 1": 4460,
+            "behavior 2": 4461
+        },
+        "kids": {
+            "4460": {
+                "name": {
+                    "templateID": 8,
+                    "behaviorTemplateName": "PlayEffect",
+                    "effectID": 1208
+                },
+                "hasKids": false,
+                "info": {},
+                "kids": {}
+            },
+            "4461": {
+                "name": {
+                    "templateID": 16,
+                    "behaviorTemplateName": "Duration",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action": 4462,
+                    "duration": 14
+                },
+                "kids": {
+                    "4462": {
+                        "name": {
+                            "templateID": 27,
+                            "behaviorTemplateName": "Spawn Object",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "distance": 0,
+                            "LOT_ID": 7856
+                        },
+                        "kids": {}
+                    }
+                }
+            }
+        }
+    }
+}

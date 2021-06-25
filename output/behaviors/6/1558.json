@@ -1,0 +1,163 @@
+{
+    "overview": {
+        "hasChargeUp": false,
+        "spawnsObject": false,
+        "spawnsQuickbuild": false,
+        "meleeAttack": false,
+        "projectileAttack": false,
+        "projectileAttackChargeUp": false,
+        "damageComboArray": [],
+        "chargeUpArmorRestore": [],
+        "chargeUpImaginationRestore": [],
+        "projectileLOTs": [],
+        "projectileInfo": {},
+        "projectileDamageComboArray": [],
+        "chargeUpCombo": 0,
+        "allDamage": [],
+        "attackTypes": [
+            "Area of Effect"
+        ],
+        "chargeUpCost": -2
+    },
+    "projectileBehaviorIDs": [],
+    "projectileChargeUpBehaviorIDs": [],
+    "action": {
+        "initial_value": 1555
+    },
+    "delay": {
+        "initial_value": 0
+    },
+    "num_intervals": {
+        "initial_value": 1
+    },
+    "1558": {
+        "name": {
+            "templateID": 18,
+            "behaviorTemplateName": "AttackDelay",
+            "effectID": 547
+        },
+        "hasKids": true,
+        "info": {
+            "action": 1555,
+            "delay": 0,
+            "num_intervals": 1
+        },
+        "kids": {
+            "1555": {
+                "name": {
+                    "templateID": 29,
+                    "behaviorTemplateName": "Switch",
+                    "effectID": 0
+                },
+                "hasKids": true,
+                "info": {
+                    "action_false": 1556,
+                    "action_true": 1557,
+                    "distance": -1,
+                    "imagination": 2,
+                    "isEnemyFaction": 0
+                },
+                "kids": {
+                    "1556": {
+                        "name": {
+                            "templateID": 8,
+                            "behaviorTemplateName": "PlayEffect",
+                            "effectID": 4
+                        },
+                        "hasKids": false,
+                        "info": {},
+                        "kids": {}
+                    },
+                    "1557": {
+                        "name": {
+                            "templateID": 3,
+                            "behaviorTemplateName": "And",
+                            "effectID": 0
+                        },
+                        "hasKids": true,
+                        "info": {
+                            "behavior 1": 1559,
+                            "behavior 2": 1561,
+                            "behavior 3": 1563
+                        },
+                        "kids": {
+                            "1559": {
+                                "name": {
+                                    "templateID": 13,
+                                    "behaviorTemplateName": "Imagination",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "imagination": -2
+                                },
+                                "kids": {}
+                            },
+                            "1561": {
+                                "name": {
+                                    "templateID": 7,
+                                    "behaviorTemplateName": "AoE",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 1560,
+                                    "max targets": 1,
+                                    "radius": 20,
+                                    "target_enemy": 0,
+                                    "target_friend": 1,
+                                    "target_self": 1
+                                },
+                                "kids": {
+                                    "1560": {
+                                        "name": {
+                                            "templateID": 5,
+                                            "behaviorTemplateName": "Heal",
+                                            "effectID": 32
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "health": 2
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            },
+                            "1563": {
+                                "name": {
+                                    "templateID": 16,
+                                    "behaviorTemplateName": "Duration",
+                                    "effectID": 0
+                                },
+                                "hasKids": true,
+                                "info": {
+                                    "action": 1562,
+                                    "duration": 1
+                                },
+                                "kids": {
+                                    "1562": {
+                                        "name": {
+                                            "templateID": 15,
+                                            "behaviorTemplateName": "Stun",
+                                            "effectID": 0
+                                        },
+                                        "hasKids": true,
+                                        "info": {
+                                            "cant_attack": 1,
+                                            "cant_equip": 1,
+                                            "cant_interact": 1,
+                                            "cant_move": 1,
+                                            "cant_turn": 1,
+                                            "stun_caster": 1
+                                        },
+                                        "kids": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
