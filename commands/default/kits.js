@@ -14,7 +14,7 @@ module.exports = {
         embed.setURL(`${config['explorer_link_domain']}objects/item-sets/${id}`)
 
         let fields_function = require('./../../functions/fields/kits')
-        fields_function(embed, data_file, config)
+        fields_function(embed, data_file, config, message.client)
 
         return [, embed, , ]
     }

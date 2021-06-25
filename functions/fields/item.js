@@ -1,4 +1,4 @@
-module.exports = function(embed, info_file, config) {
+module.exports = function(embed, info_file, config, client) {
 
 
     /*
@@ -307,9 +307,9 @@ module.exports = function(embed, info_file, config) {
     }
     if(item.itemInfo.type === "Loot" && isConsumable === false)
         embed.addFields(
-            { name: `${config.emojis.armor} Armor`, value: item?.stats?.armorBonusUI, inline: true },
-            { name: `${config.emojis.heart} Health`, value: item?.stats?.lifeBonusUI, inline: true },
-            { name: `${config.emojis.imagination} Imagination`, value: item?.stats?.imBonusUI, inline: true },
+            { name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: item?.stats?.armorBonusUI, inline: true },
+            { name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: item?.stats?.lifeBonusUI, inline: true },
+            { name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: item?.stats?.imBonusUI, inline: true },
         )
 
     if(item.overview.length == 1  === true && item.projectileDamageInfo.projectileDamageCombo === ""){

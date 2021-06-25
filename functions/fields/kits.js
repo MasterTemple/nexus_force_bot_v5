@@ -1,4 +1,4 @@
-module.exports = function(embed, info_file, config) {
+module.exports = function(embed, info_file, config, client) {
 
     //this will only be 1 page cause its a short command, but i might need more fields later if i try to add the option to see all items
 
@@ -22,9 +22,9 @@ module.exports = function(embed, info_file, config) {
             inline: false
         })
         embed.addFields(
-            {name: `${config.emojis.armor} Armor`, value: info_file['totalWithoutValiant']['armorBonusUI'], inline: true},
-            {name: `${config.emojis.heart} Health`, value: info_file['totalWithoutValiant']['lifeBonusUI'], inline: true},
-            {name: `${config.emojis.imagination} Imagination`, value: info_file['totalWithoutValiant']['imBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: info_file['totalWithoutValiant']['armorBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: info_file['totalWithoutValiant']['lifeBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: info_file['totalWithoutValiant']['imBonusUI'], inline: true},
         )
 
         embed.addFields({
@@ -33,16 +33,16 @@ module.exports = function(embed, info_file, config) {
             inline: false
         })
         embed.addFields(
-            {name: `${config.emojis.armor} Armor`, value: info_file['totalWithValiant']['armorBonusUI'], inline: true},
-            {name: `${config.emojis.heart} Health`, value: info_file['totalWithValiant']['lifeBonusUI'], inline: true},
-            {name: `${config.emojis.imagination} Imagination`, value: info_file['totalWithValiant']['imBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: info_file['totalWithValiant']['armorBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: info_file['totalWithValiant']['lifeBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: info_file['totalWithValiant']['imBonusUI'], inline: true},
         )
     }
     else if(without_valiant_length > 0){
         embed.addFields(
-            {name: `${config.emojis.armor} Armor`, value: info_file['totalWithoutValiant']['armorBonusUI'], inline: true},
-            {name: `${config.emojis.heart} Health`, value: info_file['totalWithoutValiant']['lifeBonusUI'], inline: true},
-            {name: `${config.emojis.imagination} Imagination`, value: info_file['totalWithoutValiant']['imBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: info_file['totalWithoutValiant']['armorBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: info_file['totalWithoutValiant']['lifeBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: info_file['totalWithoutValiant']['imBonusUI'], inline: true},
         )
     }
 
