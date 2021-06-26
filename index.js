@@ -35,17 +35,6 @@ command_types.forEach(function(command_type){
 
 client.once('ready', () => {
     console.log(`${config.name} ${parseFloat(config.version).toFixed( 1)} is ready :)`) //logs that the bot is ready
-    if(config.startup_status) {
-        //client.user.setPresence({activity: {name: config.startup_status}}) //sets a status if the bot has one
-        // client.user.setPresence({
-        //     status: 'online',
-        //     activity: {
-        //         name: config.startup_status,
-        //         type:'PLAYING',
-        //     }
-        // })
-        // client.clientStatus('mobile')
-    }
 
 })
 
@@ -80,7 +69,6 @@ client.on('message', message => {
 
                 if(embed?.fields.length > command?.embed_length){
                     embed.fields = embed.fields.slice(0, command.embed_length)
-                    //console.log(embed.fields.join(','))
                 }
                 let sent_message = await message.channel.send(text, {embed: embed, components: components})
                 message_info[sent_message.id] = returned_message_info
@@ -88,7 +76,17 @@ client.on('message', message => {
 
 
             }catch(error){
+                //sends an embed with the object info (used for errors)
                 console.log(error)
+
+                let embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
+                let sql_objects = require('./output/references/sql_objects.json')
+                let object_id = search('objects', true, args)
+                let object = sql_objects.filter(each_object => each_object.id === parseInt(object_id))[0]
+                embed.setTitle(object.type)
+                embed.setDescription("There was an error running this command.")
+                embed.addField(object.displayName, `${object.name} [[${object_id}]](${config.explorer_link_domain}objects/${object_id})`)
+                message.channel.send(embed)
             }
         }
     })
@@ -126,7 +124,7 @@ client.on('clickButton', async (button) => {
         }
         command_name = command_name.replace(/\[[^\]]*]/g, '')
         //removes anything between and including [..] in the button id
-
+        let dont_change_page = ['activity','activityf','drop','dropf','package','packagef','enemydrop','enemydropf']
         if(command_name.includes('_next')){
             command_name = command_name.replace(/(_next)/g, '')
             page++
@@ -134,7 +132,7 @@ client.on('clickButton', async (button) => {
         else if(command_name.includes('_previous')){
             command_name = command_name.replace(/_previous/g, '')
             page--
-        }else if(!command_name.includes('percent') || !command_name.includes('fraction')){
+        }else if(!dont_change_page.includes(command_name)){
             //this way max pages wont transfer over into another command
             page = 0
             delete message_info[button.message.id].max_pages
@@ -142,8 +140,7 @@ client.on('clickButton', async (button) => {
 
         // console.log(command_type,command_name)
         let command = client[command_type].get(command_name) //this is the executable command
-        // let [text, embed, components, returned_message_info] = await command.execute(button.message, config, id, page, old_embed, message_info[button.message.id])
-        // message_info[button.message.id] = returned_message_info
+
 
         try {
             //command.execute(message, command_type, command_name, args)

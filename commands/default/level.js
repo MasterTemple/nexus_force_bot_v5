@@ -1,9 +1,9 @@
 module.exports = {
     name: ['level'],
-    description: 'level',
+    description: 'Level information',
     use: 'level [args]',
     example:['level samurai 3'],
-    notes: 'This is a command used to level.',
+    notes: 'This is a command used to view level experience requirements.',
     search_type: 'objects',
     embed_length: 6,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

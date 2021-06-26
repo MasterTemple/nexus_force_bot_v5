@@ -2,7 +2,7 @@ module.exports = {
     name: ['activity'],
     description: 'View what an activity drops',
     use: 'activity [args]',
-    example:['activity samurai 3'],
+    example:['activity fv dragon'],
     notes: 'This is a command used to view what an activity drops.',
     search_type: 'activities',
     embed_length: 6,

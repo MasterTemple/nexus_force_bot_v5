@@ -1,9 +1,9 @@
 module.exports = {
     name: ['package'],
-    description: 'View what an package drops',
+    description: 'View what a package drops',
     use: 'package [args]',
     example:['package samurai 3'],
-    notes: 'This is a command used to view what an package drops.',
+    notes: 'This is a command used to view what a package drops.',
     search_type: 'packages',
     embed_length: 6,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

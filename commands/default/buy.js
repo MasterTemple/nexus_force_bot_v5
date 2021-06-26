@@ -1,9 +1,9 @@
 module.exports = {
     name: ['buy'],
-    description: 'View how to buy an item',
+    description: 'View how to buy an item or brick',
     use: 'buy [args]',
-    example:['buy samurai 3'],
-    notes: 'This is a command used to view how to buy an item.',
+    example:['buy samurai sword 3'],
+    notes: 'This is a command used to view how to buy an item or brick.',
     search_type: 'bricks_or_items',
     embed_length: 24,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

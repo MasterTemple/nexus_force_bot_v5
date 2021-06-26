@@ -1,4 +1,4 @@
-module.exports = function(page, max_pages){
+module.exports = function(page, max_pages, data_file){
     let { MessageButton } = require('discord-buttons')
     let previous = new MessageButton()
         .setStyle('blurple')
@@ -21,6 +21,9 @@ module.exports = function(page, max_pages){
     }
     if(max_pages === page){
         next.setDisabled(true)
+    }
+    if(data_file.isVendor !== 1){
+        npc_vendor.setDisabled(true)
     }
     let components = [[npc_missions, npc_vendor, previous, next]]
     return components

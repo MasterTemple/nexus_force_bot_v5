@@ -1,9 +1,9 @@
 module.exports = {
     name: ['cooldowngroup', 'cdg'],
-    description: 'View cooldowngroup stats',
-    use: 'cooldowngroup [args]',
-    example:['cooldowngroup samurai 3'],
-    notes: 'This is a command used to view an cooldowngroup.',
+    description: 'View skills cooldowngroup\'s skills',
+    use: 'cooldowngroup [cooldown group id]',
+    example:['cooldowngroup 21'],
+    notes: 'This is a command used to view all skills in a cooldown group.',
     embed_length: 6,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
         // let cooldowngroupData = require(`${config['output_path']}objects/${Math.floor(id/256)}/${id}.json`)

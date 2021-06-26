@@ -1,9 +1,9 @@
 module.exports = {
     name: ['mission', 'achievement'],
-    description: 'View mission stats',
+    description: 'View a mission\'s information',
     use: 'mission [args]',
     example:['mission samurai 3'],
-    notes: 'This is a command used to view an mission.',
+    notes: 'This is a command used to view a mission or an achievement.',
     search_type: 'missions',
     embed_length: 24,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

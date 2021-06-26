@@ -1,9 +1,9 @@
 module.exports = {
     name: ['tic'],
-    description: 'tic',
+    description: 'Play tic tac toe',
     use: 'tic [args]',
     example:['tic samurai 3'],
-    notes: 'This is a command used to tic.',
+    notes: 'This is a command used start a game of tic tac toe.',
     embed_length: 6,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
         // console.log(message?.embeds?.[0]?.fields)

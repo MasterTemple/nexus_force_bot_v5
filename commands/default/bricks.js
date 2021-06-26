@@ -1,9 +1,9 @@
 module.exports = {
     name: ['brick', 'bricks'],
-    description: 'View brick stats',
+    description: 'View brick information',
     use: 'brick [args]',
-    example:['brick samurai 3'],
-    notes: 'This is a command used to view an brick.',
+    example:['brick tail fin 2x3x2'],
+    notes: 'This is a command used to view a brick.',
     search_type: 'bricks',
     embed_length: 24,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

@@ -3,7 +3,7 @@ module.exports = {
     description: 'Displays admin command',
     use: `admin`,
     example:[`admin`],
-    notes: "This command lists all other commands",
+    notes: "This command lists all admin commands",
     embed_length: 24,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
 

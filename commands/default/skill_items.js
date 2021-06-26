@@ -1,9 +1,9 @@
 module.exports = {
     name: ['skillitems', 'skillitem'],
-    description: 'View skill stats',
+    description: 'View skill items',
     use: 'skill [args]',
     example:['skill samurai 3'],
-    notes: 'This is a command used to view an skill.',
+    notes: 'This is a command used to view all items with a skill.',
     search_type: 'skills',
     embed_length: 6,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

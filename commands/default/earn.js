@@ -2,7 +2,7 @@ module.exports = {
     name: ['earn'],
     description: 'View how to earn an item',
     use: 'earn [args]',
-    example:['earn samurai 3'],
+    example:['earn bat lord helmet'],
     notes: 'This is a command used to view how to earn an item.',
     search_type: 'bricks_or_items',
     embed_length: 6,

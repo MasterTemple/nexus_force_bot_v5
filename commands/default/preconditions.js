@@ -1,9 +1,9 @@
 module.exports = {
     name: ['preconditions', 'pre'],
-    description: 'View how to preconditions an item',
+    description: 'View the preconditions of an item',
     use: 'preconditions [args]',
     example:['preconditions samurai 3'],
-    notes: 'This is a command used to view how to preconditions an item.',
+    notes: 'This is a command used to view the preconditions of an item.',
     search_type: 'bricks_or_items',
     embed_length: 6,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

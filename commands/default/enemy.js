@@ -2,8 +2,8 @@ module.exports = {
     name: ['enemy'],
     description: 'View enemy stats',
     use: 'enemy [args]',
-    example:['enemy samurai 3'],
-    notes: 'This is a command used to view an enemy.',
+    example:['enemy ape'],
+    notes: 'This is a command used to view an enemy\'s stats.',
     search_type: 'enemies',
     embed_length: 24,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

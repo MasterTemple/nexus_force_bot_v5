@@ -1,9 +1,9 @@
 module.exports = {
     name: ['loottable', 'lti'],
-    description: 'View how to loot_table an item',
+    description: 'View items in a loot table',
     use: 'loot_table [args]',
     example:['loot_table samurai 3'],
-    notes: 'This is a command used to view how to loot_table an item.',
+    notes: 'This is a command used to view all items in a loot table.',
     search_type: 'lti_names',
     embed_length: 18,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

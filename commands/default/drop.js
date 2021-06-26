@@ -1,9 +1,9 @@
 module.exports = {
     name: ['drop'],
-    description: 'View how to drop an item',
+    description: 'View what drops an item',
     use: 'drop [args]',
-    example:['drop samurai 3'],
-    notes: 'This is a command used to view how to drop an item.',
+    example:['drop red parrot'],
+    notes: 'This is a command used to view what drops an item.',
     search_type: 'bricks_or_items',
     embed_length: 6,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

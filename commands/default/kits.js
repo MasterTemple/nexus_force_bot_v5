@@ -1,6 +1,6 @@
 module.exports = {
     name: ['kit', 'kits'],
-    description: 'Item Set',
+    description: 'View an item Set',
     use: 'kit [args]',
     example:['kit samurai 3'],
     notes: 'This is a command used to view all the bonuses of an item set.',

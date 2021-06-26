@@ -1,9 +1,9 @@
 module.exports = {
     name: ['enemydrop', 'ed'],
-    description: 'View what an enemydrop drops',
+    description: 'View what an enemy drops',
     use: 'enemydrop [args]',
-    example:['enemydrop samurai 3'],
-    notes: 'This is a command used to view what an enemydrop drops.',
+    example:['enemydrop ape'],
+    notes: 'This is a command used to view what an enemy drops.',
     search_type: 'enemies',
     embed_length: 6,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

@@ -1,9 +1,9 @@
 module.exports = {
     name: ['vendor', 'npcvendor'],
-    description: 'View npc stats',
+    description: 'View what a vendor sells',
     use: 'npc [args]',
     example:['npc samurai 3'],
-    notes: 'This is a command used to view an npc.',
+    notes: 'This is a command used to view what a vendor sells.',
     search_type: 'npcs',
     embed_length: 18,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
@@ -26,7 +26,7 @@ module.exports = {
         }
 
         let components_function = require('./../../functions/components/npc_vendor')
-        let components = components_function(page, message_data['max_pages'])
+        let components = components_function(page, message_data['max_pages'], data_file)
 
         return [, embed, components, message_data]
     }

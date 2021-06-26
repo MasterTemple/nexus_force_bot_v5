@@ -3,7 +3,7 @@ module.exports = {
     description: 'View skill stats',
     use: 'skill [args]',
     example:['skill samurai 3'],
-    notes: 'This is a command used to view an skill.',
+    notes: 'This is a command used to view the stats of a skill.',
     search_type: 'skills',
     embed_length: 24,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

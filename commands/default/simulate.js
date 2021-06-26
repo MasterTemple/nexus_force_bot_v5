@@ -1,9 +1,9 @@
 module.exports = {
     name: ['simulate'],
-    description: 'View how to simulate an item',
+    description: 'Simulate a drop from an enemy, package, or activity',
     use: 'simulate [args]',
     example:['simulate samurai 3'],
-    notes: 'This is a command used to view how to simulate an item.',
+    notes: 'This is a command used to simulate a drop from an enemy, package, or activity.',
     search_type: 'bricks_or_items',
     embed_length: 6,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
