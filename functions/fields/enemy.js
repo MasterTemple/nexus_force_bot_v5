@@ -1,8 +1,8 @@
 module.exports = function(embed, data_file, config){
     let enemyFile = data_file
-    let hpString = `**${enemyFile.itemInfo.life}** ${config.emojis.heart}`
+    let hpString = `**${enemyFile.itemInfo.life}** ${client.emojis.cache.get(config.emojis.heart)}`
     if(enemyFile.itemInfo.armor !== 0){
-        hpString = `${hpString}    **${enemyFile.itemInfo.armor}** ${config.emojis.armor}`
+        hpString = `${hpString}    **${enemyFile.itemInfo.armor}** ${client.emojis.cache.get(config.emojis.armor)}`
     }
 
     embed.addFields(
