@@ -1,4 +1,4 @@
-module.exports = function(embed, data_file, config){
+module.exports = function(embed, data_file, config, client){
     let enemyFile = data_file
     let hpString = `**${enemyFile.itemInfo.life}** ${client.emojis.cache.get(config.emojis.heart)}`
     if(enemyFile.itemInfo.armor !== 0){
