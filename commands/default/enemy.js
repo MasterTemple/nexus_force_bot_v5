@@ -13,7 +13,7 @@ module.exports = {
         embed.setURL(`${config['explorer_link_domain']}objects/${id}`)
 
         let fields_function = require('./../../functions/fields/enemy')
-        fields_function(embed, data_file, config)
+        fields_function(embed, data_file, config, message.client)
         let components_function = require('./../../functions/components/enemy')
         let components = components_function(data_file, config)
 
