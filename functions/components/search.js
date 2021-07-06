@@ -1,4 +1,16 @@
-module.exports = function(page, max_pages, results){
+module.exports = function(page, max_pages, results, embed_length){
+    let previous_is_disabled = false
+    let next_is_disabled = false
+
+    if(parseInt(page) === 0){
+        previous_is_disabled = true
+    }
+    if(max_pages === page){
+        next_is_disabled = true
+    }
+
+    results = results.slice(page * embed_length, (embed_length * page) + embed_length)
+
     let options = []
 
     // let r2e = require('C:\\Users\\dgmastertemple\\IdeaProjects\\personal_bot\\render_components_to_emoji_id.json')
@@ -44,6 +56,25 @@ module.exports = function(page, max_pages, results){
                     "placeholder": "Select an item",
                     "min_values": 1,
                     "max_values": 1
+                }
+            ]
+        },
+        {
+            "type": 1,
+            "components": [
+                {
+                    "type": 2,
+                    "label": "Previous",
+                    "style": 1,
+                    "custom_id": "default.search_previous",
+                    "disabled": previous_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Next",
+                    "style": 1,
+                    "custom_id": "default.search_next",
+                    "disabled": next_is_disabled
                 }
             ]
         }
