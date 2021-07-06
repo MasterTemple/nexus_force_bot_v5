@@ -41,6 +41,7 @@ module.exports = {
             }
 
         }else{
+            embed.setTitle(config.name)
             embed.setDescription(description)
         }
         // console.log(message, args, config, id, page, embed, previous_components, message_data)
