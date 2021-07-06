@@ -368,7 +368,7 @@ module.exports = function(embed, info_file, config, client) {
     }else if(item.itemComponent.commendationCurrencyCost !== null){
         embed.addFields(
             {name: "Cost", value: item.itemComponent.buyPrice.toString(), inline: true},
-            {name: `${item.itemComponent.commendationCurrencyDisplayName} Cost`, value: item.itemComponent.commendationCurrencyCost, inline: true},
+            {name: `${item.itemComponent.commendationCurrencyDisplayName} Cost`, value: item.itemComponent.commendationCurrencyCost.toString(), inline: true},
             {name: "Level Requirement", value: item.itemComponent.levelRequirement.toString(), inline: true},
         )
     }else if(item.itemComponent.commendationCurrencyCost === null){

@@ -37,7 +37,7 @@ module.exports = {
         }
 
         let components_function = require('./../../functions/components/skill_items')
-        let components = components_function(this_skill.name, this_skill.cdg, page, message_data['max_pages'])
+        let components = components_function(this_skill.name, this_skill.cdg, page, message_data['max_pages'], skillData.items, module.exports.embed_length)
 
 
 
