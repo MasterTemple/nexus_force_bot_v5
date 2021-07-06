@@ -1,7 +1,8 @@
 const Discord = require('discord.js')
 const fs = require('fs')
 let config = require('./config.json')
-const intents = new Discord.Intents(Discord.Intents.ALL);
+// const intents = new Discord.Intents(Discord.Intents.ALL);
+// const intents = new Discord.Intents(Discord.Intents.ALL);
 // const client = new Discord.Client({ intents: intents });
 // const client = new Discord.Client()
 const client = new Discord.Client({
@@ -12,7 +13,7 @@ const client = new Discord.Client({
             type: 'PLAYING'
         },
     },
-    intents: intents
+    intents: ['GUILD_MESSAGES', 'DIRECT_MESSAGES']
 })
 
 
