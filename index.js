@@ -36,7 +36,9 @@ command_types.forEach(function(command_type){
 
 client.once('ready', () => {
     console.log(`${config.name} ${parseFloat(config.version).toFixed( 1)} is ready :)`) //logs that the bot is ready
-
+    config.bot_channels.forEach((each_channel)=> {
+        client.channels.cache.get(each_channel).send({content: "Bot updated ☑"})
+    })
 })
 
 client.on('message', message => {
@@ -106,6 +108,7 @@ client.on('interaction', async (interaction) => {
         message_info[interaction.message.id] = {}
         was_not_undefined = false
     }
+    // console.log(interaction.message.components)
     if (interaction.componentType === 'BUTTON') {
         try {
 
@@ -114,7 +117,7 @@ client.on('interaction', async (interaction) => {
 
 
                 // console.log(button)
-            console.log(message_info[button.message.id])
+            // console.log(message_info[button.message.id])
 
                 message_info[button.message.id]['button_id'] = button.customID
                 message_info[button.message.id]['button_clicker'] = button.user.id
