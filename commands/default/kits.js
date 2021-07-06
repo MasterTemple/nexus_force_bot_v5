@@ -15,7 +15,9 @@ module.exports = {
 
         let fields_function = require('./../../functions/fields/kits')
         fields_function(embed, data_file, config, message.client)
+        let components_function = require('./../../functions/components/kits')
+        let components = components_function(data_file)
 
-        return [, embed, , ]
+        return [, embed, components, message_data]
     }
 }
