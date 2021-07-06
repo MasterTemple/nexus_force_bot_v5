@@ -13,7 +13,7 @@ const client = new Discord.Client({
             type: 'PLAYING'
         },
     },
-    intents: ['GUILD_MESSAGES', 'DIRECT_MESSAGES']
+    intents: ['GUILD_MESSAGES', 'DIRECT_MESSAGES', 'GUILDS']
 })
 
 
