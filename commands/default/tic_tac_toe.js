@@ -99,7 +99,7 @@ module.exports = {
 
         embed.setTitle(`Tic Tac Toe!`)
         embed.setThumbnail(config.universe_icon)
-        console.log(message_data)
+        // console.log(message_data)
         let fields_function = require('./../../functions/fields/tic')
         await fields_function(embed, config, message_data, message.client)
 

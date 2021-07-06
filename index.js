@@ -101,12 +101,8 @@ client.on('message', message => {
 })
 
 client.on('interaction', async (interaction) => {
-    console.log(interaction.componentType)
-    // console.log(interaction.message.content)
-    // console.log(interaction.message.embeds)
-    // console.log(interaction.message.components)
+
     if (interaction.componentType === 'BUTTON') {
-            // console.log('button')
         try {
 
             let button = interaction
@@ -163,7 +159,6 @@ client.on('interaction', async (interaction) => {
                         rejection_reason = command.rejection_reason
                     }
                     await interaction.reply({content: rejection_reason, ephemeral: true})
-                    // button.defer()
                     return
                 }
                 try {
@@ -172,51 +167,57 @@ client.on('interaction', async (interaction) => {
                     let previous_components = button.message.components
 
                     let args = old_embed.title.match(/(?<=").*(?=")/g)?.[0].split(/ +/g)
-                    //console.log(command_type, command_name)
-                    //console.log(client[command_type])
+
                     let [text, embed, buttons, returned_message_info] = await command.execute(button.message, args, config, id, page, old_embed, previous_components, message_info[button.message.id])
-                    //message_info[button.message.id] = returned_message_info
-                    //this allows for either completed components or buttons in a 2D array
                     let components = buttons
 
                     if (embed.fields.length > command?.embed_length) {
                         embed.fields = embed.fields.slice(page * command.embed_length, (command.embed_length * page) + command.embed_length)
-                        //console.log(embed.fields.join(','))
                     }
-                    //console.log(embed.fields)
-                    // await button.message.edit({content: text, embeds: [embed], components: components})
-                    // console.log(JSON.stringify(components, null, 2))
+
                     await interaction.update({content: text, embeds: [embed], components: components})
 
                     message_info[button.message.id] = {...message_info[button.message.id], ...returned_message_info}
 
-                    // try{
-                    //     await button.editReply({content: text, embeds: [embed], components: components})
-                    //     message_info[button.message.id] = {...message_info[button.message.id], ...returned_message_info}
-                    // }
-                    // catch(e){
-                    //     console.log(e)
-                    //     let sent_message = await button.reply({content: text, embeds: [embed], components: components, ephemeral: true})
-                    //     message_info[sent_message.id] = {...message_info[button.message.id], ...returned_message_info}
-                    //     setTimeout(() => delete message_info[sent_message.id], config.time_out_ms)
-                    // }
-                    // await button.message.edit({content: text, embeds: [embed], components: components})
-                    // message_info[button.message.id] = {...message_info[button.message.id], ...returned_message_info}
-
                 } catch (error) {
                     console.log(error)
                 }
-
-                //message.channel.edit(text, {embed: embed, components: components})
-
             } catch (error) {
-                // console.log(error)
+                console.log(error)
             }
-            //button.defer()
         }
     if(interaction.componentType === 'SELECT_MENU'){
-        console.log(interaction)
-        interaction.reply({content: "This is not ready yet!", ephemeral: true})
+        // console.log(interaction)
+        // interaction.reply({content: "This is not ready yet!", ephemeral: true})
+        let id = interaction.values[0].match(/(?<=\[)\d+/g)?.[0]
+        let type = interaction.values[0].match(/(\w|\s)+(?= )/g)?.[0]
+        // console.log(`-${id}-`)
+        // console.log(`-${type}-`)
+
+
+        let type_to_command_info = {
+            "Loot": ['default', 'item'],
+            "LEGO brick": ['default', 'brick'],
+            "NPC": ['default', 'npc'],
+            "UserGeneratedNPCs": ['default', 'npc'],
+            "Enemies": ['default', 'enemy']
+        }
+
+        let blank_embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
+        let page = 0
+        let [command_type, command_name] = type_to_command_info[type]
+
+        let command = client[command_type].get(command_name) //this is the executable command
+
+        let [text, embed, components, returned_message_info] = await command.execute(interaction.message, [], config, id, page, blank_embed, {}, {})
+
+        if (embed.fields.length > command?.embed_length) {
+            embed.fields = embed.fields.slice(page * command.embed_length, (command.embed_length * page) + command.embed_length)
+        }
+        await interaction.update({content: text, embeds: [embed], components: components})
+
+        message_info[interaction.message.id] = {...message_info[interaction.message.id], ...returned_message_info}
+
     }
     // console.log('\n\n\n')
 })
