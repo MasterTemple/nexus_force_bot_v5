@@ -8,13 +8,17 @@ let config = require('./config.json')
 const client = new Discord.Client({
     presence: {
         status: 'online',
-        activity: {
-            name: config.startup_status,
-            type: 'PLAYING'
-        },
+        activities: [
+            {
+                name: config.startup_status,
+                type: 'STREAMING',
+                url: 'https://www.twitch.tv/directory/game/Lego%20Universe'
+            }
+        ],
     },
     intents: ['GUILD_MESSAGES', 'DIRECT_MESSAGES', 'GUILDS']
 })
+
 
 
 const initialize_commands = require('./functions/initialize/get_commands')

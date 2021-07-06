@@ -11,7 +11,7 @@ module.exports = function(cdg, page, max_pages, data_file, embed, embed_length) 
     let options = []
     let data_fields = embed.fields.slice(page * embed_length, (embed_length * page) + embed_length)
     data_fields.forEach((each_result) => {
-        console.log(each_result)
+        // console.log(each_result)
         let emoji_id = '861767165685399552'
         let desc = each_result.value.replace('[[', '[')
         desc = desc.replace(']]', ']')
