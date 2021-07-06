@@ -222,7 +222,8 @@ client.on('interaction', async (interaction) => {
             "UserGeneratedNPCs": ['default', 'npc'],
             "Enemies": ['default', 'enemy'],
             "help": ['default', 'help'],
-            "lti": ['default', 'lti']
+            "lti": ['default', 'lti'],
+            "skill": ['default', 'skill']
         }
 
         let blank_embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)

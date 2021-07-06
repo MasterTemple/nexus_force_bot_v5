@@ -48,7 +48,7 @@ module.exports = {
 
         let components_function = require('./../../functions/components/cooldowngroup')
 
-        let components = components_function(cdg, page, message_data['max_pages'])
+        let components = components_function(cdg, page, message_data['max_pages'], cdg_file, embed, module.exports.embed_length)
 
         return [, embed, components, message_data]
     }

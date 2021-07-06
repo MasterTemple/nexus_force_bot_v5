@@ -13,7 +13,7 @@ module.exports = function(page, max_pages, data_file) {
     data_file['drop']['LootTableIndexes'].forEach((each_result) => {
         let emoji_id = '861767165685399552'
         let obj = {
-            "label": lti_names[each_result['LootTableIndex']].name.substring(0, 24),
+            "label": lti_names[each_result['LootTableIndex']].name.substring(0, 25),
             // "value": each_result.id.toString(),
             "value": `lti [${each_result['LootTableIndex']}]`,
             "description": `${lti_names[each_result['LootTableIndex']].name} [${each_result['LootTableIndex']}]`,
