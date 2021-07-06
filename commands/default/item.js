@@ -12,7 +12,7 @@ module.exports = {
         embed.setTitle(`${data_file.itemInfo.name} [${id}]`)
         embed.setThumbnail(config['image_link_domain']+data_file['iconURL'])
         embed.setURL(`${config['explorer_link_domain']}objects/${id}`)
-
+        delete embed.description
         let fields_function = require('./../../functions/fields/item')
         fields_function(embed, data_file, config, message.client)
         let components_function = require('./../../functions/components/item')

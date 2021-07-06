@@ -109,13 +109,18 @@ client.on('interaction', async (interaction) => {
 
 
                 // console.log(button)
+            try{
                 message_info[button.message.id]['button_id'] = button.customID
                 message_info[button.message.id]['button_clicker'] = button.user.id
-                if (message_info[button.message.id].tier) {
+                if (message_info[button.message.id]?.tier) {
                     // console.log(button)
                     message_info[button.message.id].tier = parseInt(button.customID.match(/(?<=_)\d+/g)[0])
                     button.customID = button.customID.replace(/_\d+/g, '')
                 }
+            }catch{
+                interaction.reply({content: "The buttons on this message timed out!", ephemeral: true})
+            }
+
 
                 let command_info = button.customID.replace(/\[.+]/g, '').split(/\./g)
                 let command_type = command_info[0]
