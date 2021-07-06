@@ -1,5 +1,5 @@
 module.exports = {
-    name: ['item', 'item'],
+    name: ['item'],
     description: 'View item stats',
     use: 'item [args]',
     example:['item samurai 3'],

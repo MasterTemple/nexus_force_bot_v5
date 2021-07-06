@@ -1,6 +1,6 @@
 module.exports = {
     name: ['cooldowngroup', 'cdg'],
-    description: 'View skills cooldowngroup\'s skills',
+    description: 'View skills in a cooldowngroup',
     use: 'cooldowngroup [cooldown group id]',
     example:['cooldowngroup 21'],
     notes: 'This is a command used to view all skills in a cooldown group.',

@@ -64,7 +64,7 @@ client.on('message', message => {
 
                 let object_id = search(command?.search_type, true, args)
 
-                let [text, embed, components, returned_message_info] = await command.execute(message, args, config, object_id, 0, blank_embed, {}, {})
+                let [text, embed, components, returned_message_info] = await command.execute(message, args, config, object_id, 0, blank_embed, [], {})
                 // let components = components_from_2d_button_array(disbut.MessageActionRow, buttons)
                 // console.log('\n\n\n')
                 // console.log(embed)
@@ -200,23 +200,28 @@ client.on('interaction', async (interaction) => {
             "LEGO brick": ['default', 'brick'],
             "NPC": ['default', 'npc'],
             "UserGeneratedNPCs": ['default', 'npc'],
-            "Enemies": ['default', 'enemy']
+            "Enemies": ['default', 'enemy'],
+            "help": ['default', 'help']
         }
 
         let blank_embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
         let page = 0
-        let [command_type, command_name] = type_to_command_info[type]
+        try{
+            let [command_type, command_name] = type_to_command_info?.[type]
 
-        let command = client[command_type].get(command_name) //this is the executable command
+            let command = client[command_type].get(command_name) //this is the executable command
 
-        let [text, embed, components, returned_message_info] = await command.execute(interaction.message, [], config, id, page, blank_embed, {}, {})
+            let [text, embed, components, returned_message_info] = await command.execute(interaction.message, interaction.values, config, id, page, blank_embed, [], {})
 
-        if (embed.fields.length > command?.embed_length) {
-            embed.fields = embed.fields.slice(page * command.embed_length, (command.embed_length * page) + command.embed_length)
+            if (embed.fields.length > command?.embed_length) {
+                embed.fields = embed.fields.slice(page * command.embed_length, (command.embed_length * page) + command.embed_length)
+            }
+            await interaction.update({content: text, embeds: [embed], components: components})
+
+            message_info[interaction.message.id] = {...message_info[interaction.message.id], ...returned_message_info}
+        }catch{
+            await interaction.reply({content:"This command failed.", ephemeral: true})
         }
-        await interaction.update({content: text, embeds: [embed], components: components})
-
-        message_info[interaction.message.id] = {...message_info[interaction.message.id], ...returned_message_info}
 
     }
     // console.log('\n\n\n')

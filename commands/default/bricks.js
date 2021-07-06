@@ -1,5 +1,5 @@
 module.exports = {
-    name: ['brick', 'bricks'],
+    name: ['bricks', 'brick'],
     description: 'View brick information',
     use: 'brick [args]',
     example:['brick tail fin 2x3x2'],
