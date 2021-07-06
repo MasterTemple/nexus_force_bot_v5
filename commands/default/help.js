@@ -26,20 +26,24 @@ module.exports = {
             if(args[0].includes('[')){
                 command_name = command_name.match(/(?<=\[).*(?=])/g)[0]
             }
-            // console.log(command_name)
-            let command_file = require(`./${command_name}`)
-            console.log(command_file)
-            embed.setTitle(`Command: ${config.prefix}${command_file.name[0]}`)
-            embed.setDescription(command_file.description)
-            embed.addField(`Usage`, `${config.prefix}${command_file.use}`, true)
-            command_file.example.forEach((each_example, counter) => {
-                embed.addField(`Example ${counter+1}`, `${config.prefix}${each_example}`, true)
-            })
-            embed.addField(`Notes`, `${command_file.notes}`, false)
-            if(command_file.name.length > 1){
-                embed.addField("Aliases", `${config.prefix}${command_file.name.join(` ${config.prefix}`)}`, false)
+            console.log(command_name)
+            try {
+                let command_file = require(`./${command_name}`)
+                console.log(command_file)
+                embed.setTitle(`Command: ${config.prefix}${command_file.name[0]}`)
+                embed.setDescription(command_file.description)
+                embed.addField(`Usage`, `${config.prefix}${command_file.use}`, true)
+                command_file.example.forEach((each_example, counter) => {
+                    embed.addField(`Example ${counter + 1}`, `${config.prefix}${each_example}`, true)
+                })
+                embed.addField(`Notes`, `${command_file.notes}`, false)
+                if (command_file.name.length > 1) {
+                    embed.addField("Aliases", `${config.prefix}${command_file.name.join(` ${config.prefix}`)}`, false)
+                }
+            }catch{
+                embed.setTitle(config.name)
+                embed.setDescription(description)
             }
-
         }else{
             embed.setTitle(config.name)
             embed.setDescription(description)

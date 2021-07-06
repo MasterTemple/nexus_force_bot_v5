@@ -114,12 +114,13 @@ client.on('interaction', async (interaction) => {
 
 
                 // console.log(button)
+            console.log(message_info[button.message.id])
 
                 message_info[button.message.id]['button_id'] = button.customID
                 message_info[button.message.id]['button_clicker'] = button.user.id
                 if (message_info[button.message.id]?.tier) {
                     // console.log(button)
-                    message_info[button.message.id].tier = parseInt(button.customID.match(/(?<=_)\d+/g)[0])
+                    message_info[button.message.id].tier = parseInt(button.customID.match(/(?<=_)\d+/g)?.[0])
                     button.customID = button.customID.replace(/_\d+/g, '')
                 }
 
