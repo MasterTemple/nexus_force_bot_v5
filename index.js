@@ -48,7 +48,6 @@ client.on('message', message => {
         //returns if the user is itself or they do not have the prefix
         return
     }
-
     const args = message.content.slice(config.prefix.length).trim().split(/ +/); //each space is a new argument
     const command_name = args.shift().toLowerCase() //sets the command name equal to the first argument,(what is immediately after the prefix)
 
@@ -90,10 +89,10 @@ client.on('message', message => {
                 let sql_objects = require('./output/references/sql_objects.json')
                 let object_id = search('objects', true, args)
                 let object = sql_objects.filter(each_object => each_object.id === parseInt(object_id))[0]
-                embed.setTitle(object.type)
+                embed.setTitle(`Object Found: ${object?.type}`)
                 embed.setDescription("There was an error running this command.")
-                embed.addField(object.displayName, `${object.name} [[${object_id}]](${config.explorer_link_domain}objects/${object_id})`)
-                message.channel.send(embed)
+                embed.addField(`${object?.displayName}`, `${object?.name} [[${object_id}]](${config.explorer_link_domain}objects/${object_id})`)
+                await message.channel.send({embeds: [embed]})
             }
         }
     })

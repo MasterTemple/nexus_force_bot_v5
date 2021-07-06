@@ -21,7 +21,7 @@ module.exports = {
                 first_command: command.name[0]
             })
         })
-        if(args.length === 1) {
+        if(args?.length === 1) {
             let command_name = args[0]
             if(args[0].includes('[')){
                 command_name = command_name.match(/(?<=\[).*(?=])/g)[0]
