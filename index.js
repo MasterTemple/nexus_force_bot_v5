@@ -174,18 +174,19 @@ client.on('interaction', async (interaction) => {
                     //console.log(message_info[button.message.id])
                     try {
                         let [text, embed, buttons, returned_message_info] = await command.execute(button.message, args, config, id, page, old_embed, previous_components, message_info[button.message.id])
+
+                        let components = buttons
+
+                        if (embed.fields.length > command?.embed_length) {
+                            embed.fields = embed.fields.slice(page * command.embed_length, (command.embed_length * page) + command.embed_length)
+                        }
+
+                        await interaction.update({content: text, embeds: [embed], components: components})
+
+                        message_info[button.message.id] = {...message_info[button.message.id], ...returned_message_info}
                     }catch{
                         interaction.reply({content: "The buttons on this message timed out!", ephemeral: true})
                     }
-                    let components = buttons
-
-                    if (embed.fields.length > command?.embed_length) {
-                        embed.fields = embed.fields.slice(page * command.embed_length, (command.embed_length * page) + command.embed_length)
-                    }
-
-                    await interaction.update({content: text, embeds: [embed], components: components})
-
-                    message_info[button.message.id] = {...message_info[button.message.id], ...returned_message_info}
 
                 } catch (error) {
                     console.log(error)
