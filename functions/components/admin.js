@@ -1,18 +1,27 @@
-module.exports = function(){
-    let { MessageButton } = require('discord-buttons')
-    let default_commands = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Default Commands')
-        .setID('default.help')
-    let admin_commands = new MessageButton()
-        .setStyle('green')
-        .setLabel('Admin Commands')
-        .setID('admin.admin')
-    let dev_commands = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Dev Commands')
-        .setID('dev.dev')
-
-    let components = [[default_commands, admin_commands, dev_commands]]
-    return components
+module.exports = function() {
+    return [
+        {
+            "type": 1,
+            "components": [
+                {
+                    "type": 2,
+                    "label": "Default Commands",
+                    "style": 1,
+                    "custom_id": "default.help",
+                },
+                {
+                    "type": 2,
+                    "label": "Admin Commands",
+                    "style": 3,
+                    "custom_id": "admin.admin",
+                },
+                {
+                    "type": 2,
+                    "label": "Dev Commands",
+                    "style": 1,
+                    "custom_id": "dev.dev"
+                },
+            ]
+        }
+    ]
 }

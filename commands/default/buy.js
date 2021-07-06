@@ -16,7 +16,7 @@ module.exports = {
         let fields_function = require('./../../functions/fields/buy')
         fields_function(embed, data_file, config)
         let components_function = require('./../../functions/components/buy')
-        let components = components_function(data_file, config)
+        let components = components_function(data_file)
 
         return [, embed, components, message_data]
     }

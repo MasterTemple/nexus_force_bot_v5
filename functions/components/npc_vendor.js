@@ -1,30 +1,49 @@
 module.exports = function(page, max_pages, data_file){
-    let { MessageButton } = require('discord-buttons')
-    let previous = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Previous')
-        .setID('default.vendor_previous')
-    let next = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Next')
-        .setID('default.vendor_next')
-    let npc_vendor = new MessageButton()
-        .setStyle('green')
-        .setLabel('Vendor')
-        .setID('default.vendor')
-    let npc_missions = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Missions')
-        .setID('default.npcmissions')
+    let previous_is_disabled = false
+    let next_is_disabled = false
+    let mission_giver_is_disabled = false
+
     if(parseInt(page) === 0){
-        previous.setDisabled(true)
+        previous_is_disabled = true
     }
     if(max_pages === page){
-        next.setDisabled(true)
+        next_is_disabled = true
     }
     if(data_file.isMissionGiver !== 1){
-        npc_missions.setDisabled(true)
+        mission_giver_is_disabled = true
     }
-    let components = [[npc_missions, npc_vendor, previous, next]]
-    return components
+    return [
+        {
+            "type": 1,
+            "components": [
+                {
+                    "type": 2,
+                    "label": "Missions",
+                    "style": 1,
+                    "custom_id": "default.npcmissions"
+                },
+                {
+                    "type": 2,
+                    "label": "Vendor",
+                    "style": 3,
+                    "custom_id": "default.npcvendor",
+                    "disabled": mission_giver_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Previous",
+                    "style": 1,
+                    "custom_id": "default.npcvendor_previous",
+                    "disabled": previous_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Next",
+                    "style": 1,
+                    "custom_id": "default.npcvendor_next",
+                    "disabled": next_is_disabled
+                },
+            ]
+        }
+    ]
 }

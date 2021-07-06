@@ -1,11 +1,16 @@
 module.exports = function(name){
-    let { MessageButton } = require('discord-buttons')
-    let roll_again = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Roll Again')
-        .setID(`default.simulate[${name}]`)
+    return [
+        {
+            "type": 1,
+            "components": [
+                {
+                    "type": 2,
+                    "label": "Roll Again",
+                    "style": 1,
+                    "custom_id": `default.simulate[${name}]`,
+                }
+            ]
 
-
-    let components = [[roll_again]]
-    return components
+        }
+    ]
 }

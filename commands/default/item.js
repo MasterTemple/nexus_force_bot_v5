@@ -17,6 +17,7 @@ module.exports = {
         fields_function(embed, data_file, config, message.client)
         let components_function = require('./../../functions/components/item')
         let components = components_function(data_file, config)
+        // console.log(`\n${JSON.stringify(embed, null, 2)}\n`)
 
         return [, embed, components, message_data]
     }

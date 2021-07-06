@@ -14,21 +14,21 @@ module.exports = function(embed, info_file, config) {
 
     if(buyFile.itemComponent.altCurrencyCost !== null){
         embed.addFields(
-            {name: "Cost", value: buyFile.itemComponent.buyPrice, inline: true},
-            {name: `${buyFile.itemComponent.altCurrencyDisplayName} Cost`, value: buyFile.itemComponent.altCurrencyCost, inline: true},
-            {name: "Level Requirement", value: buyFile.itemComponent.levelRequirement, inline: true},
+            {name: "Cost", value: buyFile.itemComponent.buyPrice.toString(), inline: true},
+            {name: `${buyFile.itemComponent.altCurrencyDisplayName} Cost`, value: buyFile.itemComponent.altCurrencyCost.toString(), inline: true},
+            {name: "Level Requirement", value: buyFile.itemComponent.levelRequirement.toString(), inline: true},
         )
     }else if(buyFile.itemComponent.commendationCurrencyCost !== null){
         embed.addFields(
-            {name: "Cost", value: buyFile.itemComponent.buyPrice, inline: true},
-            {name: `${buyFile.itemComponent.commendationCurrencyDisplayName} Cost`, value: buyFile.itemComponent.commendationCurrencyCost, inline: true},
-            {name: "Level Requirement", value: buyFile.itemComponent.levelRequirement, inline: true},
+            {name: "Cost", value: buyFile.itemComponent.buyPrice.toString(), inline: true},
+            {name: `${buyFile.itemComponent.commendationCurrencyDisplayName} Cost`, value: buyFile.itemComponent.commendationCurrencyCost.toString(), inline: true},
+            {name: "Level Requirement", value: buyFile.itemComponent.levelRequirement.toString(), inline: true},
         )
     }else if(buyFile.itemComponent.commendationCurrencyCost === null){
         embed.addFields(
-            {name: "Cost", value: buyFile.itemComponent.buyPrice, inline: true},
-            {name: "Stack Size", value: buyFile.itemComponent.stackSize, inline: true},
-            {name: "Level Requirement", value: buyFile.itemComponent.levelRequirement, inline: true},
+            {name: "Cost", value: buyFile.itemComponent.buyPrice.toString(), inline: true},
+            {name: "Stack Size", value: buyFile.itemComponent.stackSize.toString(), inline: true},
+            {name: "Level Requirement", value: buyFile.itemComponent.levelRequirement.toString(), inline: true},
         )
     }
 

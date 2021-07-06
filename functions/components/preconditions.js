@@ -1,33 +1,40 @@
-module.exports = function(data_file, config){
-    let { MessageButton } = require('discord-buttons')
-    let preconditions = new MessageButton()
-        .setStyle('green')
-        .setLabel('Preconditions')
-        .setID('default.preconditions')
-    let package = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Package')
-        .setID('default.package')
-    let back = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Back')
-        .setID('default.item')
+module.exports = function(data_file){
+    let preconditions_is_disabled = false
+    let package_is_disabled = false
 
-    let item_is_not_package = true
-    let item_has_no_preconditions = true
-    if(Object.keys(data_file.components).includes('53')){
-        item_is_not_package = false
+    if(!Object.keys(data_file.components).includes('53')){
+        package_is_disabled = true
     }
-    if(data_file.itemComponent.preconditions !== null){
-        item_has_no_preconditions = false
-    }
-    if(item_is_not_package){
-        package.setDisabled(true)
-    }
-    if(item_has_no_preconditions || data_file['itemInfo']['type'] === "LEGO brick"){
-        preconditions.setDisabled(true)
+    if(data_file.itemComponent.preconditions === null || data_file['itemInfo']['type'] === "LEGO brick"){
+        preconditions_is_disabled = true
     }
 
-    let components = [[preconditions, package, back]]
-    return components
+    return [
+        {
+            "type": 1,
+            "components": [
+                {
+                    "type": 2,
+                    "label": "Preconditions",
+                    "style": 3,
+                    "custom_id": "default.preconditions",
+                    "disabled": preconditions_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Package",
+                    "style": 1,
+                    "custom_id": "default.package",
+                    "disabled": package_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Back",
+                    "style": 1,
+                    "custom_id": "default.item"
+                },
+            ]
+
+        }
+    ]
 }

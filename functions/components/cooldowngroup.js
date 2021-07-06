@@ -1,25 +1,41 @@
 module.exports = function(cdg, page, max_pages){
-    let { MessageButton } = require('discord-buttons')
-    let previous = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Previous')
-        .setID('default.cooldowngroup_previous')
-    let next = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Next')
-        .setID('default.cooldowngroup_next')
-    let back = new MessageButton()
-        .setStyle('green')
-        .setLabel(`Cooldown Group: ${cdg}`)
-        .setID('default.cooldowngroup')
+    let previous_is_disabled = false
+    let next_is_disabled = false
 
     if(parseInt(page) === 0){
-        previous.setDisabled(true)
+        previous_is_disabled = true
     }
     if(max_pages === page){
-        next.setDisabled(true)
+        next_is_disabled = true
     }
 
-    let components = [[back, previous, next]]
-    return components
+    return [
+        {
+            "type": 1,
+            "components": [
+                {
+                    "type": 2,
+                    "label": `Cooldown Group: ${cdg}`,
+                    "style": 3,
+                    "custom_id": "default.cooldowngroup"
+                },
+                {
+                    "type": 2,
+                    "label": "Previous",
+                    "style": 1,
+                    "custom_id": "default.cooldowngroup_previous",
+                    "disabled": previous_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Next",
+                    "style": 1,
+                    "custom_id": "default.cooldowngroup_next",
+                    "disabled": next_is_disabled
+                },
+
+            ]
+
+        }
+    ]
 }

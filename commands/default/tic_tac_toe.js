@@ -5,8 +5,10 @@ module.exports = {
     example:['tic samurai 3'],
     notes: 'This is a command used start a game of tic tac toe.',
     embed_length: 6,
+    rejection_reason: "It is not your turn!",
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
         // console.log(message?.embeds?.[0]?.fields)
+        // console.log(message_data)
 
         if(Object.keys(message_data).length === 0) {
             //first time command is run
@@ -21,7 +23,7 @@ module.exports = {
             message_data['challenged']['tiles'] = []
             message_data['required_users'] = [message_data['challenged']['id']]
         }
-        console.log(message_data)
+        //console.log(message_data)
 
         let button_obj
         if(message_data?.['button_id']?.match(/(?<=\[).*(?=])/g)?.[0] !== undefined) {
@@ -97,12 +99,12 @@ module.exports = {
 
         embed.setTitle(`Tic Tac Toe!`)
         embed.setThumbnail(config.universe_icon)
-
+        console.log(message_data)
         let fields_function = require('./../../functions/fields/tic')
-        fields_function(embed, config, message_data, message.client)
+        await fields_function(embed, config, message_data, message.client)
 
         let components_function = require('./../../functions/components/tic')
-        let components = components_function(message_data, config)
+        let components = await components_function(message_data, config)
 
         switch(message_data['stage']){
             case 'initialize': {

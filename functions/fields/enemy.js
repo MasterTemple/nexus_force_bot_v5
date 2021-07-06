@@ -1,8 +1,8 @@
-module.exports = function(embed, data_file, config){
+module.exports = function(embed, data_file, config, client){
     let enemyFile = data_file
-    let hpString = `**${enemyFile.itemInfo.life}** ${config.emojis.heart}`
+    let hpString = `**${enemyFile.itemInfo.life}** ${client.emojis.cache.get(config.emojis.heart)}`
     if(enemyFile.itemInfo.armor !== 0){
-        hpString = `${hpString}    **${enemyFile.itemInfo.armor}** ${config.emojis.armor}`
+        hpString = `${hpString} **${enemyFile.itemInfo.armor}** ${client.emojis.cache.get(config.emojis.armor)}`
     }
 
     embed.addFields(
@@ -46,7 +46,7 @@ module.exports = function(embed, data_file, config){
         if(enemyFile.overview[el].damage[0] === undefined){
             enemyFile.overview[el].damage[0] = 0
         }
-        embed.addField(config.invisChar, `**Attack ${key+1}**`, false)
+        embed.addField(config.invis_char, `**Attack ${key+1}**`, false)
         embed.addField(subHeader, `Damage: **${enemyFile.overview[el].damage[0]}**\nCooldown: **${enemyFile.overview[el].cooldown}** Seconds`, true)
         if(enemyFile.overview[el].attackTypes.length === 1) {
             embed.addField("Attack Type", `${arr.join('\n')}`, true)

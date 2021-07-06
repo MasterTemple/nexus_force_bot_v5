@@ -7,7 +7,7 @@ module.exports = function(embed, info_file, config, client) {
     Object.keys(info_file['skillSetDescriptions']).forEach(function(skillSetBonus) {
         embed.addFields({
             name: `${skillSetBonus.charAt(skillSetBonus.length-1)} Piece Bonus`,
-            value: info_file['skillSetDescriptions'][skillSetBonus],
+            value: info_file['skillSetDescriptions'][skillSetBonus].toString(),
             inline: false
         })
     })
@@ -22,9 +22,9 @@ module.exports = function(embed, info_file, config, client) {
             inline: false
         })
         embed.addFields(
-            {name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: info_file['totalWithoutValiant']['armorBonusUI'], inline: true},
-            {name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: info_file['totalWithoutValiant']['lifeBonusUI'], inline: true},
-            {name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: info_file['totalWithoutValiant']['imBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: info_file['totalWithoutValiant']['armorBonusUI'].toString(), inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: info_file['totalWithoutValiant']['lifeBonusUI'].toString(), inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: info_file['totalWithoutValiant']['imBonusUI'].toString(), inline: true},
         )
 
         embed.addFields({
@@ -33,16 +33,16 @@ module.exports = function(embed, info_file, config, client) {
             inline: false
         })
         embed.addFields(
-            {name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: info_file['totalWithValiant']['armorBonusUI'], inline: true},
-            {name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: info_file['totalWithValiant']['lifeBonusUI'], inline: true},
-            {name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: info_file['totalWithValiant']['imBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: info_file['totalWithValiant']['armorBonusUI'].toString(), inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: info_file['totalWithValiant']['lifeBonusUI'].toString(), inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: info_file['totalWithValiant']['imBonusUI'].toString(), inline: true},
         )
     }
     else if(without_valiant_length > 0){
         embed.addFields(
-            {name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: info_file['totalWithoutValiant']['armorBonusUI'], inline: true},
-            {name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: info_file['totalWithoutValiant']['lifeBonusUI'], inline: true},
-            {name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: info_file['totalWithoutValiant']['imBonusUI'], inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: info_file['totalWithoutValiant']['armorBonusUI'].toString(), inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: info_file['totalWithoutValiant']['lifeBonusUI'].toString(), inline: true},
+            {name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: info_file['totalWithoutValiant']['imBonusUI'].toString(), inline: true},
         )
     }
 

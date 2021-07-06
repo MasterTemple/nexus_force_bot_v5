@@ -109,7 +109,7 @@ module.exports = function(embed, info_file, config, client) {
             embed.addFields(
                 {name: "Ability Cost", value: `${item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.imaginationcost} Imagination`, inline: true},
                 {name: "Cooldown", value: `${item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.cooldown} Seconds`, inline: true},
-                {name: "Cooldown Group", value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.cooldowngroup, inline: true},
+                {name: "Cooldown Group", value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.cooldowngroup.toString(), inline: true},
             )
         }
         else if(item?.itemComponent?.equipLocation[0] !== 'special_r' && item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info){
@@ -122,7 +122,7 @@ module.exports = function(embed, info_file, config, client) {
             embed.addFields(
                 {name: "Ability Cost", value: `${item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.imaginationcost} Imagination`, inline: true},
                 {name: "Cooldown", value: `${item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.cooldown} Seconds`, inline: true},
-                {name: "Cooldown Group", value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.cooldowngroup, inline: true},
+                {name: "Cooldown Group", value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.cooldowngroup.toString(), inline: true},
             )
         }
         else if(item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.name && isConsumable){
@@ -132,7 +132,7 @@ module.exports = function(embed, info_file, config, client) {
             embed.addFields(
                 {name: "Ability Cost", value: `${item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.imaginationcost} Imagination`, inline: true},
                 {name: "Cooldown", value: `${item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.cooldown} Seconds`, inline: true},
-                {name: "Cooldown Group", value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.cooldowngroup, inline: true},
+                {name: "Cooldown Group", value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.cooldowngroup.toString(), inline: true},
             )
 
         }
@@ -146,7 +146,7 @@ module.exports = function(embed, info_file, config, client) {
                 if(projectileArray.length > 0) {
                     var combo = projectileArray.join('+')
                 }else{
-                    var combo = item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.damageCombo
+                    var combo = item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.damageCombo.toString()
                 }
 
 
@@ -172,7 +172,7 @@ module.exports = function(embed, info_file, config, client) {
                 if(item['overview'][item['objectSkills'][Object.keys(item.objectSkills)[skill]]['behaviorID']]?.damageComboArray.length > 0){
                     var combo = item['overview'][item['objectSkills'][Object.keys(item.objectSkills)[skill]]['behaviorID']]?.damageComboArray.join('+')
                 }else{
-                    var combo = item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.damageCombo
+                    var combo = item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.damageCombo.toString()
                 }
                 embed.addFields(
                     {
@@ -198,7 +198,7 @@ module.exports = function(embed, info_file, config, client) {
                 embed.addFields(
                     {
                         name: "Charge Up",
-                        value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.ChargeUp,
+                        value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.ChargeUp.toString(),
                         inline: true
                     },
                     {
@@ -218,7 +218,7 @@ module.exports = function(embed, info_file, config, client) {
                 embed.addFields(
                     {
                         name: "Charge Up",
-                        value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.ChargeUp,
+                        value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.ChargeUp.toString(),
                         inline: false
                     },
                     {
@@ -239,7 +239,7 @@ module.exports = function(embed, info_file, config, client) {
                 embed.addFields(
                     {
                         name: "Charge Up",
-                        value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.ChargeUp,
+                        value: item['objectSkills'][Object.keys(item.objectSkills)[skill]]?.info?.ChargeUp.toString(),
                         inline: false
                     },
                     {
@@ -272,7 +272,7 @@ module.exports = function(embed, info_file, config, client) {
             embed.addFields(
                 {name: "Ability Cost", value: `${item['proxySkills'][Object.keys(item.proxySkills)[skill]]?.imaginationcost} Imagination`, inline: true},
                 {name: "Cooldown", value: `${item['proxySkills'][Object.keys(item.proxySkills)[skill]]?.cooldown} Seconds`, inline: true},
-                {name: "Cooldown Group", value: item['proxySkills'][Object.keys(item.proxySkills)[skill]]?.cooldowngroup, inline: true},
+                {name: "Cooldown Group", value: item['proxySkills'][Object.keys(item.proxySkills)[skill]]?.cooldowngroup.toString(), inline: true},
             )
         }
         else if(item['proxySkills'][Object.keys(item.proxySkills)[skill]]?.info){
@@ -285,7 +285,7 @@ module.exports = function(embed, info_file, config, client) {
             embed.addFields(
                 {name: "Ability Cost", value: `${item['proxySkills'][Object.keys(item.proxySkills)[skill]]?.imaginationcost} Imagination`, inline: true},
                 {name: "Cooldown", value: `${item['proxySkills'][Object.keys(item.proxySkills)[skill]]?.cooldown} Seconds`, inline: true},
-                {name: "Cooldown Group", value: item['proxySkills'][Object.keys(item.proxySkills)[skill]]?.cooldowngroup, inline: true},
+                {name: "Cooldown Group", value: item['proxySkills'][Object.keys(item.proxySkills)[skill]]?.cooldowngroup.toString(), inline: true},
             )
         }
     }
@@ -307,35 +307,35 @@ module.exports = function(embed, info_file, config, client) {
     }
     if(item.itemInfo.type === "Loot" && isConsumable === false)
         embed.addFields(
-            { name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: item?.stats?.armorBonusUI, inline: true },
-            { name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: item?.stats?.lifeBonusUI, inline: true },
-            { name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: item?.stats?.imBonusUI, inline: true },
+            { name: `${client.emojis.cache.get(config.emojis.armor)} Armor`, value: item?.stats?.armorBonusUI.toString(), inline: true },
+            { name: `${client.emojis.cache.get(config.emojis.heart)} Health`, value: item?.stats?.lifeBonusUI.toString(), inline: true },
+            { name: `${client.emojis.cache.get(config.emojis.imagination)} Imagination`, value: item?.stats?.imBonusUI.toString(), inline: true },
         )
 
     if(item.overview.length == 1  === true && item.projectileDamageInfo.projectileDamageCombo === ""){
         embed.addFields(
-            {name: "Damage Combo", value: item.meleeDamageInfo.damageCombo, inline: true},
-            {name: "Singe Jump Smash", value: item.meleeDamageInfo.singleJumpSmash, inline: true},
-            {name: "Double Jump Smash", value: item.meleeDamageInfo.doubleJumpSmash, inline: true},
+            {name: "Damage Combo", value: item.meleeDamageInfo.damageCombo.toString(), inline: true},
+            {name: "Singe Jump Smash", value: item.meleeDamageInfo.singleJumpSmash.toString(), inline: true},
+            {name: "Double Jump Smash", value: item.meleeDamageInfo.doubleJumpSmash.toString(), inline: true},
         )
     }else if(item.overview.length === 1  && item.projectileDamageInfo.projectileDamageCombo !== ""){
         embed.addFields(
-            {name: "Damage Combo", value: item.projectileDamageInfo.projectileDamageCombo, inline: true},
-            {name: "Singe Jump Smash", value: item.meleeDamageInfo.singleJumpSmash, inline: true},
-            {name: "Double Jump Smash", value: item.meleeDamageInfo.doubleJumpSmash, inline: true},
+            {name: "Damage Combo", value: item.projectileDamageInfo.projectileDamageCombo.toString(), inline: true},
+            {name: "Singe Jump Smash", value: item.meleeDamageInfo.singleJumpSmash.toString(), inline: true},
+            {name: "Double Jump Smash", value: item.meleeDamageInfo.doubleJumpSmash.toString(), inline: true},
         )
     }
 
     if(item.overview.length == 1 && item.meleeDamageInfo.chargeUpDamage !== undefined && item.projectileDamageInfo.chargeUpIsProjectile === false){
         embed.addFields(
-            {name: "Charge Up Ability", value: item.chargeUpDescription, inline: true},
-            {name: "Charge Up Damage", value: item.meleeDamageInfo.chargeUpDamage, inline: true},
+            {name: "Charge Up Ability", value: item.chargeUpDescription.toString(), inline: true},
+            {name: "Charge Up Damage", value: item.meleeDamageInfo.chargeUpDamage.toString(), inline: true},
             {name: "Charge Up Cost", value: `${item.meleeDamageInfo.chargeUpImaginationCost} Imagination`, inline: true},
         )
     }else if(item.overview.length == 1  && item.meleeDamageInfo.chargeUpDamage !== undefined && item.projectileDamageInfo.chargeUpIsProjectile){
         embed.addFields(
-            {name: "Charge Up Ability", value: item.chargeUpDescription, inline: true},
-            {name: "Charge Up Damage", value: item.projectileDamageInfo.chargeUpDamage, inline: true},
+            {name: "Charge Up Ability", value: item.chargeUpDescription.toString(), inline: true},
+            {name: "Charge Up Damage", value: item.projectileDamageInfo.chargeUpDamage.toString(), inline: true},
             {name: "Charge Up Cost", value: `${item.meleeDamageInfo.chargeUpImaginationCost} Imagination`, inline: true},
         )
     }
@@ -344,40 +344,41 @@ module.exports = function(embed, info_file, config, client) {
 
     if(item.isWeapon && item.allItems.length !== 1){
         embed.addFields(
-            {name: "Imagination Cost", value: item.abilityImaginationCost, inline: true},
+            {name: "Imagination Cost", value: item.abilityImaginationCost.toString(), inline: true},
             {name: "Cooldown Time", value: `${item.cooldownTime} Seconds`, inline: true},
-            {name: "Cooldown Group", value: item.cooldowngroup, inline: true},
+            {name: "Cooldown Group", value: item.cooldowngroup.toString(), inline: true},
         )
     }
 
     if(item.isWeapon === false && item.abilityImaginationCost !== undefined && item.cooldownTime !== undefined && item.cooldowngroup !== undefined){
         embed.addFields(
-            {name: "Imagination Cost", value: item.abilityImaginationCost, inline: true},
+            {name: "Imagination Cost", value: item.abilityImaginationCost.toString(), inline: true},
             {name: "Cooldown Time", value: `${item.cooldownTime} Seconds`, inline: true},
-            {name: "Cooldown Group", value: item.cooldowngroup, inline: true},
+            {name: "Cooldown Group", value: item.cooldowngroup.toString(), inline: true},
         )
     }
 
 
     if(item.itemComponent.altCurrencyCost !== null){
         embed.addFields(
-            {name: "Cost", value: item.itemComponent.buyPrice, inline: true},
-            {name: `${item.itemComponent.altCurrencyDisplayName} Cost`, value: item.itemComponent.altCurrencyCost, inline: true},
-            {name: "Level Requirement", value: item.itemComponent.levelRequirement, inline: true},
+            {name: "Cost", value: item.itemComponent.buyPrice.toString(), inline: true},
+            {name: `${item.itemComponent.altCurrencyDisplayName} Cost`, value: item.itemComponent.altCurrencyCost.toString(), inline: true},
+            {name: "Level Requirement", value: item.itemComponent.levelRequirement.toString(), inline: true},
         )
     }else if(item.itemComponent.commendationCurrencyCost !== null){
         embed.addFields(
-            {name: "Cost", value: item.itemComponent.buyPrice, inline: true},
+            {name: "Cost", value: item.itemComponent.buyPrice.toString(), inline: true},
             {name: `${item.itemComponent.commendationCurrencyDisplayName} Cost`, value: item.itemComponent.commendationCurrencyCost, inline: true},
-            {name: "Level Requirement", value: item.itemComponent.levelRequirement, inline: true},
+            {name: "Level Requirement", value: item.itemComponent.levelRequirement.toString(), inline: true},
         )
     }else if(item.itemComponent.commendationCurrencyCost === null){
         embed.addFields(
-            {name: "Cost", value: item.itemComponent.buyPrice, inline: true},
-            {name: "Stack Size", value: item.itemComponent.stackSize, inline: true},
-            {name: "Level Requirement", value: item.itemComponent.levelRequirement, inline: true},
+            {name: "Cost", value: item.itemComponent.buyPrice.toString(), inline: true},
+            {name: "Stack Size", value: item.itemComponent.stackSize.toString(), inline: true},
+            {name: "Level Requirement", value: item.itemComponent.levelRequirement.toString(), inline: true},
         )
     }
-    return fields
+
+    // return fields
 
 }

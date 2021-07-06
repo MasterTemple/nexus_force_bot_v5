@@ -122,8 +122,8 @@ module.exports = function(embed, data_file, config){
         missionFile.MissionStats.reward_reputation = 0
     }
     embed.addFields(
-        {name: "LEGO Score", value: missionFile.MissionStats.LEGOScore, inline: true},
-        {name: "Reward Coins", value: missionFile.MissionStats.rewardCoins, inline: true},
-        {name: "Reputation", value: missionFile.MissionStats.reward_reputation, inline: true},
+        {name: "LEGO Score", value: missionFile.MissionStats.LEGOScore.toString(), inline: true},
+        {name: "Reward Coins", value: missionFile.MissionStats.rewardCoins.toString(), inline: true},
+        {name: "Reputation", value: missionFile.MissionStats.reward_reputation.toString(), inline: true},
     )
 }

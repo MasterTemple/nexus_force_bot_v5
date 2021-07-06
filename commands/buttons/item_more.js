@@ -9,9 +9,9 @@ module.exports = {
 
         let data_file = require(`${config['output_path']}objects/${Math.floor(id/256)}/${id}.json`)
         let fields_function = require('./../../functions/fields/item')
-        fields_function(embed, data_file, config)
+        fields_function(embed, data_file, config, message.client)
         let components_function = require('./../../functions/components/item_more')
-        let components = components_function(data_file, config)
+        let components = components_function(data_file)
 
         return [, embed, components, message_data]
     }

@@ -1,32 +1,50 @@
-module.exports = function(data_file, config){
-    let { MessageButton } = require('discord-buttons')
-    let drop = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Drop')
-        .setID('default.drop')
-    let earn = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Earn')
-        .setID('default.earn')
-    let buy = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Buy')
-        .setID('default.buy')
-    let more = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('More')
-        .setID('buttons.item_more')
-
+module.exports = function(data_file){
+    let drop_is_disabled = false
+    let earn_is_disabled = false
+    let buy_is_disabled = false
 
     if(data_file.buyAndDrop.Vendors.length === 0){
-        buy.setDisabled(true)
+        buy_is_disabled = true
     }
     if(Object.keys(data_file.earn).length === 0){
-        earn.setDisabled(true)
+        earn_is_disabled = true
     }
     if(data_file.buyAndDrop.EnemyIDs.length === 0){
-        drop.setDisabled(true)
+        drop_is_disabled = true
     }
-    let components = [[drop, earn, buy, more]]
-    return components
+
+    return [
+        {
+            "type": 1,
+            "components": [
+                {
+                    "type": 2,
+                    "label": "Drop",
+                    "style": 1,
+                    "custom_id": "default.drop",
+                    "disabled": drop_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Earn",
+                    "style": 1,
+                    "custom_id": "default.earn",
+                    "disabled": earn_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Buy",
+                    "style": 1,
+                    "custom_id": "default.buy",
+                    "disabled": buy_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "More",
+                    "style": 1,
+                    "custom_id": "buttons.item_more",
+                },
+            ]
+        }
+    ]
 }

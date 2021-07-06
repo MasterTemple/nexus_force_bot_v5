@@ -1,34 +1,52 @@
-module.exports = function(page, max_pages){
-    let { MessageButton } = require('discord-buttons')
-    let previous = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Previous')
-        .setID('default.enemydrop_previous')
-    let next = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Next')
-        .setID('default.enemydrop_next')
-    let percents = new MessageButton()
-        .setStyle('green')
-        .setLabel('Percents')
-        .setID('default.enemydrop')
-    let fractions = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Fractions')
-        .setID('buttons.enemydropf')
-    let stats = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Stats')
-        .setID('default.enemy')
-
+module.exports = function(page, max_pages) {
+    let previous_is_disabled = false
+    let next_is_disabled = false
 
     if(parseInt(page) === 0){
-        previous.setDisabled(true)
+        previous_is_disabled = true
     }
     if(max_pages === page){
-        next.setDisabled(true)
+        next_is_disabled = true
     }
 
-    let components = [[previous, next, percents, fractions, stats]]
-    return components
+    return [
+        {
+            "type": 1,
+            "components": [
+                {
+                    "type": 2,
+                    "label": "Previous",
+                    "style": 1,
+                    "custom_id": "default.enemydrop_previous",
+                    "disabled": previous_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Next",
+                    "style": 1,
+                    "custom_id": "default.enemydrop_next",
+                    "disabled": next_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Percents",
+                    "style": 3,
+                    "custom_id": "default.enemydrop"
+                },
+                {
+                    "type": 2,
+                    "label": "Fractions",
+                    "style": 1,
+                    "custom_id": "buttons.enemydropf"
+                },
+                {
+                    "type": 2,
+                    "label": "Stats",
+                    "style": 1,
+                    "custom_id": "default.enemy",
+                },
+            ]
+
+        }
+    ]
 }

@@ -1,33 +1,53 @@
-module.exports = function(page, max_pages){
-    let { MessageButton } = require('discord-buttons')
-    let previous = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Previous')
-        .setID('default.drop_previous')
-    let next = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Next')
-        .setID('default.drop_next')
-    let percents = new MessageButton()
-        .setStyle('green')
-        .setLabel('Percents')
-        .setID('default.drop')
-    let fractions = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Fractions')
-        .setID('buttons.dropf')
-    let back = new MessageButton()
-        .setStyle('blurple')
-        .setLabel('Back')
-        .setID('default.item')
+module.exports = function(page, max_pages) {
+    let previous_is_disabled = false
+    let next_is_disabled = false
 
     if(parseInt(page) === 0){
-        previous.setDisabled(true)
+        previous_is_disabled = true
     }
     if(max_pages === page){
-        next.setDisabled(true)
+        next_is_disabled = true
     }
 
-    let components = [[previous, next, percents, fractions, back]]
-    return components
+    return [
+        {
+            "type": 1,
+            "components": [
+                {
+                    "type": 2,
+                    "label": "Previous",
+                    "style": 1,
+                    "custom_id": "default.drop_previous",
+                    "disabled": previous_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Next",
+                    "style": 1,
+                    "custom_id": "default.drop_next",
+                    "disabled": next_is_disabled
+                },
+                {
+                    "type": 2,
+                    "label": "Percents",
+                    "style": 3,
+                    "custom_id": "default.drop"
+                },
+                {
+                    "type": 2,
+                    "label": "Fractions",
+                    "style": 1,
+                    "custom_id": "buttons.dropf"
+                },
+                {
+                    "type": 2,
+                    "label": "Back",
+                    "style": 1,
+                    "custom_id": "default.item"
+                },
+
+            ]
+
+        }
+    ]
 }
