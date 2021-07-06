@@ -100,7 +100,9 @@ client.on('message', message => {
 })
 
 client.on('interaction', async (interaction) => {
-
+    if(message_info?.[interaction.message.id] === undefined){
+        message_info[interaction.message.id] = {}
+    }
     if (interaction.componentType === 'BUTTON') {
         try {
 
@@ -109,7 +111,7 @@ client.on('interaction', async (interaction) => {
 
 
                 // console.log(button)
-            try{
+
                 message_info[button.message.id]['button_id'] = button.customID
                 message_info[button.message.id]['button_clicker'] = button.user.id
                 if (message_info[button.message.id]?.tier) {
@@ -117,9 +119,7 @@ client.on('interaction', async (interaction) => {
                     message_info[button.message.id].tier = parseInt(button.customID.match(/(?<=_)\d+/g)[0])
                     button.customID = button.customID.replace(/_\d+/g, '')
                 }
-            }catch{
-                interaction.reply({content: "The buttons on this message timed out!", ephemeral: true})
-            }
+
 
 
                 let command_info = button.customID.replace(/\[.+]/g, '').split(/\./g)
@@ -171,8 +171,12 @@ client.on('interaction', async (interaction) => {
                     let previous_components = button.message.components
 
                     let args = old_embed.title.match(/(?<=").*(?=")/g)?.[0].split(/ +/g)
-
-                    let [text, embed, buttons, returned_message_info] = await command.execute(button.message, args, config, id, page, old_embed, previous_components, message_info[button.message.id])
+                    //console.log(message_info[button.message.id])
+                    try {
+                        let [text, embed, buttons, returned_message_info] = await command.execute(button.message, args, config, id, page, old_embed, previous_components, message_info[button.message.id])
+                    }catch{
+                        interaction.reply({content: "The buttons on this message timed out!", ephemeral: true})
+                    }
                     let components = buttons
 
                     if (embed.fields.length > command?.embed_length) {
