@@ -221,13 +221,15 @@ client.on('interaction', async (interaction) => {
             "NPC": ['default', 'npc'],
             "UserGeneratedNPCs": ['default', 'npc'],
             "Enemies": ['default', 'enemy'],
-            "help": ['default', 'help']
+            "help": ['default', 'help'],
+            "lti": ['default', 'lti']
         }
 
         let blank_embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
         let page = 0
         try{
             let [command_type, command_name] = type_to_command_info?.[type]
+            // console.log({command_type, command_name})
 
             let command = client[command_type].get(command_name) //this is the executable command
 
@@ -240,7 +242,18 @@ client.on('interaction', async (interaction) => {
 
             message_info[interaction.message.id] = {...message_info[interaction.message.id], ...returned_message_info}
         }catch{
-            await interaction.reply({content:"This command failed.", ephemeral: true})
+            let rejection_reason = "This command failed."
+            try{
+                let [command_type, command_name] = type_to_command_info?.[type]
+
+                let command = await client[command_type].get(command_name)
+                console.log({command})
+                if(command?.rejection_reason){
+                    rejection_reason = command.rejection_reason
+                }
+            }catch{}
+
+            await interaction.reply({content: rejection_reason, ephemeral: true})
         }
 
     }

@@ -6,6 +6,7 @@ module.exports = {
     notes: 'This is a command used to view all items in a loot table.',
     search_type: 'lti_names',
     embed_length: 18,
+    rejection_reason: "This Loot Table contains no items!",
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
         let tier
 
