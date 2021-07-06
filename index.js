@@ -100,8 +100,10 @@ client.on('message', message => {
 })
 
 client.on('interaction', async (interaction) => {
+    let was_not_undefined = true
     if(message_info?.[interaction.message.id] === undefined){
         message_info[interaction.message.id] = {}
+        was_not_undefined = false
     }
     if (interaction.componentType === 'BUTTON') {
         try {
@@ -185,7 +187,11 @@ client.on('interaction', async (interaction) => {
 
                         message_info[button.message.id] = {...message_info[button.message.id], ...returned_message_info}
                     }catch{
-                        interaction.reply({content: "The buttons on this message timed out!", ephemeral: true})
+                        if(was_not_undefined){
+                            interaction.reply({content: "There was an error executing this component!", ephemeral: true})
+                        }else {
+                            interaction.reply({content: "The buttons on this message timed out!", ephemeral: true})
+                        }
                     }
 
                 } catch (error) {
