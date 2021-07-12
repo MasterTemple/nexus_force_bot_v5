@@ -208,7 +208,7 @@ module.exports = function(embed, info_file, config, client) {
                     },
                     {
                         name: "Charge Up Damage",
-                        value: item['overview'][item['objectSkills'][Object.keys(item.objectSkills)[skill]]['behaviorID']]?.chargeUpCombo,
+                        value: item['overview'][item['objectSkills'][Object.keys(item.objectSkills)[skill]]['behaviorID']]?.chargeUpCombo.toString(),
                         inline: true
                     },
 
