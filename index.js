@@ -184,7 +184,7 @@ client.once('ready', async() => {
                             {name:"Simulate", value: "simulate"},
                             {name:"Skill", value: "skill"},
                             {name:"Skillitems", value: "skillitems"},
-                            {name:"Tic", value: "tic"},
+                            {name:"Tic", value: "tictactoe"},
                             {name:"Vendor", value: "vendor"},
                         ],
                     }
@@ -378,7 +378,7 @@ client.once('ready', async() => {
                 ]
             },
             {
-                "name":"tic",
+                "name":"tictactoe",
                 "description":" Play tic tac toe",
                 "default_permission":true,
                 "options":[
@@ -472,8 +472,8 @@ client.on('messageCreate', message => {
 client.on('interactionCreate', async (interaction) => {
     let was_not_undefined = true
     if(message_info?.[interaction.id] === undefined){
-        // message_info[interaction.message.id] = {}
         message_info[interaction.id] = {}
+        // message_info[interaction.id] = {}
         was_not_undefined = false
     }
     // console.log(interaction)
@@ -506,6 +506,7 @@ client.on('interactionCreate', async (interaction) => {
                 // console.log(command_type)
                 // console.log(command_name)
                 let old_embed = interaction.message.embeds[0]
+                message_info[interaction.id]['fields'] = old_embed.fields
                 old_embed.fields = []
                 //old_embed.setDescription()
                 let id = interaction.message.embeds[0].title.match(/(?<=\[)\d+/g)?.[0]
@@ -551,7 +552,9 @@ client.on('interactionCreate', async (interaction) => {
                     //console.log(message_info[interaction.id])
                     try {
                         let [text, embed, buttons, returned_message_info] = await command.execute(interaction, args, config, id, page, old_embed, previous_components, message_info[interaction.id])
-
+                        if(returned_message_info['return']){
+                            return
+                        }
                         let components = buttons
 
                         if (embed.fields.length > command?.embed_length) {
@@ -619,7 +622,7 @@ client.on('interactionCreate', async (interaction) => {
                 let [command_type, command_name] = type_to_command_info?.[type]
 
                 let command = await client[command_type].get(command_name)
-                console.log({command})
+                // console.log({command})
                 if(command?.rejection_reason){
                     rejection_reason = command.rejection_reason
                 }
@@ -658,9 +661,10 @@ client.on('interactionCreate', async (interaction) => {
                     // console.log(JSON.stringify({...embed}, null, 2))
                     // console.log(JSON.stringify({...components}, null, 2))
                     // await console.log({content: text, embeds: [embed], components: components})
-                    let sent_message = await interaction.reply({content: text, embeds: [embed], components: components, allowedMentions: { repliedUser: false }})
+                    await interaction.reply({content: text, embeds: [embed], components: components, allowedMentions: { repliedUser: false }})
                     // let sent_message = await message.channel.send({content: text, embeds: [embed], components: components})
                     // console.log(sent_message)
+                    // console.log(interaction.reply.id)
                     message_info[interaction.id] = returned_message_info
                     setTimeout(() => delete message_info[interaction.id], config.time_out_ms)
                     //console.log('Sent Message:', sent_message.id)

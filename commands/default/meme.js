@@ -24,7 +24,7 @@ module.exports = {
         }
         let data = await get_data()
         let data_file = data.data.children[getRandomInt(data.data.children.length)]['data']
-        console.log(data_file)
+        // console.log(data_file)
         embed.setAuthor(data_file.author)
         embed.setTitle(data_file.title)
         embed.setURL("https://www.reddit.com"+data_file.permalink)
