@@ -7,21 +7,24 @@ module.exports = {
     search_type: 'bricks_or_items',
     embed_length: 6,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
-        let item_args
+        let item_args = args
         let enemy_package_or_activity_args
         try {
-            [item_args, enemy_package_or_activity_args] = message.content.match(/(?<=\!\w+ ).*/g)[0].toLowerCase().split(' from ')
+            item_args = args
+            enemy_package_or_activity_args = message.options.get('enemy').value
+            // [item_args, enemy_package_or_activity_args] = message.content.match(/(?<=\!\w+ ).*/g)[0].toLowerCase().split(' from ')
         }catch{
-            item_args = id
+            item_args = [id]
             // console.log(message_data)
             enemy_package_or_activity_args = message_data['button_id'].match(/(?<=\[)[^\]]*(?=])/g)?.[0]
             // console.log(enemy_package_or_activity_args)
             // enemy_package_or_activity_args = message?.['components']?.[0]?.['components']?.[0]?.custom_id.match(/(?<=\[)[^\]]*(?=])/g)?.[0]
         }
+        console.log(item_args)
 
         // console.log(item_args, enemy_package_or_activity_args)
         let search = require('./../../functions/search')
-        let item_id = search('objects', true, item_args.split(/ +/g))
+        let item_id = search('objects', true, item_args)
         let item_file = require(`${config['output_path']}objects/${Math.floor(item_id/256)}/${item_id}.json`)
 
 

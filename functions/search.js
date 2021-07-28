@@ -2,6 +2,7 @@ module.exports = function(search_type, return_one, args) {
     if(search_type === undefined){
         return 0
     }
+    // let args = og_args.split(/ +/)
     let search_for = []
     args.forEach((each_arg) => {
         search_for.push(each_arg.toLowerCase())

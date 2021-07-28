@@ -9,16 +9,16 @@ module.exports = {
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
         // console.log(message?.embeds?.[0]?.fields)
         // console.log(message_data)
-
+        console.log(args)
         if(Object.keys(message_data).length === 0) {
             //first time command is run
             message_data['stage'] = 'initialize'
             message_data['challenger'] = {}
             message_data['challenged'] = {}
-            message_data['challenger']['id'] = message.author.id
+            message_data['challenger']['id'] = message.user.id
             message_data['challenger']['faction'] = 'nexus_force'
             message_data['challenger']['tiles'] = []
-            message_data['challenged']['id'] = message.mentions.users.entries().next().value[0]
+            message_data['challenged']['id'] = message.options.get('name').value
             message_data['challenged']['faction'] = 'nexus_force'
             message_data['challenged']['tiles'] = []
             message_data['required_users'] = [message_data['challenged']['id']]
@@ -60,8 +60,9 @@ module.exports = {
                 }
             }
         }
+        console.log(message_data)
         // console.log(message_data['challenger']['faction'] , 'nexus_force', message_data['challenged']['faction'],'nexus_force', button_obj?.f, undefined)
-        if(message_data['challenger']['faction'] !== 'nexus_force' && message_data['challenged']['faction'] !== 'nexus_force' && message_data['stage'] === 'choose_faction'){
+        if(message_data?.['challenger']?.['faction'] !== 'nexus_force' && message_data?.['challenged']?.['faction'] !== 'nexus_force' && message_data?.['stage'] === 'choose_faction'){
             message_data['stage'] = 'play'
             message_data['required_users'] = [message_data['challenged']['id']]
             //this is challenged cause it will be flipped at the end, so the challenger will go first
@@ -78,23 +79,38 @@ module.exports = {
             [2, 5, 8],
             [3, 6, 9]
         ]
-        win_conditions.forEach((each_condition) => {
-            if(each_condition.every((each_element) => message_data['challenger']['tiles'].includes(each_element))){
-                message_data['stage'] = 'game_over'
-                message_data['winner'] = {id: message_data['challenger']['id'], faction: message_data['challenger']['faction']}
-                message_data['loser'] = {id: message_data['challenged']['id'], faction: message_data['challenged']['faction']}
 
-            }
-            if(each_condition.every((each_element) => message_data['challenged']['tiles'].includes(each_element))){
-                message_data['stage'] = 'game_over'
-                message_data['winner'] = {id: message_data['challenged']['id'], faction: message_data['challenged']['faction']}
-                message_data['loser'] = {id: message_data['challenger']['id'], faction: message_data['challenger']['faction']}
-            }
-            if(message_data.challenger.tiles.length + message_data.challenged.tiles.length === 9){
-                message_data['stage'] = 'game_over'
+        try{
+            win_conditions.forEach((each_condition) => {
+                if (each_condition.every((each_element) => message_data['challenger']['tiles'].includes(each_element))) {
+                    message_data['stage'] = 'game_over'
+                    message_data['winner'] = {
+                        id: message_data['challenger']['id'],
+                        faction: message_data['challenger']['faction']
+                    }
+                    message_data['loser'] = {
+                        id: message_data['challenged']['id'],
+                        faction: message_data['challenged']['faction']
+                    }
 
-            }
-        })
+                }
+                if (each_condition.every((each_element) => message_data['challenged']['tiles'].includes(each_element))) {
+                    message_data['stage'] = 'game_over'
+                    message_data['winner'] = {
+                        id: message_data['challenged']['id'],
+                        faction: message_data['challenged']['faction']
+                    }
+                    message_data['loser'] = {
+                        id: message_data['challenger']['id'],
+                        faction: message_data['challenger']['faction']
+                    }
+                }
+                if (message_data.challenger.tiles.length + message_data.challenged.tiles.length === 9) {
+                    message_data['stage'] = 'game_over'
+
+                }
+            })
+        }catch{}
 
 
         embed.setTitle(`Tic Tac Toe!`)

@@ -14,9 +14,11 @@ module.exports = {
         const command_files = fs.readdirSync(`./commands/default`).filter(file => file.endsWith('.js'));
         command_files.forEach(function(each_command_file){
             const command = require(`./${each_command_file}`)
-            description = `${description}**${config.prefix}${command.name.join(` ${config.prefix}`)}** ${command.description}\n`
+            // description = `${description}**${config.prefix}${command.name.join(` ${config.prefix}`)}** ${command.description}\n`
+            description = `${description}**${config.prefix}${command.name[0]}** ${command.description}\n`
             commands.push({
-                name: `${config.prefix}${command.name.join(` ${config.prefix}`)}`,
+                // name: `${config.prefix}${command.name.join(` ${config.prefix}`)}`,
+                name: `${config.prefix}${command.name[0]}`,
                 description: command.description,
                 first_command: command.name[0]
             })

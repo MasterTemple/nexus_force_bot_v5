@@ -8,17 +8,19 @@ module.exports = {
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
         // let cooldowngroupData = require(`${config['output_path']}objects/${Math.floor(id/256)}/${id}.json`)
         // let id = id
-
+        // console.log(id)
         let cdg
         try{
             cdg = args[0]
         }catch{
             try {
-                cdg = message['components'][0]['components'].find((each_component) => {
-                    if(each_component.label.includes("Cooldown Group: ")){
-                        return each_component
-                    }
-                }).label.match(/\d+/g)[0]
+                // cdg = message.customId
+                cdg = message.message.embeds[0].description.match(/(?<=Cooldown Group: \*\*)\d+/)
+                // cdg = message['components'][0]['components'].find((each_component) => {
+                //     if(each_component.label.includes("Cooldown Group: ")){
+                //         return each_component
+                //     }
+                // }).label.match(/\d+/g)[0]
             }catch{
                 cdg = id
             }
@@ -30,7 +32,7 @@ module.exports = {
         let skills_file = require(`./../../output/references/skills.json`)
 
 
-
+        delete embed.description
         embed.setTitle(`Cooldown Group [${cdg}] (${page+1})`)
         embed.setThumbnail(config['universe_icon'])
         embed.setURL(`${config['explorer_link_domain']}dashboard`)

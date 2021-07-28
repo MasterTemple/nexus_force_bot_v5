@@ -1,4 +1,7 @@
 module.exports = function(embed, item_file, config, search, enemy_package_or_activity_args){
+    // let type = message.options.get('type').value
+    // let enemy = message.options.get('enemy').value
+    // enemy_package_or_activity_args = message.options.get('enemy').value
     let activity_id =  search('activities', true, enemy_package_or_activity_args.split(/ +/g))
     let enemy_id =  search('enemies', true, enemy_package_or_activity_args.split(/ +/g))
     let package_id =  search('packages', true, enemy_package_or_activity_args.split(/ +/g))
