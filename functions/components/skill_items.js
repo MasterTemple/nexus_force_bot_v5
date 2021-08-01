@@ -37,7 +37,7 @@ module.exports = function(skill_name, cdg, page, max_pages, items, embed_length)
                 "label": each_result.name.substring(0,24),
                 // "value": each_result.id.toString(),
                 "value": `${each_result.type} [${each_result.id}]`,
-                "description": `${each_result.type} [${each_result.id}]`,
+                "description": `${each_result.type} [${each_result.id}]`.substring(0, 50),
                 "emoji": {
                     "name": each_result.type,
                     "id": emoji_id
