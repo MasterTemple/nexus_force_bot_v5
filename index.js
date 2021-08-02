@@ -217,7 +217,10 @@ client.on('interactionCreate', async (interaction) => {
                     let blank_embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
 
                     let object_id = search(command?.search_type, true, args)
-
+                    if(object_id === undefined){
+                        await interaction.reply({content: "There was no object found for this search.", ephemeral: true})
+                        return
+                    }
                     let [text, embed, components, returned_message_info] = await command.execute(interaction, args, config, object_id, 0, blank_embed, [], {})
                     // let components = components_from_2d_button_array(disbut.MessageActionRow, buttons)
                     // console.log('\n\n\n')
@@ -247,7 +250,7 @@ client.on('interactionCreate', async (interaction) => {
                     embed.setColor("#ff0000")
                     embed.setTitle(`Error: /${interaction.commandName}`)
                     delete embed.url
-                    embed.addField("Options", `\`\`\`\n${JSON.stringify(interaction.options._hoistedOptions, null, 2)}\n\`\`\``)
+                    embed.addField("Options", `\`\`\`json\n${JSON.stringify(interaction.options._hoistedOptions, null, 2)}\n\`\`\``)
                     await interaction.reply({content: "There was an error executing this command!", ephemeral: true})
                     await client.channels.cache.get("871696113932046379").send({embeds: [embed]})
                 }
