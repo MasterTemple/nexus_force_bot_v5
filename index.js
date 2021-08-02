@@ -23,7 +23,7 @@ const command_types = ['default', 'admin', 'dev', 'buttons']
 let create_embed = require('./functions/create_embed')
 const search = require('./functions/search')
 let set_slash_commands =require('./functions/set_slash_commands')
-var message_info = {}
+let message_info = {}
 
 const command_requirements = {
     default: [],
@@ -37,6 +37,7 @@ command_types.forEach(function(command_type){
 
 client.once('ready', async() => {
     await set_slash_commands(client)
+    // await client.user.setAvatar('https://cdn.discordapp.com/attachments/871696113932046379/871697170594676746/nexus_purple.jpg')
     console.log(`${config.name} ${parseFloat(config.version).toFixed( 1)} is ready :)`) //logs that the bot is ready
 
 })
@@ -240,15 +241,15 @@ client.on('interactionCreate', async (interaction) => {
                 }catch(error){
                     //sends an embed with the object info (used for errors)
                     console.log(error)
-
                     let embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
-                    let sql_objects = require('./output/references/sql_objects.json')
-                    let object_id = search('objects', true, args)
-                    let object = sql_objects.filter(each_object => each_object.id === parseInt(object_id))[0]
-                    embed.setTitle(`Object Found: ${object?.type}`)
-                    embed.setDescription("There was an error running this command.")
-                    embed.addField(`${object?.displayName}`, `${object?.name} [[${object_id}]](${config.explorer_link_domain}objects/${object_id})`)
-                    await interaction.reply({embeds: [embed]})
+                    delete embed.thumbnail
+                    embed.setDescription(`\`\`\`\n${error}\n\`\`\``)
+                    embed.setColor("#ff0000")
+                    embed.setTitle(`Error: /${interaction.commandName}`)
+                    delete embed.url
+                    embed.addField("Options", `\`\`\`\n${JSON.stringify(interaction.options._hoistedOptions, null, 2)}\n\`\`\``)
+                    await interaction.reply({content: "There was an error executing this command!", ephemeral: true})
+                    await client.channels.cache.get("871696113932046379").send({embeds: [embed]})
                 }
             }
         })
