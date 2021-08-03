@@ -44,39 +44,44 @@ module.exports = function(page, max_pages, results, embed_length){
     })
 
 
+    if(options.length > 0) {
+        return [
+            {
+                "type": 1,
+                "components": [
+                    {
+                        "type": 3,
+                        "custom_id": "item",
+                        "options": options,
+                        "placeholder": "Select an item",
+                        "min_values": 1,
+                        "max_values": 1
+                    }
+                ]
+            },
+            {
+                "type": 1,
+                "components": [
+                    {
+                        "type": 2,
+                        "label": "Previous",
+                        "style": 1,
+                        "custom_id": "default.search_previous",
+                        "disabled": previous_is_disabled
+                    },
+                    {
+                        "type": 2,
+                        "label": "Next",
+                        "style": 1,
+                        "custom_id": "default.search_next",
+                        "disabled": next_is_disabled
+                    }
+                ]
+            }
+        ]
+    }else{
+        return [
 
-    return [
-        {
-            "type": 1,
-            "components": [
-                {
-                    "type": 3,
-                    "custom_id": "item",
-                    "options": options,
-                    "placeholder": "Select an item",
-                    "min_values": 1,
-                    "max_values": 1
-                }
-            ]
-        },
-        {
-            "type": 1,
-            "components": [
-                {
-                    "type": 2,
-                    "label": "Previous",
-                    "style": 1,
-                    "custom_id": "default.search_previous",
-                    "disabled": previous_is_disabled
-                },
-                {
-                    "type": 2,
-                    "label": "Next",
-                    "style": 1,
-                    "custom_id": "default.search_next",
-                    "disabled": next_is_disabled
-                }
-            ]
-        }
-    ]
+        ]
+    }
 }

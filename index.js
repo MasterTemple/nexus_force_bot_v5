@@ -24,7 +24,6 @@ let create_embed = require('./functions/create_embed')
 const search = require('./functions/search')
 let set_slash_commands =require('./functions/set_slash_commands')
 let message_info = {}
-
 const command_requirements = {
     default: [],
     admin: config.administrators,
@@ -37,6 +36,7 @@ command_types.forEach(function(command_type){
 
 client.once('ready', async() => {
     await set_slash_commands(client)
+
     // await client.user.setAvatar('https://cdn.discordapp.com/attachments/871696113932046379/871697170594676746/nexus_purple.jpg')
     console.log(`${config.name} ${parseFloat(config.version).toFixed( 1)} is ready :)`) //logs that the bot is ready
 
@@ -71,8 +71,8 @@ client.on('interactionCreate', async (interaction) => {
                 let command_type = command_info[0]
                 let command_name = command_info[1]
 
-                // console.log(command_type)
-                // console.log(command_name)
+                console.log(command_type)
+                console.log(command_name)
                 let old_embed = interaction.message.embeds[0]
                 message_info[interaction.id]['fields'] = old_embed.fields
                 old_embed.fields = []
@@ -114,7 +114,7 @@ client.on('interactionCreate', async (interaction) => {
                 try {
                     //command.execute(message, command_type, command_name, args)
 
-                    let previous_components = interaction.components
+                    let previous_components = interaction.message.components
 
                     let args = old_embed.title.match(/(?<=").*(?=")/g)?.[0].split(/ +/g)
                     //console.log(message_info[interaction.id])
@@ -127,6 +127,12 @@ client.on('interactionCreate', async (interaction) => {
 
                         if (embed.fields.length > command?.embed_length) {
                             embed.fields = embed.fields.slice(page * command.embed_length, (command.embed_length * page) + command.embed_length)
+                        }
+                        // console.log(previous_components[previous_components.length-1])
+                        if(previous_components?.[previous_components?.length-1].components[0].label === "Back" && command_name !== 'back'){
+                            // console.log(previous_components[previous_components.length-1])
+
+                            components.push(previous_components[previous_components.length-1])
                         }
 
                         await interaction.update({content: text, embeds: [embed], components: components})
@@ -148,7 +154,14 @@ client.on('interactionCreate', async (interaction) => {
                 console.log(error)
             }
         }
+
     if(interaction.componentType === 'SELECT_MENU'){
+        // console.log(interaction.message)
+        let back_channel = await client.channels.cache.get("871891794483367997")
+        let old_content = interaction.message.content
+        if(old_content.length === 0){old_content=undefined}
+        let back_msg = await back_channel.send({content:old_content, embeds: interaction.message.embeds, components: interaction.message.components})
+        let back_msg_id = back_msg.id
         // console.log(interaction)
         // interaction.reply({content: "This is not ready yet!", ephemeral: true})
         let id = interaction.values[0].match(/(?<=\[)\d+/g)?.[0]
@@ -171,6 +184,7 @@ client.on('interactionCreate', async (interaction) => {
         let blank_embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
         let page = 0
         try{
+
             let [command_type, command_name] = type_to_command_info?.[type]
             // console.log({command_type, command_name})
 
@@ -181,6 +195,17 @@ client.on('interactionCreate', async (interaction) => {
             if (embed.fields.length > command?.embed_length) {
                 embed.fields = embed.fields.slice(page * command.embed_length, (command.embed_length * page) + command.embed_length)
             }
+
+
+            components.push({
+                "type": 1,
+                "components": [{
+                        "type": 2,
+                        "label": "Back",
+                        "style": 4,
+                    // "custom_id": `${command_type}.${command_name}[${id}]`
+                    "custom_id": `buttons.back[${back_msg_id}]`
+                }]})
             await interaction.update({content: text, embeds: [embed], components: components})
 
             message_info[interaction.message.id] = {...message_info[interaction.message.id], ...returned_message_info}

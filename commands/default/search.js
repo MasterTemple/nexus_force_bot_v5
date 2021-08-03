@@ -10,9 +10,14 @@ module.exports = {
         let search = require('./../../functions/search')
         let results = search('objects_with_render_comp', false, args)
         embed.setTitle(`Searching for: "${args.join(' ')}" (${page+1})`)
-        results.forEach((each_result, c) => {
-            embed.addField(`${c+1}. ${each_result.name}`, `${each_result.type}: [[${each_result.id}]](${config.explorer_link_domain}objects/${each_result.id})`, true)
-        })
+        try {
+            results.forEach((each_result, c) => {
+                embed.addField(`${c + 1}. ${each_result.name}`, `${each_result.type}: [[${each_result.id}]](${config.explorer_link_domain}objects/${each_result.id})`, true)
+            })
+        }catch{
+            embed.addField("No Results Found", "Please try a different query.")
+            results = []
+        }
         let components_function = require('./../../functions/components/search')
         if(embed.fields.length % module.exports.embed_length === 0) {
             message_data['max_pages'] = Math.floor(embed.fields.length / module.exports.embed_length) - 1

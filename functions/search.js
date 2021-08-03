@@ -79,6 +79,7 @@ module.exports = function(search_type, return_one, args) {
                         results.push(each_object)
                     }
                 })
+                return results
             }
         }
     }catch(e){
