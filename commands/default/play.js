@@ -9,6 +9,7 @@ module.exports = {
     async execute(message, args, config, id, page, embed, previous_components, message_data) {
         let form = "https://docs.google.com/forms/d/e/1FAIpQLSdNSfD-9HTQmFtORShBVLqk_srQ759G3VEPYOkpv1XrsjD61g/viewform"
         embed.setTitle("How to Play on Mick's Uchu Test Server")
+        embed.setThumbnail("https://media.discordapp.net/attachments/814459321282592769/872749740473876510/73060465.png")
         embed.setURL("https://uchu.mickv.me/")
         embed.addField("Gaining access", `Access to the test server is on a whitelist basis to ensure that all new testers are reviewed and understand the rules. Gaining access is quite simple and works by filling in this [Google form](${form}).\n\nWhitelist requests are handled on an ad-hoc basis, essentially whenever the development team feels like there are new features that need testing. Credentials are sent to you over Discord. Note that only a username can be picked, you will get a random password for security reasons.`, false)
         embed.addField("Playing", "So you got whitelisted, now what? You now have to setup your client such that you can connect to the public test server, the steps are described in the following section. You can either use the Nexus LU installer to install everything for you or do a manual installation. The Nexus LU installation method is recommended for non-technical users.", false)

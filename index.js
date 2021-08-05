@@ -13,7 +13,7 @@ const client = new Discord.Client({
             }
         ],
     },
-    intents: ['GUILD_MESSAGES', 'DIRECT_MESSAGES', 'GUILDS']
+    intents: ['GUILD_MESSAGES', 'DIRECT_MESSAGES', 'GUILDS', 'GUILD_MEMBERS']
 })
 
 
@@ -35,10 +35,16 @@ command_types.forEach(function(command_type){
 })
 
 client.once('ready', async() => {
-    await set_slash_commands(client)
+    // await set_slash_commands(client)
+    //SET THESE TO PROPER SERVERS
     await client.guilds.cache.get("762298384979329114").commands.set([{
             "name":"play",
             "description": "See how to play Uchu!",
+            "default_permission":true,
+        }])
+    await client.guilds.cache.get("227127903249367041").commands.set([{
+            "name":"factions",
+            "description": "See stats on LEGO Universe Factions!",
             "default_permission":true,
         }])
 
