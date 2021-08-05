@@ -36,6 +36,11 @@ command_types.forEach(function(command_type){
 
 client.once('ready', async() => {
     await set_slash_commands(client)
+    await client.guilds.cache.get("762298384979329114").commands.set([{
+            "name":"play",
+            "description": "See how to play Uchu!",
+            "default_permission":true,
+        }])
 
     // await client.user.setAvatar('https://cdn.discordapp.com/attachments/871696113932046379/871697170594676746/nexus_purple.jpg')
     console.log(`${config.name} ${parseFloat(config.version).toFixed( 1)} is ready :)`) //logs that the bot is ready
