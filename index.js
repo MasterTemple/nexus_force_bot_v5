@@ -262,7 +262,7 @@ client.on('interactionCreate', async (interaction) => {
                     // console.log(JSON.stringify({...embed}, null, 2))
                     // console.log(JSON.stringify({...components}, null, 2))
                     // await console.log({content: text, embeds: [embed], components: components})
-                    await interaction.reply({content: text, embeds: [embed], components: components, allowedMentions: { repliedUser: false }})
+                    await interaction.reply({content: text, embeds: [embed], components: components, allowedMentions: { repliedUser: false }, ephemeral: returned_message_info.ephemeral})
                     // let sent_message = await message.channel.send({content: text, embeds: [embed], components: components})
                     // console.log(sent_message)
                     // console.log(interaction.reply.id)

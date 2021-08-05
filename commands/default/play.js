@@ -58,6 +58,7 @@ module.exports = {
                 ]
             }
         ]
+        message_data['ephemeral'] = true
         return [, embed, components, message_data]
 
     }
