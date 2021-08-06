@@ -26,7 +26,7 @@ module.exports = {
         }
 
         let components_function = require('./../../functions/components/npc_vendor')
-        let components = components_function(page, message_data['max_pages'], data_file)
+        let components = components_function(page, message_data['max_pages'], data_file, module.exports.embed_length)
 
         return [, embed, components, message_data]
     }

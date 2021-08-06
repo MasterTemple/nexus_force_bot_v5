@@ -12,6 +12,7 @@ module.exports = function(skill_name, cdg, page, max_pages, items, embed_length)
     let objects_with_render_comp = require('./../../output/references/objects_with_render_comp.json')
     let all_objects_array = []
     let item_ids = Object.keys(items)
+
     objects_with_render_comp.forEach( (each_object) => {
         if(item_ids.includes(each_object.id.toString())){
             //if(items[each_object.id].name) {
@@ -21,6 +22,7 @@ module.exports = function(skill_name, cdg, page, max_pages, items, embed_length)
     })
     let options = []
     let r2e = require('./../../output/references/render_components_to_emoji_id.json')
+    all_objects_array = all_objects_array.slice(page * embed_length, (embed_length * page) + embed_length)
 
     all_objects_array.forEach( (each_result, c) => {
         // console.log(c)

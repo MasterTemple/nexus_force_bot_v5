@@ -16,7 +16,13 @@ module.exports = {
         let fields_function = require('./../../functions/fields/buy')
         fields_function(embed, data_file, config)
         let components_function = require('./../../functions/components/buy')
-        let components = components_function(data_file)
+        if(embed.fields.length % module.exports.embed_length === 0) {
+            message_data['max_pages'] = Math.floor(embed.fields.length / module.exports.embed_length) - 1
+        }
+        else{
+            message_data['max_pages'] = Math.floor(embed.fields.length / module.exports.embed_length)
+        }
+        let components = components_function(page, message_data['max_pages'], data_file, module.exports.embed_length)
 
         return [, embed, components, message_data]
     }

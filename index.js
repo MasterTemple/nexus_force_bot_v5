@@ -37,16 +37,18 @@ command_types.forEach(function(command_type){
 client.once('ready', async() => {
     // await set_slash_commands(client)
     //SET THESE TO PROPER SERVERS
-    await client.guilds.cache.get("762298384979329114").commands.set([{
-            "name":"play",
+   try {
+        await client.guilds.cache.get("762298384979329114").commands.set([{
+            "name": "play",
             "description": "See how to play Uchu!",
-            "default_permission":true,
+            "default_permission": true,
         }])
-    await client.guilds.cache.get("227127903249367041").commands.set([{
-            "name":"factions",
+        await client.guilds.cache.get("227127903249367041").commands.set([{
+            "name": "factions",
             "description": "See stats on LEGO Universe Factions!",
-            "default_permission":true,
+            "default_permission": true,
         }])
+    }catch{}
 
     // await client.user.setAvatar('https://cdn.discordapp.com/attachments/871696113932046379/871697170594676746/nexus_purple.jpg')
     console.log(`${config.name} ${parseFloat(config.version).toFixed( 1)} is ready :)`) //logs that the bot is ready
@@ -82,8 +84,8 @@ client.on('interactionCreate', async (interaction) => {
                 let command_type = command_info[0]
                 let command_name = command_info[1]
 
-                console.log(command_type)
-                console.log(command_name)
+                // console.log(command_type)
+                // console.log(command_name)
                 let old_embed = interaction.message.embeds[0]
                 message_info[interaction.id]['fields'] = old_embed.fields
                 old_embed.fields = []
@@ -189,13 +191,16 @@ client.on('interactionCreate', async (interaction) => {
             "Enemies": ['default', 'enemy'],
             "help": ['default', 'help'],
             "lti": ['default', 'lti'],
-            "skill": ['default', 'skill']
+            "skill": ['default', 'skill'],
+            "mission": ['default', 'mission'],
+            "vendor": ['default', 'vendor'],
+
         }
 
         let blank_embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
         let page = 0
         try{
-
+            // console.log(type)
             let [command_type, command_name] = type_to_command_info?.[type]
             // console.log({command_type, command_name})
 
@@ -220,7 +225,9 @@ client.on('interactionCreate', async (interaction) => {
             await interaction.update({content: text, embeds: [embed], components: components})
 
             message_info[interaction.message.id] = {...message_info[interaction.message.id], ...returned_message_info}
-        }catch{
+        }catch(e){
+            console.log(e)
+
             let rejection_reason = "This command failed."
             try{
                 let [command_type, command_name] = type_to_command_info?.[type]

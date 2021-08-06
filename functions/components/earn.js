@@ -1,4 +1,4 @@
-module.exports = function(page, max_pages) {
+module.exports = function(page, max_pages, results, embed_length) {
     let previous_is_disabled = false
     let next_is_disabled = false
 
@@ -8,7 +8,34 @@ module.exports = function(page, max_pages) {
     if(max_pages === page){
         next_is_disabled = true
     }
+    // console.log(results)
+    results = Object.entries(results).slice(page * embed_length, (embed_length * page) + embed_length)
+
+    let options = []
+    results.forEach( (each_result, c) => {
+        if(c < 25) {
+            let obj = {
+                "label": each_result[1].missionName.substring(0,24),
+                "value": `mission [${each_result[0]}]`,
+                "description": `${each_result[1].missionDescription}`.substring(0, 50),
+            }
+            options.push(obj)
+        }
+    })
     return [
+        {
+            "type": 1,
+            "components": [
+                {
+                    "type": 3,
+                    "custom_id": "item",
+                    "options": options,
+                    "placeholder": "Select an item",
+                    "min_values": 1,
+                    "max_values": 1
+                }
+            ]
+        },
         {
             "type": 1,
             "components": [

@@ -1,4 +1,4 @@
-module.exports = function(page, max_pages, data_file){
+module.exports = function(page, max_pages, data_file, embed_length){
     let previous_is_disabled = false
     let next_is_disabled = false
     let mission_giver_is_disabled = false
@@ -25,6 +25,7 @@ module.exports = function(page, max_pages, data_file){
     })
     let options = []
     let r2e = require('./../../output/references/render_components_to_emoji_id.json')
+    all_objects_array = all_objects_array.slice(page * embed_length, (embed_length * page) + embed_length)
 
     all_objects_array.forEach( (each_result, c) => {
         // console.log(c)
@@ -81,7 +82,7 @@ module.exports = function(page, max_pages, data_file){
                     "label": "Vendor",
                     "style": 3,
                     "custom_id": "default.npcvendor",
-                    "disabled": mission_giver_is_disabled
+                    "disabled": false
                 },
                 {
                     "type": 2,

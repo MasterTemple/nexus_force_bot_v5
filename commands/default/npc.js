@@ -17,7 +17,11 @@ module.exports = {
 
         let fields_function = require('./../../functions/fields/npc_missions')
         fields_function(embed, data_file, config)
-
+        let is_not_mission_giver = true
+        if(embed.fields.length === 0) {
+            is_not_mission_giver = false
+            embed.addField("No Missions!", "This NPC has no missions!", false)
+        }
         if(embed.fields.length % module.exports.embed_length === 0) {
             message_data['max_pages'] = Math.floor(embed.fields.length / module.exports.embed_length) - 1
         }
@@ -26,7 +30,7 @@ module.exports = {
         }
 
         let components_function = require('./../../functions/components/npc_missions')
-        let components = components_function(page, message_data['max_pages'], data_file)
+        let components = components_function(page, message_data['max_pages'], data_file, module.exports.embed_length, is_not_mission_giver)
 
         return [, embed, components, message_data]
     }
