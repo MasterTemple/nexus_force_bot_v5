@@ -15,7 +15,7 @@ module.exports = function(page, max_pages, results, embed_length) {
     results.forEach( (each_result, c) => {
         if(c < 25) {
             let obj = {
-                "label": each_result[1].missionName.substring(0,24),
+                "label": each_result[1].missionName.substring(0,100),
                 "value": `mission [${each_result[0]}]`,
                 "description": `${each_result[1].missionDescription}`.substring(0, 50),
             }

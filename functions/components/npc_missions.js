@@ -18,7 +18,7 @@ module.exports = function(page, max_pages, data_file, embed_length, is_not_missi
     Object.entries(data_file.missions).forEach( (m, c) => {
         if(c < 25) {
             let obj = {
-                "label": m[1].MissionStats.MissionText.name.substring(0,24),
+                "label": m[1].MissionStats.MissionText.name.substring(0,100),
                 "value": `mission [${m[0]}]`,
                 "description": `${m[1].MissionStats.MissionText.description}`.substring(0, 50),
             }

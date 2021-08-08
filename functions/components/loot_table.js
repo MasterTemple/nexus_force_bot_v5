@@ -56,7 +56,7 @@ module.exports = function(page, max_pages, tier, lti_file){
             //     console.log(r2e[each_result.rc])
             // }
             let obj = {
-                "label": each_result.name.substring(0,24),
+                "label": each_result.name.substring(0,100),
                 // "value": each_result.id.toString(),
                 "value": `${each_result.type} [${each_result.id}]`,
                 "description": `${each_result.type} [${each_result.id}]`.substring(0, 50),

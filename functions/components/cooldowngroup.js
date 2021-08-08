@@ -20,7 +20,7 @@ module.exports = function(cdg, page, max_pages, data_file, embed, embed_length) 
             "label": each_result.name.substring(0, 25),
             // "value": each_result.id.toString(),
             "value": `skill [${each_result.value.match(/(?<=\[\[)\d+(?=]])/g)[0]}]`,
-            "description": desc.substring(0,50),
+            "description": desc.substring(0,100),
             "emoji": {
                 "name": each_result['LootTableIndex'],
                 "id": emoji_id

@@ -4,9 +4,9 @@ module.exports = function(commands) {
         if(c < 25) {
 
             let obj = {
-                "label": each_command.name.substring(0,24),
+                "label": each_command.name.substring(0,100),
                 "value": `help [${each_command.first_command}]`,
-                "description": each_command.description.substring(0,50),
+                "description": each_command.description.substring(0,100),
                 "emoji": {
                     "name": each_command.name[0],
                     "id": '861767165685399552'

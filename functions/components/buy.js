@@ -26,7 +26,7 @@ module.exports = function(page, max_pages, data_file, embed_length){
             let second_name = each_result?.displayName?.match(/[^-]+/g)?.[1] || each_result?.name
             // console.log({name, second_name})
             let obj = {
-                "label": name.substring(0,24),
+                "label": name.substring(0,100),
                 "value": `vendor [${each_result.id}]`,
                 "description": `${second_name}`.substring(0, 50),
             }
