@@ -13,31 +13,71 @@ module.exports = {
             {
                 name: "Assembly",
                 id: "341260781037289473",
-                emoji: "850419548611280986"
+                emoji: "850419548611280986",
+                size: 0
             },
             {
                 name: "Paradox",
                 id: "341260681791799317",
-                emoji: "850419548271149097"
+                emoji: "850419548271149097",
+                size: 0
             },
             {
                 name: "Sentinels",
                 id: "341260934221660170",
-                emoji: "850419548653092905"
+                emoji: "850419548653092905",
+                size: 0
             },
             {
                 name: "Venture League",
                 id: "341260852823064589",
-                emoji: "850419548733440031"
+                emoji: "850419548733440031",
+                size: 0
             }
+            // {
+            //     name: "Assembly",
+            //     id: "874421802712072212",
+            //     emoji: "850419548611280986",
+            //     size: 0
+            // },
+            // {
+            //     name: "Paradox",
+            //     id: "874421753106022410",
+            //     emoji: "850419548271149097",
+            //     size: 0
+            // },
+            // {
+            //     name: "Sentinels",
+            //     id: "872737127899758602",
+            //     emoji: "850419548653092905",
+            //     size: 0
+            // },
+            // {
+            //     name: "Venture League",
+            //     id: "874421838854365214",
+            //     emoji: "850419548733440031",
+            //     size: 0
+            // }
         ]
-        for (let faction_role of roles) {
-            let role_size = await message.guild.roles.fetch(faction_role.id, {limit: 1000})
-            // faction_role.size = parseInt(faction_role.emoji[faction_role.emoji.length-1])
+        let members = await message.guild.members.fetch()
+        // console.log(members)
+        for(let [id, each_member] of members) {
+            // console.log(each_member)
+            for (let faction_role of roles) {
+                if(each_member._roles.includes(faction_role.id)){
+                    faction_role.size++
+                }
+            }
         }
+        // for (let faction_role of roles) {
+        //     let role_size = await message.guild.roles.fetch(faction_role.id, {limit: 1000})
+        //     // faction_role.size = parseInt(faction_role.emoji[faction_role.emoji.length-1])
+        //     faction_role.size = message.guild.roles.fetch(faction_role.id).members.size
+        // }
         roles.sort(function(a, b) {
             return b.size - a.size
         })
+        // console.log(roles)
         let desc = ""
         let total_members = 0
         roles.forEach( (r, c) => {
