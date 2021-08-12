@@ -25,7 +25,7 @@ module.exports = {
             // let fs = require('fs')
             // let file = fs.readFileSync("C:\\Users\\dgmastertemple\\Documents\\GitHub\\Uchu\\Uchu.World\\Handlers\\Commands\\CharacterCommandHandler.cs", "utf-8")
             let file = await get_uwuchu_file()
-            let matches = [...file.matchAll(/\[CommandHandler\(Signature = "(?<name>[^"]+)", Help = "(?<description>[^"]+)", GameMasterLevel = GameMasterLevel\.(?<level>[^\)]+)\)\][^"]+"(?<usage>[^"]+)/g)]
+            let matches = [...file.matchAll(/\[CommandHandler\(Signature\s+=\s+"(?<name>[^"]+)", Help\s+=\s+"(?<description>[^"]+)",\s+GameMasterLevel\s+=\s+GameMasterLevel\.(?<level>[^\)]+)\)\][^"]+"(?<usage>[^"]+)/g)]
             let commands = []
             matches.forEach(e => {
                 commands.push({
