@@ -1,9 +1,9 @@
 module.exports = {
     name: ['play'],
-    description: 'View what a vendor sells',
-    use: 'npc [args]',
-    example: ['npc samurai 3'],
-    notes: 'This is a command used to view what a vendor sells.',
+    description: 'View instructions on how to play Uchu!',
+    use: 'play',
+    example: ['play'],
+    notes: 'This is a command used to view instructions on how to play Uchu.',
     search_type: 'npcs',
     embed_length: 18,
     async execute(message, args, config, id, page, embed, previous_components, message_data) {

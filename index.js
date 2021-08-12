@@ -38,16 +38,42 @@ client.once('ready', async() => {
     // await set_slash_commands(client)
     //SET THESE TO PROPER SERVERS
    try {
-        await client.guilds.cache.get("762298384979329114").commands.set([{
-            "name": "play",
-            "description": "See how to play Uchu!",
-            "default_permission": true,
-        }])
+       await client.guilds.cache.get("762298384979329114").commands.set([
+           {
+           "name": "uchucommands",
+           "description": "See all in game Uchu commands!",
+           "default_permission": true,
+           "options": [
+               {
+                   "name": "type",
+                   "description": "What level of commands would you like?",
+                   "type": 3,
+                   "required": true,
+                   "choices": [
+                       {
+                           "name": "Player",
+                           "value": "Player"
+                       },
+                       {
+                           "name": "Admin",
+                           "value": "Admin"
+                       }
+                   ]
+               }]
+
+            },
+           {
+               "name": "play",
+               "description": "See how to play Uchu!",
+               "default_permission": true,
+           }
+       ])
         await client.guilds.cache.get("227127903249367041").commands.set([{
             "name": "factions",
             "description": "See stats on LEGO Universe Factions!",
             "default_permission": true,
         }])
+
     }catch{}
 
     // await client.user.setAvatar('https://cdn.discordapp.com/attachments/871696113932046379/871697170594676746/nexus_purple.jpg')
@@ -275,6 +301,9 @@ client.on('interactionCreate', async (interaction) => {
                     // console.log(JSON.stringify({...embed}, null, 2))
                     // console.log(JSON.stringify({...components}, null, 2))
                     // await console.log({content: text, embeds: [embed], components: components})
+                    // if(message_info[replied]){
+                    //     return
+                    // }
                     await interaction.reply({content: text, embeds: [embed], components: components, allowedMentions: { repliedUser: false }, ephemeral: returned_message_info.ephemeral})
                     // let sent_message = await message.channel.send({content: text, embeds: [embed], components: components})
                     // console.log(sent_message)

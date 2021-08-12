@@ -7,6 +7,7 @@ module.exports = function(embed, info_file, config) {
 
     const buyFile = info_file
     let fields = []
+    let vendor_count = 0
 
     if(buyFile.itemComponent.levelRequirement === undefined){
         buyFile.levelRequirement = 0
@@ -41,14 +42,19 @@ module.exports = function(embed, info_file, config) {
     }
     for(var e=0;e<buyFile.buyAndDrop.Vendors.length;e++){
         if(buyFile.buyAndDrop.Vendors[e].displayName !== null) {
+            vendor_count++
             vendorInfo = `${vendorInfo}${buyFile.buyAndDrop.Vendors[e].displayName} [[${buyFile.buyAndDrop.Vendors[e].id}]](${config.explorer_link_domain}objects/${buyFile.buyAndDrop.Vendors[e].id}/16)\n`
         }
     }
-
+    let vendorInfo2
+    if(vendorInfo.length > 1024) {
+        // vendorInfo2 = vendorInfo.slice(1)
+        vendorInfo = vendorInfo.substring(0, 1024)
+    }
     if(buyFile.buyAndDrop.Vendors.length === 1){
-        embed.addFields({name: `Vendor:`, value: vendorInfo, inline: false})
+        embed.addFields({name: `Vendor [${vendor_count}]:`, value: vendorInfo, inline: false})
     }else if(buyFile.buyAndDrop.Vendors.length > 1){
-        embed.addFields({name: `Vendors:`, value: vendorInfo, inline: false})
+        embed.addFields({name: `Vendors [${vendor_count}]:`, value: vendorInfo, inline: false})
     }else if(buyFile.commendationVendor.length === 1 && buyFile.commendationCost !== null){
         embed.addFields({
             name: `Vendor:`,
@@ -68,6 +74,11 @@ module.exports = function(embed, info_file, config) {
             inline: false
         })
     }
+
+    // if(vendorInfo2){
+    //     embed.addFields({name: `More:`, value: vendorInfo2, inline: false})
+    // }
+
     return fields
 
 

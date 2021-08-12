@@ -26,6 +26,7 @@ module.exports = {
         let components_function = require('./../../functions/components/earn')
         let components = components_function(page, message_data['max_pages'], data_file['earn'], module.exports.embed_length)
 
+
         return [, embed, components, message_data]
     }
 }

@@ -7,9 +7,9 @@ module.exports = function(embed, info_file, config) {
         let each_mission = each_entry[1]
 
         if(each_mission.rewardCount === 1) {
-            embed.addFields({name: `${each_mission['defined_type']} > ${each_mission['defined_subtype']} > ${each_mission['missionName']}`, value: `${each_mission['missionDescription']} [[${mission_id}]](${config['explorer_link_domain']}missions/${mission_id})`, inline: false})
+            embed.addFields({name: `${each_mission['defined_type']} > ${each_mission['defined_subtype']} > ${each_mission['missionName']}`, value: `${each_mission['missionDescription'].substring(0, 1024-77)} [[${mission_id}]](${config['explorer_link_domain']}missions/${mission_id})`, inline: false})
         }else{
-            embed.addFields({name: `${each_mission['defined_type']} > ${each_mission['defined_subtype']} > ${each_mission['missionName']}`, value: `${each_mission['missionDescription']} [Gives **${each_mission['rewardCount']}**] [[${mission_id}]](${config['explorer_link_domain']}missions/${mission_id})`, inline: false})
+            embed.addFields({name: `${each_mission['defined_type']} > ${each_mission['defined_subtype']} > ${each_mission['missionName']}`, value: `${each_mission['missionDescription'].substring(0, 1024-77)} [Gives **${each_mission['rewardCount']}**] [[${mission_id}]](${config['explorer_link_domain']}missions/${mission_id})`, inline: false})
         }
     })
 
