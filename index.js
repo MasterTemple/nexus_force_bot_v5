@@ -23,6 +23,7 @@ const command_types = ['default', 'admin', 'dev', 'buttons']
 let create_embed = require('./functions/create_embed')
 const search = require('./functions/search')
 let set_slash_commands =require('./functions/set_slash_commands')
+let getAutoCompleteResults= require('./functions/getAutoCompleteResults')
 let message_info = {}
 const command_requirements = {
     default: [],
@@ -35,46 +36,51 @@ command_types.forEach(function(command_type){
 })
 
 client.once('ready', async() => {
+    // await client.guilds.cache.get("813618981247516712").commands.set([{
+    //     "name": "maketester",
+    //     "description": "Make DLU Tester",
+    //     "type": 2
+    // }]).catch(e => console.log(e))
     // await set_slash_commands(client)
     //SET THESE TO PROPER SERVERS
-   try {
-       await client.guilds.cache.get("762298384979329114").commands.set([
-           {
-           "name": "uchucommands",
-           "description": "See all in game Uchu commands!",
-           "default_permission": true,
-           "options": [
-               {
-                   "name": "type",
-                   "description": "What level of commands would you like?",
-                   "type": 3,
-                   "required": true,
-                   "choices": [
-                       {
-                           "name": "Player",
-                           "value": "Player"
-                       },
-                       {
-                           "name": "Admin",
-                           "value": "Admin"
-                       }
-                   ]
-               }]
+//    try {
+//        await client.guilds.cache.get("762298384979329114").commands.set([
+//            {
+//            "name": "uchucommands",
+//            "description": "See all in game Uchu commands!",
+//            "default_permission": true,
+//            "options": [
+//                {
+//                    "name": "type",
+//                    "description": "What level of commands would you like?",
+//                    "type": 3,
+//                    "required": true,
+//                    "choices": [
+//                        {
+//                            "name": "Player",
+//                            "value": "Player"
+//                        },
+//                        {
+//                            "name": "Admin",
+//                            "value": "Admin"
+//                        }
+//                    ]
+//                }]
 
-            },
-           {
-               "name": "play",
-               "description": "See how to play Uchu!",
-               "default_permission": true,
-           }
-       ])
-        await client.guilds.cache.get("227127903249367041").commands.set([{
-            "name": "factions",
-            "description": "See stats on LEGO Universe Factions!",
-            "default_permission": true,
-        }])
+//             },
+//            {
+//                "name": "play",
+//                "description": "See how to play Uchu!",
+//                "default_permission": true,
+//            }
+//        ])
+//         await client.guilds.cache.get("227127903249367041").commands.set([{
+//             "name": "factions",
+//             "description": "See stats on LEGO Universe Factions!",
+//             "default_permission": true,
+//         }])
 
-    }catch{}
+//     }catch{}
 
     // await client.user.setAvatar('https://cdn.discordapp.com/attachments/871696113932046379/871697170594676746/nexus_purple.jpg')
     console.log(`${config.name} ${parseFloat(config.version).toFixed( 1)} is ready :)`) //logs that the bot is ready
@@ -329,7 +335,37 @@ client.on('interactionCreate', async (interaction) => {
             }
         })
     }
-    // console.log('\n\n\n')
+
+    if(interaction.type === "APPLICATION_COMMAND_AUTOCOMPLETE"){
+        // console.log(interaction.options._hoistedOptions);
+        let input = interaction.options._hoistedOptions[0].value
+        let name = interaction.options._hoistedOptions[0].name
+        // console.log(input);
+        if(!input){ return}
+        let results = getAutoCompleteResults(name, input)
+        // results = results.slice(0, 15)
+        // let autocompleteOptions = []
+        // results.forEach(({name, id}) => autocompleteOptions.push({name: name, value: id.toString()}))
+        // console.log(autocompleteOptions);
+
+        // autocompleteOptions = autocompleteOptions.map(e => {
+        //     return {
+        //         name: e.name, value: e.id
+        //     }
+        // })
+        // console.log(autocompleteOptions);
+
+        // let autocompleteOptions= [
+        //     {
+        //         name: 'Option 1',
+        //         value: 'option1',
+        //     }
+        // ]
+        console.log(results);
+        interaction.respond(results)
+
+    }
+
 })
 
 client.login(config.token)

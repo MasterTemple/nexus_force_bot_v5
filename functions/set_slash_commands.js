@@ -7,9 +7,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"activity",
                         "description":"Enter the name of an activity.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -20,9 +21,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"brick",
                         "description":"Enter the name of a LEGO brick.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -33,9 +35,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"loot",
                         "description":"Enter the name of an item or brick.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -46,7 +49,7 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"cooldowngroup",
                         "description":"Enter the name of a cooldown group.",
                         "type":"INTEGER",
                         "required":true
@@ -59,9 +62,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"loot",
                         "description":"Enter the name of an item.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -72,9 +76,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"item",
                         "description":"Enter the name of an item.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -85,9 +90,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"enemy",
                         "description":"Enter the name of an enemy.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -98,9 +104,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"enemy",
                         "description":"Enter the name of an enemy.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -150,9 +157,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"item",
                         "description":"Enter the name of an item.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -163,9 +171,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"kit",
                         "description":"Enter the name of an item set.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -176,7 +185,7 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"level",
                         "description":"Enter a level.",
                         "type":"INTEGER",
                         "required":true
@@ -189,9 +198,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"loottable",
                         "description":"Enter the name of a loot table.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -207,9 +217,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"mission",
                         "description":"Enter the name of a mission.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -220,9 +231,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"npc",
                         "description":"Enter the name of an NPC.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -233,9 +245,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"package",
                         "description":"Enter the name of a package.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -246,9 +259,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"item",
                         "description":"Enter the name of an item.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -272,7 +286,7 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"object",
                         "description":"Enter the name of an object.",
                         "type":"STRING",
                         "required":true
@@ -311,9 +325,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"skill",
                         "description":"Enter the name of a skill.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -324,9 +339,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"skill",
                         "description":"Enter the name of a skill.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
@@ -350,9 +366,10 @@ module.exports = async(client) => {
                 "default_permission":true,
                 "options":[
                     {
-                        "name":"name",
+                        "name":"npc",
                         "description":"Enter the name of an item.",
                         "type":"STRING",
+                        autocomplete: true,
                         "required":true
                     }
                 ]
