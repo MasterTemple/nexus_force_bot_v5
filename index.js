@@ -280,7 +280,10 @@ client.on('interactionCreate', async (interaction) => {
         // const args = message.content.slice(config.prefix.length).trim().split(/ +/); //each space is a new argument
         // const command_name = args.shift().toLowerCase() //sets the command name equal to the first argument,(what is immediately after the prefix)
         const command_name = interaction.commandName
-        const args = interaction.options?.get('name')?.value?.toString()?.split(/ +/) || []
+        // const args = interaction.options?.get('name')?.value?.toString()?.split(/ +/) || []
+        const args = interaction.options._hoistedOptions[0].value?.toString()?.split(/ +/) || []
+
+
         command_types.forEach(async function(command_type) {
             if(command_type === 'buttons'){return}
             if(client[command_type].has(command_name) && (command_requirements[command_type].includes(interaction.user.id) || command_requirements[command_type].length === 0)){ //checks if the command name exists and if the user has the proper permissions or if it is a default command
@@ -361,7 +364,7 @@ client.on('interactionCreate', async (interaction) => {
         //         value: 'option1',
         //     }
         // ]
-        console.log(results);
+        // console.log(results);
         interaction.respond(results)
 
     }
