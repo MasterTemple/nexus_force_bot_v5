@@ -10,7 +10,7 @@ module.exports = {
         let data_file = require(`${config['output_path']}kitData/${id}.json`)
 
         embed.setTitle(data_file.name)
-        embed.setThumbnail(data_file['iconURL'])
+        embed.setThumbnail(data_file['iconURL'].replace("https://xiphoseer.github.io/lu-res/", config.image_link_domain))
         embed.setURL(`${config['explorer_link_domain']}objects/item-sets/${id}`)
 
         let fields_function = require('./../../functions/fields/kits')

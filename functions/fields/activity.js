@@ -1,6 +1,7 @@
 module.exports = function(embed, info_file, config, activity_name) {
 
     let activityFile = info_file['activities'][activity_name]
+    // console.log({activity_name});
 
     var description = ``
     let title

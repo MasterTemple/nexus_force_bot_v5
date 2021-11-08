@@ -17,7 +17,7 @@ module.exports = function(page, max_pages, data_file, embed_length){
     let results = data_file.buyAndDrop.Vendors
     results = results.filter(r => r.displayName !== null)
     results = results.slice(page * embed_length, (embed_length * page) + embed_length)
-
+    if(results.length === 0) return []
     let options = []
     results.forEach( (each_result, c) => {
         if(c < 25) {

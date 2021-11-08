@@ -281,7 +281,7 @@ client.on('interactionCreate', async (interaction) => {
         // const command_name = args.shift().toLowerCase() //sets the command name equal to the first argument,(what is immediately after the prefix)
         const command_name = interaction.commandName
         // const args = interaction.options?.get('name')?.value?.toString()?.split(/ +/) || []
-        const args = interaction.options._hoistedOptions[0].value?.toString()?.split(/ +/) || []
+        const args = interaction.options._hoistedOptions[0]?.value?.toString()?.split(/ +/) || []
 
 
         command_types.forEach(async function(command_type) {
@@ -294,11 +294,16 @@ client.on('interactionCreate', async (interaction) => {
                     // let [text, embed, components] = command.execute(message, search(command_name, return_one, args), 0, create_embed(), {})
                     let blank_embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
 
-                    let object_id = search(command?.search_type, true, args)
-                    if(object_id === undefined){
-                        await interaction.reply({content: "There was no object found for this search.", ephemeral: true})
-                        return
+                    // let object_id = search(command?.search_type, true, args)
+                    let object_id = interaction.options._hoistedOptions[0]?.value
+                    // console.log({object_id})
+                    if(!parseInt(object_id) && object_id){
+                        object_id = object_id.match(/(?<=\[?)\d+/g)[0]
                     }
+                    // if(object_id === undefined){
+                    //     await interaction.reply({content: "There was no object found for this search.", ephemeral: true})
+                    //     return
+                    // }
                     let [text, embed, components, returned_message_info] = await command.execute(interaction, args, config, object_id, 0, blank_embed, [], {})
                     // let components = components_from_2d_button_array(disbut.MessageActionRow, buttons)
                     // console.log('\n\n\n')
