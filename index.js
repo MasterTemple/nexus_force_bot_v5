@@ -293,11 +293,11 @@ client.on('interactionCreate', async (interaction) => {
                     //command.execute(message, command_type, command_name, args)
                     // let [text, embed, components] = command.execute(message, search(command_name, return_one, args), 0, create_embed(), {})
                     let blank_embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
-
+                    let objectlessCmds = ["help", "search"]
                     // let object_id = search(command?.search_type, true, args)
                     let object_id = interaction.options._hoistedOptions[0]?.value
                     // console.log({object_id})
-                    if(!parseInt(object_id) && object_id){
+                    if(!parseInt(object_id) && object_id && !objectlessCmds.includes(command_name)){
                         object_id = object_id.match(/(?<=\[?)\d+/g)[0]
                     }
                     // if(object_id === undefined){
@@ -345,12 +345,19 @@ client.on('interactionCreate', async (interaction) => {
     }
 
     if(interaction.type === "APPLICATION_COMMAND_AUTOCOMPLETE"){
+        console.log(interaction.options._hoistedOptions);
         // console.log(interaction.options._hoistedOptions);
-        let input = interaction.options._hoistedOptions[0].value
-        let name = interaction.options._hoistedOptions[0].name
+        let {name, value} = interaction.options._hoistedOptions.find(f => f.focused)
+        console.log({name, value});
+        // let name
+        // if(interaction.options._hoistedOptions.length === 0){
+        //     input = interaction.options._hoistedOptions[0].value
+        //     name = interaction.options._hoistedOptions[0].name
+        // }
+
         // console.log(input);
-        if(!input){ return}
-        let results = getAutoCompleteResults(name, input)
+        if(!value){ return}
+        let results = getAutoCompleteResults(name, value)
         // results = results.slice(0, 15)
         // let autocompleteOptions = []
         // results.forEach(({name, id}) => autocompleteOptions.push({name: name, value: id.toString()}))
