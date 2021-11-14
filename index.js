@@ -298,7 +298,7 @@ client.on('interactionCreate', async (interaction) => {
                     let object_id = interaction.options._hoistedOptions[0]?.value
                     // console.log({object_id})
                     if(!parseInt(object_id) && object_id && !objectlessCmds.includes(command_name)){
-                        object_id = object_id.match(/(?<=\[?)\d+/g)[0]
+                        object_id = object_id.match(/(?<=\[)\d+/g)[0] || object_id.match(/(?<=\[?)\d+/g)[0]
                     }
                     // if(object_id === undefined){
                     //     await interaction.reply({content: "There was no object found for this search.", ephemeral: true})
