@@ -331,6 +331,7 @@ client.on('interactionCreate', async (interaction) => {
                     //sends an embed with the object info (used for errors)
                     console.log(error)
                     let embed = create_embed(config, config.name, config.github_link, config.bot_icon_url)
+                    embed.setAuthor(interaction.user.username, interaction.user.avatarURL())
                     delete embed.thumbnail
                     embed.setDescription(`\`\`\`\n${error}\n\`\`\``)
                     embed.setColor("#ff0000")
