@@ -298,7 +298,13 @@ client.on('interactionCreate', async (interaction) => {
                     let object_id = interaction.options._hoistedOptions[0]?.value
                     // console.log({object_id})
                     if(!parseInt(object_id) && object_id && !objectlessCmds.includes(command_name)){
-                        object_id = object_id.match(/(?<=\[)\d+/g)[0] || object_id.match(/(?<=\[?)\d+/g)[0]
+                        object_id = search(command?.search_type, true, args)
+                        // console.log({object_id})
+                        if(!parseInt(object_id)){
+                            object_id = object_id.match(/(?<=\[)\d+/g)[0] || object_id.match(/(?<=\[?)\d+/g)[0]
+                            // console.log({object_id})
+                        }
+
                     }
                     // if(object_id === undefined){
                     //     await interaction.reply({content: "There was no object found for this search.", ephemeral: true})
@@ -346,10 +352,10 @@ client.on('interactionCreate', async (interaction) => {
     }
 
     if(interaction.type === "APPLICATION_COMMAND_AUTOCOMPLETE"){
-        console.log(interaction.options._hoistedOptions);
+        // console.log(interaction.options._hoistedOptions);
         // console.log(interaction.options._hoistedOptions);
         let {name, value} = interaction.options._hoistedOptions.find(f => f.focused)
-        console.log({name, value});
+        // console.log({name, value});
         // let name
         // if(interaction.options._hoistedOptions.length === 0){
         //     input = interaction.options._hoistedOptions[0].value
