@@ -298,7 +298,12 @@ client.on('interactionCreate', async (interaction) => {
                     let object_id = interaction.options._hoistedOptions[0]?.value
                     // console.log({object_id})
                     if(!parseInt(object_id) && object_id && !objectlessCmds.includes(command_name)){
-                        object_id = search(command?.search_type, true, args)
+                        let match1 = object_id.match(/(?<=\[)\d+/g)
+                            let match2 = object_id.match(/(?<=\[?)\d+/g)
+                            if (match1) object_id = match1[0]
+                            else if (match2) object_id = match2[0]
+                            else object_id = search(command?.search_type, true, args)
+                        // object_id = search(command?.search_type, true, args)
                         // console.log({object_id})
                         if(!parseInt(object_id)){
                             object_id = object_id.match(/(?<=\[)\d+/g)[0] || object_id.match(/(?<=\[?)\d+/g)[0]
