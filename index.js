@@ -146,6 +146,8 @@ client.on('interactionCreate', async (interaction) => {
 
                 // console.log(command_type,command_name)
                 let command = client[command_type].get(command_name) //this is the executable command
+                console.log(button.customId);
+                console.log({command_info, command_type, command_name, command});
                 // console.log(command)
                 if (message_info[interaction.id]?.required_users && !message_info[interaction.id]?.required_users?.includes(button.user.id)) {
                     // console.log(message_info[interaction.id])

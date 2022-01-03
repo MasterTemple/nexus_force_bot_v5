@@ -9,13 +9,13 @@ module.exports = function(message_data, config) {
                             "type": 2,
                             "label": "Accept",
                             "style": 3,
-                            "custom_id": `default.tic[{"s":"accept"}]`,
+                            "custom_id": `default.tictactoe[{"s":"accept"}]`,
                         },
                         {
                             "type": 2,
                             "label": "Reject",
                             "style": 4,
-                            "custom_id": `default.tic[{"s":"reject"}]`,
+                            "custom_id": `default.tictactoe[{"s":"reject"}]`,
                         },
                     ]
                 }
@@ -30,14 +30,14 @@ module.exports = function(message_data, config) {
                             "type": 2,
                             "label": "Accept",
                             "style": 3,
-                            "custom_id": `default.tic[{"s":"accept"}]`,
+                            "custom_id": `default.tictactoe[{"s":"accept"}]`,
                             "disabled": true
                         },
                         {
                             "type": 2,
                             "label": "Reject",
                             "style": 4,
-                            "custom_id": `default.tic[{"s":"reject"}]`,
+                            "custom_id": `default.tictactoe[{"s":"reject"}]`,
                             "disabled": true
                         },
                     ]
@@ -57,13 +57,13 @@ module.exports = function(message_data, config) {
                 // let button = new MessageButton()
                 //     .setStyle('blurple')
                 //     .setEmoji(each_faction[1])
-                //     .setID(`default.tic[{"s":"choose_faction","f":"${each_faction[0]}"}]`)
+                //     .setID(`default.tictactoe[{"s":"choose_faction","f":"${each_faction[0]}"}]`)
 
                 let button = {
                     "type": 2,
                     "emoji": each_faction[1],
                     "style": 1,
-                    "custom_id": `default.tic[{"s":"choose_faction","f":"${each_faction[0]}"}]`,
+                    "custom_id": `default.tictactoe[{"s":"choose_faction","f":"${each_faction[0]}"}]`,
                 }
                 components.push(button)
             })
@@ -86,7 +86,7 @@ module.exports = function(message_data, config) {
                 // let button = new MessageButton()
                 //     .setStyle('blurple')
                 //     .setEmoji(each_faction[1])
-                //     .setID(`default.tic[{"s":"choose_faction","f":"${each_faction[0]}"}]`)
+                //     .setID(`default.tictactoe[{"s":"choose_faction","f":"${each_faction[0]}"}]`)
                 let button_is_disabled = false
                 if (message_data['challenger']['faction'] === each_faction[0]) {
                     button_is_disabled = true
@@ -97,7 +97,7 @@ module.exports = function(message_data, config) {
                     "type": 2,
                     "emoji": each_faction[1],
                     "style": 1,
-                    "custom_id": `default.tic[{"s":"choose_faction","f":"${each_faction[0]}"}]`,
+                    "custom_id": `default.tictactoe[{"s":"choose_faction","f":"${each_faction[0]}"}]`,
                     "disabled": button_is_disabled
                 }
                 components.push(button)
@@ -134,7 +134,7 @@ module.exports = function(message_data, config) {
                     "type": 2,
                     "emoji": emoji,
                     "style": 1,
-                    "custom_id": `default.tic[{"s":"play","t":${tile}}]`,
+                    "custom_id": `default.tictactoe[{"s":"play","t":${tile}}]`,
                     "disabled": button_is_disabled
                 }
                 components[Math.floor((tile-1)/3)].push(button)
