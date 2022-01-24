@@ -10,19 +10,25 @@ module.exports = {
         // let id = returned_id[1]
 
         let data_file = require(`${config['output_path']}activities/${id}.json`)
-        let activity_name
-        if(args !== undefined) {
-            let search_for = []
-            args.forEach((each_arg) => {
-                search_for.push(each_arg.toLowerCase())
-            })
-            search_for.sort()
-            activity_name = Object.keys(data_file.activities).find(e => search_for.every(function (el) {
-                return e?.toLowerCase().includes(el)
-            }))
-        }else{
-            activity_name = embed.title.match(/[^\[]+(?= )/g)[0]
-        }
+        // console.log({data_file});
+        // console.log(message.options._hoistedOptions);
+        let activity_name = message.options._hoistedOptions[0].value.match(/[^\[]+(?= )/)[0]
+        // if(args !== undefined) {
+        //     let search_for = []
+        //     args.forEach((each_arg) => {
+        //         search_for.push(each_arg.toLowerCase())
+        //     })
+        //     search_for.sort()
+        //     activity_name = Object.keys(data_file.activities).find(e => search_for.every(function (el) {
+        //         return e?.toLowerCase().includes(el)
+        //     }))
+        // }else{
+        //     activity_name = embed.title.match(/[^\[]+(?= )/g)[0]
+        // }
+        // let fs = require('fs')
+        // fs.writeFileSync("C:\\Users\\dgmastertemple\\Downloads\\message.json", JSON.stringify(message, null, 2))
+        // console.log(message.options._hoistedOptions.first());
+        // console.log({activity_name, args});
 
         embed.setTitle(`${activity_name} [${id}] (${page+1})`)
         embed.setThumbnail(config['image_link_domain']+data_file['iconURL'])
