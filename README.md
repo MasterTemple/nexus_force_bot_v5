@@ -1,3 +1,6 @@
+# DEPRECATED 
+## Please visit [LEGO Universe Discord Bot](https://github.com/MasterTemple/LEGO-Universe-Discord-Bot) For An Updated and Supported Version
+
 # Nexus Force Bot v5
 
 # Use
